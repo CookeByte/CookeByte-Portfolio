@@ -128,3 +128,10 @@
 - [x] Add a subtle bounce to the Monocraft “SCROLL TO COOK” label.
 - [x] Preserve an animation-free reduced-motion fallback.
 - [x] Validate the motion cue on desktop and mobile before delivery.
+
+## GitHub Source Export
+
+- [x] Confirm the attached CookeByte repository target and its branch state: CookeByte/CookeByte-Portfolio is an empty public repository.
+- [ ] Prepare the complete current CookeByte source for export.
+- [ ] Commit and push the source to the selected repository.
+- [ ] Verify the pushed repository contents and latest commit.
