@@ -177,5 +177,5 @@
 
 - [x] Replace “Photoshop Designer” with “Graphic Designer” in Abisheik’s skills.
 - [x] Validate the revised team-card label.
-- [ ] Push the skill-label update to CookeByte/CookeByte-Portfolio.
+- [x] Push the skill-label update to CookeByte/CookeByte-Portfolio.
 - [x] Push the verified repair to CookeByte/CookeByte-Portfolio.
