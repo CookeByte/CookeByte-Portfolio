@@ -122,3 +122,9 @@
 - [x] Replace the large entrance headline with the Monocraft label “SCROLL TO COOK”.
 - [x] Hide the route-menu trigger on desktop while retaining it for mobile navigation.
 - [x] Validate desktop and mobile navigation plus entrance-label readability before delivery.
+
+## Entrance Scroll Cue Motion
+
+- [x] Add a subtle bounce to the Monocraft “SCROLL TO COOK” label.
+- [x] Preserve an animation-free reduced-motion fallback.
+- [x] Validate the motion cue on desktop and mobile before delivery.
