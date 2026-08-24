@@ -12,6 +12,7 @@ type InteractiveSkillCardProps = {
   handle: string;
   status: string;
   skills: string[];
+  links?: Array<{ label: string; href: string }>;
   imageUrl: string;
   imageAlt: string;
   accent: string;
@@ -25,6 +26,7 @@ export default function InteractiveSkillCard({
   handle,
   status,
   skills,
+  links,
   imageUrl,
   imageAlt,
   accent,
@@ -68,6 +70,15 @@ export default function InteractiveSkillCard({
           <div className="skill-profile__skills" aria-label={`${name} skills`}>
             {skills.map((skill) => <span key={skill}>{skill}</span>)}
           </div>
+          {links && links.length > 0 && (
+            <div className="skill-profile__links" aria-label={`${name} personal links`}>
+              {links.map((link) => (
+                <a key={link.label} href={link.href} target={link.href.startsWith("http") ? "_blank" : undefined} rel={link.href.startsWith("http") ? "noreferrer" : undefined}>
+                  {link.label} <ArrowUpRight size={12} aria-hidden="true" />
+                </a>
+              ))}
+            </div>
+          )}
         </div>
         <div className="skill-profile__edge" aria-hidden="true" />
       </div>

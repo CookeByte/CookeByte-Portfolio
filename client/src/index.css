@@ -309,6 +309,9 @@ h1 em, h2 em { color: var(--orange); font-family: "Space Grotesk", sans-serif; f
 .skill-profile__dot { width: 8px; height: 8px; background: var(--profile-accent); border-radius: 50%; box-shadow: 0 0 0 3px color-mix(in srgb, var(--profile-accent) 25%, transparent); }
 .skill-profile__skills { display: flex; flex-wrap: wrap; gap: 7px; margin-top: 19px; }
 .skill-profile__skills span { padding: 6px 8px; border: 1px solid currentColor; font-family: "Monocraft", monospace; font-size: 9px; letter-spacing: .04em; text-transform: uppercase; transform: translateZ(34px); }
+.skill-profile__links { display: flex; flex-wrap: wrap; gap: 7px; margin-top: 10px; transform: translateZ(34px); }
+.skill-profile__links a { display: inline-flex; align-items: center; gap: 3px; padding: 5px 7px; color: inherit; border-bottom: 1px solid currentColor; font-family: "Monocraft", monospace; font-size: 8px; letter-spacing: .06em; text-decoration: none; transition: color 160ms var(--ease-out), background-color 160ms var(--ease-out); }
+.skill-profile__links a:hover, .skill-profile__links a:focus-visible { color: var(--ink); background: var(--profile-accent); outline: none; }
 .skill-profile__edge { position: absolute; z-index: 5; top: 9px; right: -9px; bottom: -9px; width: 9px; background: var(--profile-accent); transform: skewY(40deg); transform-origin: top; opacity: .7; }
 
 @media (max-width: 850px) {

@@ -385,6 +385,11 @@ export default function Home() {
               handle="abisheik.edits"
               status="Cutting fresh"
               skills={["Video Editor", "Web Designer", "Graphic Designer"]}
+              links={[
+                { label: "MAIL", href: "mailto:aacreations007@gmail.com" },
+                { label: "GITHUB", href: "https://github.com/abisheik-cmd" },
+                { label: "INSTAGRAM", href: "https://www.instagram.com/abizk.ae/" },
+              ]}
               imageUrl="/media/shopfront-campaign_ec6714db.jpg"
               imageAlt="Temporary retail campaign image for Abisheik"
               accent="#ff5a36"
