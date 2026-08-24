@@ -57,3 +57,10 @@
 - [x] Remove the light Work introduction and its campaign image while retaining the black feature section.
 - [x] Add a restrained Monocraft typing/glitch response to button hover states.
 - [x] Respect reduced-motion settings and validate the streamlined layout on desktop and mobile.
+
+## Interactive Team Skills Showcase
+
+- [x] Adapt the provided profile-card reference into a Shopfront retail-signal team-card system with pointer tilt, cursor-following glare, tactile edge depth, compact status information, and visible skill chips.
+- [x] Prepare temporary profile imagery that can be swapped for uploaded portraits later.
+- [x] Replace the existing team cards with interactive skill-profile cards for Benitto Joshua and Abisheik.
+- [x] Validate tilt, glow, skill presentation, and mobile fallback behavior before delivery.

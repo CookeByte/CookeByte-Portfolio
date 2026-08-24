@@ -13,6 +13,7 @@ import {
   Sparkles,
   X,
 } from "lucide-react";
+import InteractiveSkillCard from "@/components/InteractiveSkillCard";
 
 const services = [
   {
@@ -356,26 +357,36 @@ export default function Home() {
           </div>
           <div className="team-heading">
             <div className="intro-label">/ 03 — THE TEAM</div>
-            <h2 id="team-title">Two people.<br />One <em>retail</em><br />signal.</h2>
-            <p>Benitto makes the digital experience move. Abisheik makes the visual story land. Together, they turn shop-floor thinking into a connected local-commerce system.</p>
+            <h2 id="team-title">Two people.<br />Two <em>skill sets.</em><br />One signal.</h2>
+            <p>Two sides of the same shopfront: Benitto builds what customers use; Abisheik shapes what customers notice and remember.</p>
           </div>
-          <div className="team-roles">
-            <article className="team-card build-card">
-              <div className="team-card-top"><span>01 / THE BUILDER</span><span className="role-glyph">01</span></div>
-              <div className="role-index"><small>DEVELOPMENT LEAD</small>BENITTO<br />JOSHUA</div>
-              <h3>Build the<br />digital shelf.</h3>
-              <p>Benitto turns the studio’s ideas into interactive experiences: from launch-ready websites to playable worlds and AI-powered tools.</p>
-              <div className="role-tags skill-tags"><span>Game Dev</span><span>Web Dev</span><span>AI LLMs</span></div>
-            </article>
-            <article className="team-card visual-card">
-              <div className="team-card-top"><span>02 / THE VISUAL LEAD</span><span className="role-glyph">02</span></div>
-              <div className="role-index"><small>VISUAL LEAD</small>ABISHEIK</div>
-              <h3>Make the<br />offer move.</h3>
-              <p>Abisheik gives campaigns their pace, polish, and stopping power across motion edits, web design, and on-brand visual details.</p>
-              <div className="role-tags skill-tags"><span>Video Editor</span><span>Web Designer</span><span>Photoshop Designer</span></div>
-            </article>
+          <div className="skills-profiles">
+            <InteractiveSkillCard
+              number="01"
+              name="Benitto Joshua"
+              role="Development lead"
+              handle="benitto.builds"
+              status="Building live"
+              skills={["Game Dev", "Web Dev", "AI LLMs"]}
+              imageUrl="/manus-storage/shopfront-work_afd5a85a.jpg"
+              imageAlt="Temporary retail storefront image for Benitto Joshua"
+              accent="#d5e668"
+              theme="ink"
+            />
+            <InteractiveSkillCard
+              number="02"
+              name="Abisheik"
+              role="Visual lead"
+              handle="abisheik.edits"
+              status="Cutting fresh"
+              skills={["Video Editor", "Web Designer", "Photoshop Designer"]}
+              imageUrl="/manus-storage/shopfront-campaign_ec6714db.jpg"
+              imageAlt="Temporary retail campaign image for Abisheik"
+              accent="#ff5a36"
+              theme="cream"
+            />
           </div>
-          <p className="team-connector"><span>Scroll to see code and craft become one signal.</span><ArrowRight size={18} /></p>
+          <p className="team-connector"><span>Move across each card to read the skill signal.</span><ArrowRight size={18} /></p>
         </section>
 
         <section className="work-with-us-section" id="work-with-us" aria-labelledby="work-with-us-title">
