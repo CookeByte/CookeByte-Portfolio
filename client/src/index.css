@@ -381,6 +381,36 @@ h1 em, h2 em { color: var(--orange); font-family: "Space Grotesk", sans-serif; f
 .corner-bl { transform: translate(-150%, 50%); border-right: none; border-top: none; }
 @keyframes target-cursor-click { 0% { opacity: .9; transform: translate(-50%, -50%) scale(.25); } 100% { opacity: 0; transform: translate(-50%, -50%) scale(3.4); } }
 
+/* CookeByte route sidebar: the provided OptionWheel selection ritual and specular entry action. */
+.sidebar-trigger { display: inline-grid; place-items: center; margin-left: 10px; color: var(--ink); background: transparent; border: 1px solid var(--ink); }
+.route-sidebar-overlay { position: fixed; z-index: 180; inset: 0; display: flex; justify-content: flex-end; }
+.route-sidebar-backdrop { position: absolute; inset: 0; border: 0; background: rgba(11,12,11,.56); backdrop-filter: blur(4px); }
+.route-sidebar { position: relative; width: min(530px, 100%); min-height: 100%; display: grid; grid-template-rows: auto auto 1fr auto auto; color: var(--cream); background: #151615; border-left: 1px solid rgba(244,240,232,.22); box-shadow: -24px 0 60px rgba(0,0,0,.38); animation: route-sidebar-in 420ms var(--ease-out) both; }
+@keyframes route-sidebar-in { from { opacity: 0; transform: translateX(100%); } to { opacity: 1; transform: translateX(0); } }
+.route-sidebar__top { display: flex; justify-content: space-between; align-items: center; margin: 18px 18px 0; padding: 15px; color: var(--ink); background: var(--cream); border-top: 7px solid var(--orange); }
+.route-sidebar__brand { display: flex; align-items: center; gap: 10px; }
+.route-sidebar__close { display: grid; place-items: center; width: 49px; height: 49px; color: var(--ink); background: transparent; border: 2px solid #261070; font-family: "Monocraft", monospace; }
+.route-sidebar__instruction { margin: 22px 32px 0; color: var(--lime); font-family: "Monocraft", monospace; font-size: 9px; letter-spacing: .09em; }
+.route-sidebar__wheel { min-height: 390px; margin: 5px 0; }
+.option-wheel { --ow-text: #636363; --ow-active: #f4f0e8; --ow-size: 2rem; --ow-inset: 32px; position: relative; width: 100%; height: 100%; min-height: 390px; overflow: hidden; user-select: none; touch-action: none; outline: none; }
+.option-wheel::before { content: ""; position: absolute; left: 0; right: 0; top: 50%; height: 1px; background: rgba(213,230,104,.6); box-shadow: 0 -51px 0 rgba(244,240,232,.12), 0 51px 0 rgba(244,240,232,.12); pointer-events: none; }
+.option-wheel__item { position: absolute; top: 50%; left: var(--ow-inset); display: flex; align-items: center; justify-content: space-between; width: calc(100% - var(--ow-inset) - 30px); padding: 0; color: color-mix(in srgb, var(--ow-active) 58%, var(--ow-text)); background: transparent; border: 0; font-family: "Archivo Black", sans-serif; font-size: var(--ow-size); font-weight: 400; letter-spacing: -.065em; line-height: 1; text-align: left; transform-origin: left center; will-change: transform, opacity, filter; }
+.option-wheel__item span { color: var(--lime); font-family: "Monocraft", monospace; font-size: .8em; opacity: 0; transform: translateX(-8px); transition: opacity 180ms var(--ease-out), transform 180ms var(--ease-out); }
+.option-wheel__item--selected { color: var(--ow-active); }
+.option-wheel__item--selected span { opacity: 1; transform: none; }
+.route-sidebar__selected { display: grid; gap: 4px; margin: 0 32px 18px; padding-top: 14px; border-top: 1px solid rgba(244,240,232,.24); font-family: "Monocraft", monospace; }
+.route-sidebar__selected span { color: var(--lime); font-size: 8px; letter-spacing: .11em; }
+.route-sidebar__selected strong { font-size: 12px; font-weight: 400; letter-spacing: .03em; }
+.specular-button { --sb-tint: #ff5a36; --sb-text: #f4f0e8; --sb-line: #d5e668; --sb-base: #f4f0e8; --sb-radius: 5px; --sb-shine: 50% 50%; position: relative; display: inline-flex; align-items: center; justify-content: center; gap: 10px; overflow: hidden; color: var(--sb-text); background: var(--sb-tint); border: 1px solid var(--sb-base); border-radius: var(--sb-radius); font-family: "Monocraft", monospace; letter-spacing: .08em; line-height: 1; transition: transform 150ms var(--ease-out), box-shadow 150ms var(--ease-out); }
+.specular-button::before { content: ""; position: absolute; inset: -70%; background: radial-gradient(circle at var(--sb-shine), color-mix(in srgb, var(--sb-line) 86%, transparent) 0%, color-mix(in srgb, var(--sb-line) 24%, transparent) 10%, transparent 27%); opacity: .82; mix-blend-mode: screen; pointer-events: none; }
+.specular-button__fx { position: absolute; inset: 2px; border: 1px solid color-mix(in srgb, var(--sb-base) 65%, transparent); pointer-events: none; }
+.specular-button__label { position: relative; z-index: 1; display: inline-flex; align-items: center; gap: 10px; }
+.specular-button:hover { transform: translateY(-3px) scale(1.01); box-shadow: 6px 8px 0 var(--sb-line); }
+.specular-button:active { transform: scale(.97); }
+.route-sidebar__enter { width: calc(100% - 64px); min-height: 58px; margin: 0 32px 30px; }
+
+@media (min-width: 851px) { .sidebar-trigger { display: inline-grid; } }
+
 @media (max-width: 500px) {
   .launch-loader__topline, .launch-loader__footer { padding: 14px 20px; font-size: 8px; }
   .launch-loader__footer > span:last-child { display: none; }
@@ -390,6 +420,14 @@ h1 em, h2 em { color: var(--orange); font-family: "Space Grotesk", sans-serif; f
   .launch-loader__center::after { width: 130px; transform: translate(67%, -82%); }
   .launch-loader__progress { margin: 0 20px; }
   .header-sound-toggle { display: none; }
+  .route-sidebar { width: 100%; }
+  .route-sidebar__top { margin: 12px 12px 0; }
+  .route-sidebar__instruction { margin-left: 22px; }
+  .route-sidebar__wheel, .option-wheel { min-height: 350px; }
+  .option-wheel { --ow-size: 1.7rem; --ow-inset: 22px; }
+  .option-wheel__item { width: calc(100% - var(--ow-inset) - 20px); }
+  .route-sidebar__selected { margin: 0 22px 16px; }
+  .route-sidebar__enter { width: calc(100% - 44px); margin: 0 22px 22px; }
 }
 
 @media (prefers-reduced-motion: reduce) {

@@ -17,6 +17,7 @@ import {
 } from "lucide-react";
 import InteractiveSkillCard from "@/components/InteractiveSkillCard";
 import LaunchLoader from "@/components/LaunchLoader";
+import RouteSidebar from "@/components/RouteSidebar";
 import { useSiteSound } from "@/contexts/SiteSoundContext";
 
 const services = [
@@ -243,7 +244,7 @@ export default function Home() {
         </button>
 
         <button
-          className="menu-button"
+          className="menu-button sidebar-trigger"
           type="button"
           aria-label={menuOpen ? "Close navigation menu" : "Open navigation menu"}
           aria-expanded={menuOpen}
@@ -252,16 +253,7 @@ export default function Home() {
           {menuOpen ? <X size={22} /> : <Menu size={22} />}
         </button>
 
-        {menuOpen && (
-          <nav className="mobile-nav" aria-label="Mobile navigation">
-            <a href="#work" onClick={closeMenu}>Selected work <ArrowRight size={18} /></a>
-            <a href="#scope" onClick={closeMenu}>What we do <ArrowRight size={18} /></a>
-            <a href="#team" onClick={closeMenu}>The team <ArrowRight size={18} /></a>
-            <a href="#work-with-us" onClick={closeMenu}>Work with us <ArrowRight size={18} /></a>
-            <a href="#method" onClick={closeMenu}>Our method <ArrowRight size={18} /></a>
-            <a href="#contact" onClick={closeMenu}>Let&apos;s talk <ArrowRight size={18} /></a>
-          </nav>
-        )}
+        <RouteSidebar open={menuOpen} onClose={closeMenu} />
       </header>
 
       <main id="top">

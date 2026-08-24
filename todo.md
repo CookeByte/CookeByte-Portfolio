@@ -96,3 +96,10 @@
 - [x] Define continuous CookeByte playback behavior that does not restart on hover: the CookeByte soundscape loops from one shared audio source, respects the saved sound preference, and hover audio is removed so pointer movement cannot interrupt playback.
 - [x] Extend the target cursor across all interactive controls with a subtle click response.
 - [x] Validate continuous audio, target responsiveness, click feedback, and mobile fallback before delivery.
+
+## Scroll-to-Select Sidebar Navigation
+
+- [x] Define route options and the centered-selection-to-Enter navigation behavior: visitors scroll, drag, or use arrow keys to center a route title; the bottom Enter control then closes the sidebar and smoothly scrolls to that selected destination.
+- [x] Add the OptionWheel and SpecularButton dependencies and components from the supplied references.
+- [x] Build the CookeByte sidebar overlay with scroll, drag, keyboard, and Enter navigation.
+- [x] Validate sidebar selection, target scrolling, and responsive fallback before delivery.
