@@ -191,5 +191,5 @@
 - [x] Add Benitto’s email address to his team profile.
 - [x] Add his GitHub and personal portfolio links.
 - [x] Validate the personal profile links and card presentation.
-- [ ] Push the Benitto profile update to CookeByte/CookeByte-Portfolio.
+- [x] Push the Benitto profile update to CookeByte/CookeByte-Portfolio.
 - [x] Push the verified repair to CookeByte/CookeByte-Portfolio.
