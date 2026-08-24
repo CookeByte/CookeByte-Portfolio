@@ -156,5 +156,5 @@
 - [x] Replace existing contact email references with cookebyte@gmail.com.
 - [x] Add the CookeByte GitHub profile link where it is useful to visitors.
 - [x] Validate mail and GitHub links across desktop and mobile.
-- [ ] Push the shared contact update to CookeByte/CookeByte-Portfolio.
+- [x] Push the shared contact update to CookeByte/CookeByte-Portfolio.
 - [x] Push the verified repair to CookeByte/CookeByte-Portfolio.
