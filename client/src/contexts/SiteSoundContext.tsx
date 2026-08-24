@@ -1,8 +1,9 @@
-/** CookeByte sound system: persists preference and gives interactive controls a restrained digital hover cue. */
+/** CookeByte sound system: persists one continuous soundscape without hover restarts. */
 import { createContext, useCallback, useContext, useEffect, useRef, useState, type ReactNode } from "react";
 
 type SiteSoundContextValue = {
   soundEnabled: boolean;
+  audioBlocked: boolean;
   setSoundEnabled: (enabled: boolean) => void;
   toggleSound: () => void;
 };
@@ -12,42 +13,38 @@ const preferenceKey = "cookebyte-sound-enabled";
 
 export function SiteSoundProvider({ children }: { children: ReactNode }) {
   const [soundEnabled, setSoundEnabledState] = useState(() => window.localStorage.getItem(preferenceKey) !== "false");
-  const hoverSoundRef = useRef<HTMLAudioElement | null>(null);
-  const lastHoverRef = useRef(0);
+  const [audioBlocked, setAudioBlocked] = useState(false);
+  const soundscapeRef = useRef<HTMLAudioElement | null>(null);
 
   const setSoundEnabled = useCallback((enabled: boolean) => {
     setSoundEnabledState(enabled);
     window.localStorage.setItem(preferenceKey, String(enabled));
+    if (!enabled) soundscapeRef.current?.pause();
   }, []);
 
   const toggleSound = useCallback(() => setSoundEnabled(!soundEnabled), [setSoundEnabled, soundEnabled]);
 
   useEffect(() => {
-    const sound = new Audio("/manus-storage/cookebyte-hover_901dca33.mp3");
-    sound.volume = 0.12;
-    sound.preload = "auto";
-    hoverSoundRef.current = sound;
+    const soundscape = new Audio("/manus-storage/cookebyte-launch_173034d5.mp3");
+    soundscape.loop = true;
+    soundscape.volume = 0.11;
+    soundscape.preload = "auto";
+    soundscapeRef.current = soundscape;
 
-    const onPointerOver = (event: PointerEvent) => {
-      if (!soundEnabled || !(event.target instanceof Element)) return;
-      const target = event.target.closest("a, button, [role='button']");
-      if (!target || target.closest(".launch-loader")) return;
-      const now = performance.now();
-      if (now - lastHoverRef.current < 120) return;
-      lastHoverRef.current = now;
-      sound.currentTime = 0;
-      void sound.play().catch(() => undefined);
+    const startSoundscape = () => {
+      if (!soundEnabled) return;
+      void soundscape.play().then(() => setAudioBlocked(false)).catch(() => setAudioBlocked(true));
     };
-
-    document.addEventListener("pointerover", onPointerOver, { passive: true });
+    startSoundscape();
+    window.addEventListener("pointerdown", startSoundscape, { passive: true, once: true });
     return () => {
-      document.removeEventListener("pointerover", onPointerOver);
-      sound.pause();
-      hoverSoundRef.current = null;
+      window.removeEventListener("pointerdown", startSoundscape);
+      soundscape.pause();
+      soundscapeRef.current = null;
     };
   }, [soundEnabled]);
 
-  return <SiteSoundContext.Provider value={{ soundEnabled, setSoundEnabled, toggleSound }}>{children}</SiteSoundContext.Provider>;
+  return <SiteSoundContext.Provider value={{ soundEnabled, audioBlocked, setSoundEnabled, toggleSound }}>{children}</SiteSoundContext.Provider>;
 }
 
 export function useSiteSound() {

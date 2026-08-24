@@ -19,37 +19,11 @@ export default function LaunchLoader({ onComplete }: LaunchLoaderProps) {
   const [displayText, setDisplayText] = useState(() => target.split("").map((character) => (character === " " ? " " : randomCharacter())).join(""));
   const [progress, setProgress] = useState(0);
   const [leaving, setLeaving] = useState(false);
-  const [audioBlocked, setAudioBlocked] = useState(false);
-  const audioRef = useRef<HTMLAudioElement>(null);
   const completed = useRef(false);
-  const { soundEnabled, setSoundEnabled } = useSiteSound();
-
-  const playLaunchSound = async () => {
-    const audio = audioRef.current;
-    if (!audio || !soundEnabled) return;
-    try {
-      audio.currentTime = 0;
-      await audio.play();
-      setAudioBlocked(false);
-    } catch {
-      setAudioBlocked(true);
-    }
-  };
+  const { soundEnabled, audioBlocked, toggleSound } = useSiteSound();
 
   const handleAudioToggle = () => {
-    const audio = audioRef.current;
-    if (!audio) return;
-    if (!soundEnabled) {
-      setSoundEnabled(true);
-      void playLaunchSound();
-      return;
-    }
-    if (audioBlocked) {
-      void playLaunchSound();
-      return;
-    }
-    audio.pause();
-    setSoundEnabled(false);
+    toggleSound();
   };
 
   useEffect(() => {
@@ -59,8 +33,6 @@ export default function LaunchLoader({ onComplete }: LaunchLoaderProps) {
     const start = performance.now();
     let frame = 0;
     let exitTimer = 0;
-
-    void playLaunchSound();
 
     const animate = (time: number) => {
       const ratio = Math.min((time - start) / duration, 1);
@@ -99,7 +71,6 @@ export default function LaunchLoader({ onComplete }: LaunchLoaderProps) {
 
   return (
     <div className={`launch-loader${leaving ? " launch-loader--leaving" : ""}`} role="status" aria-live="polite" aria-label="Launching CookeByte">
-      <audio ref={audioRef} src="/manus-storage/cookebyte-launch_173034d5.mp3" preload="auto" />
       <div className="launch-loader__rule" />
       <div className="launch-loader__topline"><span>COOKEBYTE / SIGNAL BOOT</span><span>{String(Math.round(progress * 100)).padStart(3, "0")}%</span></div>
       <div className="launch-loader__center">

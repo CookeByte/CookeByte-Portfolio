@@ -31,7 +31,7 @@ function App() {
           // switchable
         >
           <TooltipProvider>
-            <TargetCursor spinDuration={2} hideDefaultCursor parallaxOn cursorColor="#f4f0e8" cursorColorOnTarget="#d5e668" />
+            <TargetCursor targetSelector="a, button, input, select, textarea, label, [role='button'], [tabindex]:not([tabindex='-1'])" spinDuration={2} hideDefaultCursor parallaxOn cursorColor="#f4f0e8" cursorColorOnTarget="#d5e668" />
             <Toaster />
             <Router />
           </TooltipProvider>

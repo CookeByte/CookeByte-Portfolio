@@ -23,7 +23,7 @@ const getContainingBlock = (element: HTMLElement | null) => {
 };
 
 export default function TargetCursor({
-  targetSelector = "a, button, [role='button']",
+  targetSelector = "a, button, input, select, textarea, label, [role='button'], [tabindex]:not([tabindex='-1'])",
   spinDuration = 2,
   hideDefaultCursor = true,
   hoverDuration = 0.2,
@@ -113,8 +113,8 @@ export default function TargetCursor({
       target.addEventListener("mouseleave", leaveTarget, { once: true });
     };
 
-    const downHandler = () => { if (dotRef.current) gsap.to(dotRef.current, { scale: 0.7, duration: 0.2 }); gsap.to(cursor, { scale: 0.9, duration: 0.2 }); };
-    const upHandler = () => { if (dotRef.current) gsap.to(dotRef.current, { scale: 1, duration: 0.2 }); gsap.to(cursor, { scale: 1, duration: 0.2 }); };
+    const downHandler = () => { if (dotRef.current) gsap.to(dotRef.current, { scale: 0.7, duration: 0.2 }); gsap.to(cursor, { scale: 0.9, duration: 0.2 }); cursor.classList.add("target-cursor--pressed"); };
+    const upHandler = () => { if (dotRef.current) gsap.to(dotRef.current, { scale: 1, duration: 0.2 }); gsap.to(cursor, { scale: 1, duration: 0.2 }); cursor.classList.remove("target-cursor--pressed"); };
     window.addEventListener("mousemove", moveHandler);
     window.addEventListener("mouseover", enterHandler, { passive: true });
     window.addEventListener("mousedown", downHandler);

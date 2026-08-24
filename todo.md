@@ -90,3 +90,9 @@
 - [x] Persist the sound preference and add a subtle hover sound to Monocraft action controls.
 - [x] Integrate the provided target cursor behavior for desktop interactive elements.
 - [x] Validate brand consistency, audio controls, cursor behavior, and responsive fallback before delivery.
+
+## Continuous Sound and Universal Cursor Feedback
+
+- [x] Define continuous CookeByte playback behavior that does not restart on hover: the CookeByte soundscape loops from one shared audio source, respects the saved sound preference, and hover audio is removed so pointer movement cannot interrupt playback.
+- [x] Extend the target cursor across all interactive controls with a subtle click response.
+- [x] Validate continuous audio, target responsiveness, click feedback, and mobile fallback before delivery.
