@@ -24,11 +24,14 @@ export default function ScrollExpand({ src, alt, title, children }: ScrollExpand
     const media = mediaRef.current;
     if (!frame || !media) return;
     const eased = smoothstep(0, 1, progress);
-    const width = 46 + 54 * eased;
-    const height = 54 + 46 * eased;
+    const compact = window.innerWidth <= 500;
+    const startWidth = compact ? 78 : 46;
+    const startHeight = compact ? 68 : 54;
+    const width = startWidth + (100 - startWidth) * eased;
+    const height = startHeight + (100 - startHeight) * eased;
     const x = (100 - width) / 2;
     const y = (100 - height) / 2;
-    frame.style.clipPath = `inset(${y}% ${x}% ${y}% ${x}% round ${28 * (1 - eased)}px)`;
+    frame.style.clipPath = `inset(${y}% ${x}% ${y}% ${x}% round ${(compact ? 18 : 28) * (1 - eased)}px)`;
     media.style.transform = `scale(${1.28 - .28 * eased})`;
     if (titleRef.current) {
       const out = smoothstep(.34, .82, progress);

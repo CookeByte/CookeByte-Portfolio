@@ -157,4 +157,12 @@
 - [x] Add the CookeByte GitHub profile link where it is useful to visitors.
 - [x] Validate mail and GitHub links across desktop and mobile.
 - [x] Push the shared contact update to CookeByte/CookeByte-Portfolio.
+
+## CookeByte Post-Entrance and Mobile Refinement
+
+- [x] Change the first post-entrance headline to “What are we Gonna Cook?”.
+- [x] Refine the mobile entrance frame so the initial media is substantially wider and taller on compact screens.
+- [x] Test the mobile route-menu opening, keyboard route selection, close behavior, and smooth handoff to the selected section.
+- [ ] Verify live Vercel images and shared contact details after deployment.
+- [ ] Push the verified headline and mobile update to CookeByte/CookeByte-Portfolio.
 - [x] Push the verified repair to CookeByte/CookeByte-Portfolio.

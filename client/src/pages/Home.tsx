@@ -281,9 +281,8 @@ export default function Home() {
           <div className="scroll-hero-copy">
             <div className="eyebrow eyebrow-light"><span className="eyebrow-dot" /> Digital creative for local retail</div>
             <h1 id="hero-title">
-              Your best<br />
-              <em>window display</em><br />
-              belongs online.
+              What are we<br />
+              <em>Gonna Cook?</em>
             </h1>
             <div className="hero-bottom-row">
               <p>A two-person studio pairing precise development with design and video edits that stop the scroll.</p>
