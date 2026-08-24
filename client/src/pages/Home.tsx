@@ -18,6 +18,7 @@ import {
 import InteractiveSkillCard from "@/components/InteractiveSkillCard";
 import LaunchLoader from "@/components/LaunchLoader";
 import RouteSidebar from "@/components/RouteSidebar";
+import ScrollExpand from "@/components/ScrollExpand";
 import { useSiteSound } from "@/contexts/SiteSoundContext";
 
 const services = [
@@ -256,7 +257,8 @@ export default function Home() {
         <RouteSidebar open={menuOpen} onClose={closeMenu} />
       </header>
 
-      <main id="top">
+      <main>
+        {siteReady && <ScrollExpand src="/manus-storage/shopfront-3d-window-keyframe_a6906135.jpg" alt="CookeByte retail display entrance" title="OPEN THE WINDOW"><p>COOKEBYTE / RETAIL CREATIVE</p><strong>SCROLL TO ENTER</strong></ScrollExpand>}
         <section ref={heroSceneRef} className="scroll-hero-section" aria-labelledby="hero-title">
           <div className="scroll-hero-stage">
           <div className="hero-rail" aria-hidden="true">

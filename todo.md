@@ -103,3 +103,10 @@
 - [x] Add the OptionWheel and SpecularButton dependencies and components from the supplied references.
 - [x] Build the CookeByte sidebar overlay with scroll, drag, keyboard, and Enter navigation.
 - [x] Validate sidebar selection, target scrolling, and responsive fallback before delivery.
+
+## Route Position and Scroll Entrance
+
+- [x] Add a visible route position indicator such as “2 of 6” beside the destination wheel.
+- [x] Adapt the supplied ScrollExpand interaction as the post-loader CookeByte entrance: once the loader exits, a pinned framed CookeByte window expands under normal page scroll before handing visitors into the existing hero.
+- [x] Ensure the entrance resolves into the existing hero without losing navigation or accessibility.
+- [x] Validate the route indicator and scroll-driven entrance on desktop and mobile before delivery.
