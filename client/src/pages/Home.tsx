@@ -124,6 +124,10 @@ export default function Home() {
               <span>OPEN<br />FOR BUSINESS</span>
               <div className="ticket-mark">✳</div>
             </div>
+            <div className="hero-3d-stage" aria-hidden="true">
+              <span>3D<br />SIGNAL</span>
+              <img src="/manus-storage/shopfront-3d-hero_e50aacac.png" alt="" />
+            </div>
           </div>
         </section>
 
@@ -206,6 +210,10 @@ export default function Home() {
               <h3>Design &<br />video editing.</h3>
               <p>This is the role that finds the campaign look, directs the visual rhythm, and cuts the moving pieces that make people pause and notice.</p>
               <div className="role-tags"><span>Art direction</span><span>Campaign design</span><span>Video edits</span></div>
+              <div className="team-3d-stage" aria-hidden="true">
+                <span>MAKE<br />IT MOVE</span>
+                <img src="/manus-storage/shopfront-3d-team_d8c4789b.png" alt="" />
+              </div>
             </article>
           </div>
           <p className="team-connector"><span>Two disciplines, one clear point of contact.</span><ArrowRight size={18} /></p>
@@ -217,7 +225,7 @@ export default function Home() {
               <img src="/manus-storage/shopfront-work_afd5a85a.jpg" alt="A neighborhood grocery storefront with orange graphic window framing" />
             </div>
             <div className="case-sticker">LOCAL<br />LOOKS<br />GOOD</div>
-            <span className="image-caption">A street-side identity<br />that keeps working inside.</span>
+            <span className="image-caption"><img src="/manus-storage/shopfront-logo_1518a960.png" alt="" /> A street-side identity<br />that keeps working inside.</span>
           </div>
           <div className="case-study-copy">
             <div className="eyebrow"><span className="eyebrow-dot" /> Field notes / retail identity</div>

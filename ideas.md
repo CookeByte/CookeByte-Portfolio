@@ -70,3 +70,5 @@ The wordmark concept is a compact “S” formed by two offset price-ticket shap
 The experience will use a warm light primary canvas rather than a dark interface, reserving the Ink background for high-impact moments. Rounded corners remain minimal; ticket cuts, sharp rules, circles, and offset shadows carry the personality instead. Visuals must reinforce local retail, not generic software aesthetics.
 
 The price-marker circles carry functional retail information such as a number, a role, a status, or a clear directional action. Display emphasis follows retail-signage logic: heavy SHOPFRONT-style display type leads, with limited highlighted terms as marked-up commercial accents. The ticket “S” symbol recurs in headers, footers, labels, and key section markers to act as a recognizable studio stamp.
+
+Cream-background sections retain a visible retail-system cue, such as a ruled ticket frame, an aisle label, a price marker, a shop-window crop, or a utility tag. Visual references remain grounded in street-level commerce: storefronts, shelves, counters, produce, window signage, and local shopping moments.
