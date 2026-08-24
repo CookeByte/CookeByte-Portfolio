@@ -258,7 +258,7 @@ export default function Home() {
       </header>
 
       <main>
-        {siteReady && <ScrollExpand src="/manus-storage/cookebyte-entrance-retail-creative_e936c541.jpg" alt="CookeByte digital retail creative installation" title="OPEN THE WINDOW"><p>WEBSITES / CAMPAIGNS / VIDEO / IDENTITY</p><strong>SCROLL TO ENTER</strong></ScrollExpand>}
+        {siteReady && <ScrollExpand src="/manus-storage/cookebyte-entrance-retail-creative_e936c541.jpg" alt="CookeByte digital retail creative installation" title="SCROLL TO COOK"><p>WEBSITES / CAMPAIGNS / VIDEO / IDENTITY</p><strong>SCROLL TO ENTER</strong></ScrollExpand>}
         <section ref={heroSceneRef} className="scroll-hero-section" aria-labelledby="hero-title">
           <div className="scroll-hero-stage">
           <div className="hero-rail" aria-hidden="true">

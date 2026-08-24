@@ -116,3 +116,9 @@
 - [x] Define a CookeByte-relevant retail creative visual to replace the current entrance still.
 - [x] Keep the entrance as the new static CookeByte retail-creative image; defer the looping video.
 - [x] Validate the updated static-image scroll entrance on desktop and mobile before delivery.
+
+## Entrance Label and Responsive Navigation
+
+- [x] Replace the large entrance headline with the Monocraft label “SCROLL TO COOK”.
+- [x] Hide the route-menu trigger on desktop while retaining it for mobile navigation.
+- [x] Validate desktop and mobile navigation plus entrance-label readability before delivery.
