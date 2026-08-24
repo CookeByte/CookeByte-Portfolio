@@ -140,5 +140,5 @@
 
 - [x] Add an explicit Vercel configuration for the Vite `dist/public` production output.
 - [x] Validate the build and static SPA routing configuration locally.
-- [ ] Push the Vercel repair to CookeByte/CookeByte-Portfolio.
+- [x] Push the Vercel repair to CookeByte/CookeByte-Portfolio.
 - [ ] Provide the required Vercel redeploy step.
