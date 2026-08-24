@@ -135,3 +135,10 @@
 - [x] Prepare the complete current CookeByte source for export.
 - [x] Commit and push the source to the selected repository.
 - [x] Verify the pushed repository contents and latest commit.
+
+## Vercel Static Deployment Repair
+
+- [x] Add an explicit Vercel configuration for the Vite `dist/public` production output.
+- [x] Validate the build and static SPA routing configuration locally.
+- [ ] Push the Vercel repair to CookeByte/CookeByte-Portfolio.
+- [ ] Provide the required Vercel redeploy step.
