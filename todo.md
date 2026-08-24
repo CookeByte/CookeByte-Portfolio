@@ -110,3 +110,9 @@
 - [x] Adapt the supplied ScrollExpand interaction as the post-loader CookeByte entrance: once the loader exits, a pinned framed CookeByte window expands under normal page scroll before handing visitors into the existing hero.
 - [x] Ensure the entrance resolves into the existing hero without losing navigation or accessibility.
 - [x] Validate the route indicator and scroll-driven entrance on desktop and mobile before delivery.
+
+## 3D Motion Entrance Visual
+
+- [x] Define a CookeByte-relevant retail creative visual to replace the current entrance still.
+- [x] Keep the entrance as the new static CookeByte retail-creative image; defer the looping video.
+- [x] Validate the updated static-image scroll entrance on desktop and mobile before delivery.
