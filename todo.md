@@ -163,6 +163,6 @@
 - [x] Change the first post-entrance headline to “What are we Gonna Cook?”.
 - [x] Refine the mobile entrance frame so the initial media is substantially wider and taller on compact screens.
 - [x] Test the mobile route-menu opening, keyboard route selection, close behavior, and smooth handoff to the selected section.
-- [ ] Verify live Vercel images and shared contact details after deployment.
+- [x] Verify live Vercel images, the “What are we Gonna Cook?” heading, and shared contact details after deployment.
 - [x] Push the verified headline and mobile update to CookeByte/CookeByte-Portfolio.
 - [x] Push the verified repair to CookeByte/CookeByte-Portfolio.
