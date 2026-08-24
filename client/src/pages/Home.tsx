@@ -51,8 +51,45 @@ const process = [
 export default function Home() {
   const [menuOpen, setMenuOpen] = useState(false);
   const heroSceneRef = useRef<HTMLElement>(null);
+  const teamSectionRef = useRef<HTMLElement>(null);
 
   const closeMenu = () => setMenuOpen(false);
+
+  useEffect(() => {
+    const section = teamSectionRef.current;
+    if (!section) return;
+
+    let frame = 0;
+    const clamp = (value: number) => Math.min(1, Math.max(0, value));
+    const schedulePaint = () => {
+      if (frame) return;
+      frame = window.requestAnimationFrame(() => {
+        frame = 0;
+        const rect = section.getBoundingClientRect();
+        const progress = clamp((window.innerHeight - rect.top) / (rect.height + window.innerHeight * 0.16));
+        const benitto = clamp((progress - 0.17) / 0.42);
+        const abisheik = clamp((progress - 0.42) / 0.42);
+
+        section.style.setProperty("--benitto-opacity", `${0.2 + benitto * 0.8}`);
+        section.style.setProperty("--benitto-y", `${(1 - benitto) * 58}px`);
+        section.style.setProperty("--benitto-turn", `${(1 - benitto) * -3}deg`);
+        section.style.setProperty("--benitto-skills", `${benitto}`);
+        section.style.setProperty("--abisheik-opacity", `${0.2 + abisheik * 0.8}`);
+        section.style.setProperty("--abisheik-y", `${(1 - abisheik) * 58}px`);
+        section.style.setProperty("--abisheik-turn", `${(1 - abisheik) * 3}deg`);
+        section.style.setProperty("--abisheik-skills", `${abisheik}`);
+      });
+    };
+
+    schedulePaint();
+    window.addEventListener("scroll", schedulePaint, { passive: true });
+    window.addEventListener("resize", schedulePaint);
+    return () => {
+      window.removeEventListener("scroll", schedulePaint);
+      window.removeEventListener("resize", schedulePaint);
+      if (frame) window.cancelAnimationFrame(frame);
+    };
+  }, []);
 
   useEffect(() => {
     const section = heroSceneRef.current;
@@ -253,33 +290,33 @@ export default function Home() {
           <div className="service-footnote"><Sparkles size={15} /> Built to be picked up by real teams—not left in a deck.</div>
         </section>
 
-        <section className="team-section" id="team" aria-labelledby="team-title">
+        <section ref={teamSectionRef} className="team-section" id="team" aria-labelledby="team-title">
           <div className="team-aisle-strip">
             <div><img src="/manus-storage/shopfront-logo_1518a960.png" alt="" /><span>AISLE 03 / TWO-PERSON STUDIO</span></div>
             <span>DEV ↔ VISUAL</span>
           </div>
           <div className="team-heading">
             <div className="intro-label">/ 03 — THE TEAM</div>
-            <h2 id="team-title">Two minds.<br />One <em>storefront</em><br />signal.</h2>
-            <p>We stay close to the work. One of us makes the digital experience work beautifully; the other makes the visual story move.</p>
+            <h2 id="team-title">Two people.<br />One <em>retail</em><br />signal.</h2>
+            <p>Benitto makes the digital experience move. Abisheik makes the visual story land. Together, they turn shop-floor thinking into a connected local-commerce system.</p>
           </div>
           <div className="team-roles">
             <article className="team-card build-card">
               <div className="team-card-top"><span>01 / THE BUILDER</span><span className="role-glyph">01</span></div>
-              <div className="role-index">DEV</div>
-              <h3>Coding &<br />development.</h3>
-              <p>From the technical foundation to the launch-ready finish, this is the role that turns a strong idea into a fast, useful, reliable website.</p>
-              <div className="role-tags"><span>Front-end builds</span><span>Interactions</span><span>Launch support</span></div>
+              <div className="role-index"><small>DEVELOPMENT LEAD</small>BENITTO<br />JOSHUA</div>
+              <h3>Build the<br />digital shelf.</h3>
+              <p>Benitto turns the studio’s ideas into interactive experiences: from launch-ready websites to playable worlds and AI-powered tools.</p>
+              <div className="role-tags skill-tags"><span>Game Dev</span><span>Web Dev</span><span>AI LLMs</span></div>
             </article>
             <article className="team-card visual-card">
               <div className="team-card-top"><span>02 / THE VISUAL LEAD</span><span className="role-glyph">02</span></div>
-              <div className="role-index">VIS</div>
-              <h3>Design &<br />video editing.</h3>
-              <p>This is the role that finds the campaign look, directs the visual rhythm, and cuts the moving pieces that make people pause and notice.</p>
-              <div className="role-tags"><span>Art direction</span><span>Campaign design</span><span>Video edits</span></div>
+              <div className="role-index"><small>VISUAL LEAD</small>ABISHEIK</div>
+              <h3>Make the<br />offer move.</h3>
+              <p>Abisheik gives campaigns their pace, polish, and stopping power across motion edits, web design, and on-brand visual details.</p>
+              <div className="role-tags skill-tags"><span>Video Editor</span><span>Web Designer</span><span>Photoshop Designer</span></div>
             </article>
           </div>
-          <p className="team-connector"><span>Two disciplines, one clear point of contact.</span><ArrowRight size={18} /></p>
+          <p className="team-connector"><span>Scroll to see code and craft become one signal.</span><ArrowRight size={18} /></p>
         </section>
 
         <section className="case-study-section">

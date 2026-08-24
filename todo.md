@@ -17,3 +17,10 @@
 - [x] Replace the floating sticker-like 3D elements with an integrated retail-display composition.
 - [x] Add depth, scroll-linked layering, and restrained interaction without weakening page readability.
 - [x] Validate the rebuilt scene on desktop and mobile before delivery.
+
+## Named Dual-Expertise Section
+
+- [x] Define the profile narrative and scroll-linked presentation for Benitto Joshua and Abisheik.
+- [x] Add Benitto Joshua’s Game Dev, Web Dev, and AI LLM skills to the coding profile.
+- [x] Add Abisheik’s Video Editor, Web Designer, and Photoshop Designer skills to the visual profile.
+- [x] Validate the new animated team section on desktop and mobile before delivery.
