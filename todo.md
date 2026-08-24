@@ -165,4 +165,11 @@
 - [x] Test the mobile route-menu opening, keyboard route selection, close behavior, and smooth handoff to the selected section.
 - [x] Verify live Vercel images, the “What are we Gonna Cook?” heading, and shared contact details after deployment.
 - [x] Push the verified headline and mobile update to CookeByte/CookeByte-Portfolio.
+
+## Partner Entrance Callout
+
+- [x] Replace “SCROLL TO ENTER” with “Become a Partner of CookeBytes”.
+- [x] Mix CookeByte display lettering with a Monocraft detail line in the expanded entrance callout.
+- [x] Validate the partner callout on desktop and mobile.
+- [ ] Push the completed callout update to CookeByte/CookeByte-Portfolio.
 - [x] Push the verified repair to CookeByte/CookeByte-Portfolio.

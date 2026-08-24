@@ -424,6 +424,9 @@ h1 em, h2 em { color: var(--orange); font-family: "Space Grotesk", sans-serif; f
 .scroll-expand__overlay { position: absolute; z-index: 2; inset: 0; display: grid; place-content: center; justify-items: center; padding: 8%; text-align: center; opacity: 0; will-change: opacity, transform; }
 .scroll-expand__overlay p { margin: 0; font-family: "Monocraft", monospace; font-size: 10px; letter-spacing: .14em; }
 .scroll-expand__overlay strong { margin-top: 12px; color: var(--lime); font-family: "Archivo Black", sans-serif; font-size: clamp(32px, 5vw, 72px); font-weight: 400; letter-spacing: -.07em; }
+.partner-callout { display: grid; justify-items: center; gap: 10px; line-height: .88; }
+.partner-callout > span { display: block; }
+.partner-callout > em { display: block; color: var(--cream); font-family: "Monocraft", monospace; font-size: clamp(11px, 1.45vw, 20px); font-style: normal; font-weight: 400; letter-spacing: .12em; line-height: 1.15; }
 .scroll-expand__title { position: absolute; z-index: 4; inset: 0; display: grid; place-content: center; margin: 0; padding: 0 8%; color: var(--cream); font-family: "Monocraft", monospace; font-size: clamp(16px, 2.3vw, 29px); font-weight: 400; letter-spacing: .06em; line-height: 1.1; text-align: center; text-shadow: 0 3px 22px rgba(0,0,0,.52); pointer-events: none; will-change: transform, opacity; }
 .scroll-expand__title > span { display: inline-block; }
 @media (prefers-reduced-motion: no-preference) { .scroll-expand__title > span { animation: cookebyte-scroll-cue 2.4s cubic-bezier(.45, .05, .55, .95) infinite; } }
@@ -457,6 +460,8 @@ h1 em, h2 em { color: var(--orange); font-family: "Space Grotesk", sans-serif; f
   .route-sidebar__enter { width: calc(100% - 44px); margin: 0 22px 22px; }
   .scroll-expand__frame { clip-path: inset(27% 11% 27% 11% round 18px); }
   .scroll-expand__title { font-size: clamp(15px, 5.5vw, 21px); }
+  .scroll-expand__overlay strong { font-size: clamp(30px, 10vw, 43px); }
+  .partner-callout > em { font-size: clamp(9px, 3vw, 13px); }
   .scroll-expand__route-rail { right: 16px; bottom: 20px; left: 16px; font-size: 6px; }
   .scroll-expand__route-rail span:nth-child(2) { display: none; }
 }
