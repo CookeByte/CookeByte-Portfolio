@@ -21,7 +21,7 @@ export default function LaunchLoader({ onComplete }: LaunchLoaderProps) {
 
   useEffect(() => {
     const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-    const duration = reducedMotion ? 140 : 1080;
+    const duration = reducedMotion ? 140 : 3000;
     const exitDelay = reducedMotion ? 60 : 420;
     const start = performance.now();
     let frame = 0;

@@ -70,3 +70,8 @@
 - [x] Define the Shopfront launch sequence and reduced-motion fallback: a short character-scramble resolves into the Shopfront wordmark, displays loading progress, then lifts away; reduced-motion users receive the resolved mark with an accelerated exit.
 - [x] Add a loading screen with a Monocraft character-shuffle reveal.
 - [x] Validate loader timing, loading-state accessibility, and mobile presentation before delivery.
+
+## Extended Launch Timing
+
+- [x] Extend the visible launch loader duration to at least three seconds while preserving the reduced-motion fallback.
+- [ ] Validate the longer loading sequence before delivery.
