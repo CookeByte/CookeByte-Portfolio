@@ -75,7 +75,7 @@ button { font: inherit; }
   line-height: .87;
   letter-spacing: -.8px;
 }
-.brand-lockup img { width: 36px; height: 36px; object-fit: contain; }
+.brand-lockup img { width: 42px; height: 42px; object-fit: contain; }
 .desktop-nav { display: flex; gap: 28px; margin-left: auto; }
 .desktop-nav a, .header-cta, .footer-links a {
   position: relative;
@@ -113,10 +113,11 @@ button { font: inherit; }
 .hero-rail span { font-family: "Space Grotesk", sans-serif; font-size: 9px; font-weight: 700; letter-spacing: .14em; writing-mode: vertical-rl; transform: rotate(180deg); }
 .hero-content { position: relative; display: flex; flex-direction: column; justify-content: center; padding: 82px 5.8vw 62px; }
 .eyebrow, .intro-label { display: flex; align-items: center; gap: 9px; font-family: "Space Grotesk", sans-serif; font-size: 10px; font-weight: 700; letter-spacing: .11em; text-transform: uppercase; }
+.intro-label::before { content: ""; width: 16px; height: 16px; flex: 0 0 16px; display: inline-block; background: url('/manus-storage/shopfront-logo_1518a960.png') center / contain no-repeat; }
 .eyebrow-dot { width: 8px; height: 8px; display: inline-block; background: var(--orange); border-radius: 50%; }
 .eyebrow-light { color: var(--cream); }
-.hero-content h1, .service-heading h2, .feature-copy h2, .case-study-copy h2, .method-top h2, .contact-copy h2 { margin: 25px 0; font-family: "Archivo Black", sans-serif; font-size: clamp(46px, 5.25vw, 89px); font-weight: 400; letter-spacing: -.072em; line-height: .89; }
-h1 em, h2 em { color: var(--orange); font-family: Georgia, "Times New Roman", serif; font-weight: 400; letter-spacing: -.08em; }
+.hero-content h1, .service-heading h2, .feature-copy h2, .team-heading h2, .case-study-copy h2, .method-top h2, .contact-copy h2 { margin: 25px 0; font-family: "Archivo Black", sans-serif; font-size: clamp(46px, 5.25vw, 89px); font-weight: 400; letter-spacing: -.072em; line-height: .89; }
+h1 em, h2 em { color: var(--orange); font-family: "Space Grotesk", sans-serif; font-size: .85em; font-style: normal; font-weight: 700; letter-spacing: -.105em; }
 .hero-bottom-row { display: flex; align-items: end; gap: 26px; max-width: 460px; margin-top: 17px; }
 .hero-bottom-row p { max-width: 315px; margin: 0; color: rgba(244,240,232,.76); font-size: 15px; line-height: 1.5; }
 .circle-link { display: grid; flex: 0 0 auto; place-items: center; width: 61px; height: 61px; color: var(--ink); background: var(--lime); border-radius: 50%; transition: transform 200ms var(--ease-out), background 200ms var(--ease-out); }
@@ -137,7 +138,7 @@ h1 em, h2 em { color: var(--orange); font-family: Georgia, "Times New Roman", se
 .intro-label { color: var(--ink); }
 .intro-grid { display: grid; grid-template-columns: minmax(0, 1.32fr) minmax(260px, .68fr); gap: 70px; align-items: end; padding: 51px 8.5vw 72px 8.5vw; }
 .intro-quote { position: relative; }
-.marker-orb { position: absolute; top: -26px; left: -48px; display: grid; place-items: center; width: 37px; height: 37px; color: var(--cream); background: var(--orange); border-radius: 50%; font-family: Georgia, serif; font-size: 29px; transform: rotate(-15deg); }
+.marker-orb { position: absolute; top: -26px; left: -48px; display: grid; place-items: center; width: 37px; height: 37px; color: var(--cream); background: var(--orange); border-radius: 50%; font-family: "Space Grotesk", sans-serif; font-size: 10px; font-weight: 700; letter-spacing: .05em; transform: rotate(-15deg); }
 .intro-quote p { max-width: 700px; margin: 0; font-family: "Archivo Black", sans-serif; font-size: clamp(31px, 4vw, 62px); letter-spacing: -.07em; line-height: .95; }
 .intro-quote strong { color: var(--orange); font-family: Georgia, serif; font-weight: 400; }
 .intro-side { max-width: 350px; border-left: 1px solid var(--ink); padding-left: 22px; }
@@ -177,6 +178,35 @@ h1 em, h2 em { color: var(--orange); font-family: Georgia, "Times New Roman", se
 .service-detail { margin-top: 21px; font-family: "Space Grotesk", sans-serif; font-size: 10px; font-weight: 700; letter-spacing: .09em; text-transform: uppercase; }
 .service-footnote { max-width: 1150px; display: flex; align-items: center; gap: 8px; margin: 22px auto 0; font-family: "Space Grotesk", sans-serif; font-size: 11px; font-weight: 700; }
 
+.team-section { position: relative; padding: 105px 4.2vw 87px; background: var(--cream); overflow: hidden; }
+.team-section::after { content: ""; position: absolute; width: min(34vw, 520px); aspect-ratio: 1; right: -13vw; top: 69px; border: 1px solid rgba(23,24,23,.16); border-radius: 50%; box-shadow: 0 0 0 34px rgba(255,90,54,.08), 0 0 0 68px rgba(213,230,104,.12); pointer-events: none; }
+.team-section::before { content: ""; position: absolute; left: 0; right: 0; top: 48px; height: 1px; background: var(--ink); opacity: .38; }
+.team-aisle-strip, .team-heading, .team-roles, .team-connector { position: relative; z-index: 1; max-width: 1150px; margin-left: auto; margin-right: auto; }
+.team-aisle-strip { display: flex; align-items: center; justify-content: space-between; min-height: 39px; margin-bottom: 53px; padding: 0 12px; color: var(--cream); background: var(--ink); font-family: "Space Grotesk", sans-serif; font-size: 10px; font-weight: 700; letter-spacing: .1em; }
+.team-aisle-strip > div { display: flex; align-items: center; gap: 9px; }
+.team-aisle-strip img { width: 24px; height: 24px; padding: 2px; background: var(--cream); object-fit: contain; }
+.team-heading { display: grid; grid-template-columns: minmax(375px, 1fr) minmax(230px, .45fr); gap: 55px; align-items: end; margin-bottom: 58px; }
+.team-heading h2 { grid-row: 2; margin: 0; font-size: clamp(51px, 5.6vw, 85px); }
+.team-heading p { max-width: 340px; margin: 0 0 7px; font-size: 16px; font-weight: 500; line-height: 1.5; }
+.team-roles { display: grid; grid-template-columns: 1fr 1fr; border: 1px solid var(--ink); }
+.team-card { position: relative; min-height: 460px; display: flex; flex-direction: column; padding: 27px; overflow: hidden; }
+.team-card + .team-card { border-left: 1px solid var(--ink); }
+.build-card { color: var(--cream); background: var(--ink); }
+.visual-card { background: var(--lime); }
+.team-card::before { content: ""; position: absolute; width: 260px; height: 260px; right: -72px; bottom: -94px; border: 1px solid currentColor; border-radius: 50%; opacity: .28; box-shadow: 0 0 0 26px transparent, 0 0 0 27px currentColor; }
+.visual-card::before { width: 210px; height: 210px; right: -48px; bottom: -39px; color: var(--orange); opacity: .75; border-radius: 0; transform: rotate(45deg); box-shadow: 0 0 0 26px transparent, 0 0 0 27px currentColor; }
+.team-card-top { position: relative; z-index: 1; display: flex; align-items: start; justify-content: space-between; font-family: "Space Grotesk", sans-serif; font-size: 10px; font-weight: 700; letter-spacing: .09em; }
+.role-glyph { display: grid; place-items: center; width: 37px; height: 37px; color: var(--ink); background: var(--lime); border-radius: 50%; font-family: "Space Grotesk", sans-serif; font-size: 10px; font-weight: 700; letter-spacing: .03em; }
+.visual-card .role-glyph { color: var(--cream); background: var(--orange); }
+.role-index { position: relative; z-index: 1; margin-top: auto; color: var(--lime); font-family: "Archivo Black", sans-serif; font-size: clamp(58px, 8vw, 112px); line-height: .78; letter-spacing: -.1em; opacity: .97; }
+.visual-card .role-index { color: var(--orange); }
+.team-card h3 { position: relative; z-index: 1; margin: 18px 0 14px; font-family: "Archivo Black", sans-serif; font-size: clamp(34px, 3.5vw, 50px); font-weight: 400; letter-spacing: -.07em; line-height: .91; }
+.team-card p { position: relative; z-index: 1; max-width: 400px; margin: 0; font-size: 15px; line-height: 1.48; }
+.build-card p { color: rgba(244,240,232,.76); }
+.role-tags { position: relative; z-index: 1; display: flex; flex-wrap: wrap; gap: 7px; margin-top: 23px; }
+.role-tags span { padding: 5px 7px; border: 1px solid currentColor; font-family: "Space Grotesk", sans-serif; font-size: 9px; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; }
+.team-connector { display: flex; align-items: center; justify-content: center; gap: 9px; margin-top: 22px; color: var(--orange); font-family: "Space Grotesk", sans-serif; font-size: 11px; font-weight: 700; letter-spacing: .04em; text-transform: uppercase; }
+
 .case-study-section { display: grid; grid-template-columns: minmax(370px, 1fr) minmax(380px, 1fr); align-items: center; gap: clamp(55px, 9vw, 150px); padding: 112px max(4.2vw, 28px); background: var(--cream); }
 .case-study-visual { position: relative; max-width: 530px; margin-left: auto; }
 .window-crop { position: relative; padding: 14px; background: var(--orange); box-shadow: 14px 14px 0 var(--ink); }
@@ -205,7 +235,7 @@ h1 em, h2 em { color: var(--orange); font-family: Georgia, "Times New Roman", se
 
 .contact-section { position: relative; min-height: 490px; display: grid; grid-template-columns: 1fr minmax(290px, .55fr); align-items: center; gap: 60px; padding: 92px 8.5vw; color: var(--cream); background: var(--ink); overflow: hidden; }
 .contact-section::before { content: ""; position: absolute; width: 61vw; height: 61vw; top: -48vw; right: -19vw; border: 1px solid rgba(244,240,232,.2); border-radius: 50%; box-shadow: 0 0 0 60px rgba(244,240,232,.04), 0 0 0 120px rgba(244,240,232,.035); }
-.contact-orb { position: absolute; right: 12vw; bottom: -66px; display: grid; place-items: start center; width: 214px; height: 214px; padding-top: 23px; color: var(--ink); background: var(--orange); border-radius: 50%; font-family: Georgia, serif; font-size: 45px; transform: rotate(-11deg); }
+.contact-orb { position: absolute; right: 12vw; bottom: -66px; display: grid; place-items: start center; width: 214px; height: 214px; padding-top: 27px; color: var(--ink); background: var(--orange); border-radius: 50%; font-family: "Space Grotesk", sans-serif; font-size: 11px; font-weight: 700; letter-spacing: .08em; line-height: 1.02; text-align: center; transform: rotate(-11deg); }
 .contact-copy { position: relative; z-index: 1; }
 .contact-copy h2 { margin: 24px 0 17px; font-size: clamp(50px, 5vw, 81px); }
 .contact-copy h2 em { color: var(--lime); }
@@ -215,6 +245,7 @@ h1 em, h2 em { color: var(--orange); font-family: Georgia, "Times New Roman", se
 .contact-link:hover { background: var(--cream); transform: rotate(-8deg) scale(1.05); }
 
 .site-footer { display: grid; grid-template-columns: 1.1fr 1fr 1fr auto; gap: 28px; align-items: start; padding: 37px 4.2vw 43px; color: var(--cream); background: var(--charcoal); }
+.footer-brand img { width: 43px; height: 43px; padding: 4px; background: var(--cream); object-fit: contain; }
 .site-footer p, .site-footer span { margin: 0; color: rgba(244,240,232,.7); font-size: 12px; line-height: 1.4; }
 .footer-links { display: flex; flex-wrap: wrap; gap: 18px; }
 .footer-links a { color: var(--cream); }
@@ -242,6 +273,13 @@ h1 em, h2 em { color: var(--orange); font-family: Georgia, "Times New Roman", se
   .service-heading p { max-width: 315px; }
   .service-list { grid-template-columns: 1fr; }
   .service-card { min-height: 270px; }
+  .team-section { padding: 76px 22px 66px; }
+  .team-section::before { top: 35px; }
+  .team-aisle-strip { margin-bottom: 42px; font-size: 8px; }
+  .team-heading { grid-template-columns: 1fr; gap: 22px; }
+  .team-roles { grid-template-columns: 1fr; }
+  .team-card { min-height: 376px; }
+  .team-card + .team-card { border-left: 0; border-top: 1px solid var(--ink); }
   .case-study-section { grid-template-columns: 1fr; gap: 84px; padding: 85px 34px 81px; }
   .case-study-visual { width: calc(100% - 26px); margin: 0; }
   .case-study-copy { max-width: 540px; }
@@ -269,10 +307,11 @@ h1 em, h2 em { color: var(--orange); font-family: Georgia, "Times New Roman", se
   .circle-link { width: 52px; height: 52px; }
   .intro-grid { padding-left: 15px; padding-right: 15px; }
   .marker-orb { left: -7px; top: -38px; }
+  .team-aisle-strip > span { display: none; }
   .feature-image-frame { min-height: 315px; }
   .feature-copy { padding: 39px 25px 42px; }
   .services-section { padding: 78px 22px 57px; }
-  .service-heading h2, .case-study-copy h2, .method-top h2 { font-size: clamp(44px, 13vw, 59px); }
+  .service-heading h2, .team-heading h2, .case-study-copy h2, .method-top h2 { font-size: clamp(44px, 13vw, 59px); }
   .case-study-section { padding-left: 27px; padding-right: 27px; }
   .case-sticker { width: 102px; height: 102px; font-size: 14px; right: -18px; }
   .image-caption { right: 0; }

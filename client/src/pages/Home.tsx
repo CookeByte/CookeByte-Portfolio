@@ -20,24 +20,24 @@ const services = [
     number: "01",
     title: "Shop websites",
     description:
-      "Clear, shoppable sites that bring the order of a great shop floor to every screen.",
-    detail: "Strategy · design · build",
+      "Clear, shoppable sites shaped around your stock, your customers, and the way your team really works.",
+    detail: "UX · development · launch",
     tone: "cream",
   },
   {
     number: "02",
-    title: "Paid campaigns",
+    title: "Campaigns & edits",
     description:
-      "Campaign systems that turn a weekly offer, a new opening, or a seasonal moment into a local signal.",
-    detail: "Creative · copy · rollout",
+      "Campaign creative and short-form video edits that turn a weekly offer or launch into a local signal.",
+    detail: "Creative · video · rollout",
     tone: "orange",
   },
   {
     number: "03",
     title: "Retail identity",
     description:
-      "Window graphics, launch kits, and visual rules that make every channel recognise the same shop.",
-    detail: "Identity · art direction · toolkits",
+      "Visual systems and launch kits that make every channel look like it belongs to the same shop.",
+    detail: "Design · direction · toolkits",
     tone: "lime",
   },
 ];
@@ -65,6 +65,7 @@ export default function Home() {
         <nav className="desktop-nav" aria-label="Primary navigation">
           <a href="#work">Selected work</a>
           <a href="#scope">What we do</a>
+          <a href="#team">The team</a>
           <a href="#method">Our method</a>
         </nav>
 
@@ -86,6 +87,7 @@ export default function Home() {
           <nav className="mobile-nav" aria-label="Mobile navigation">
             <a href="#work" onClick={closeMenu}>Selected work <ArrowRight size={18} /></a>
             <a href="#scope" onClick={closeMenu}>What we do <ArrowRight size={18} /></a>
+            <a href="#team" onClick={closeMenu}>The team <ArrowRight size={18} /></a>
             <a href="#method" onClick={closeMenu}>Our method <ArrowRight size={18} /></a>
             <a href="#contact" onClick={closeMenu}>Let&apos;s talk <ArrowRight size={18} /></a>
           </nav>
@@ -106,7 +108,7 @@ export default function Home() {
               belongs online.
             </h1>
             <div className="hero-bottom-row">
-              <p>Websites and ads with the clarity of a great shop floor—and enough edge to stop the scroll.</p>
+              <p>A two-person studio pairing precise development with design and video edits that stop the scroll.</p>
               <a href="#scope" className="circle-link" aria-label="See what we do">
                 <ArrowDownRight size={26} />
               </a>
@@ -137,7 +139,7 @@ export default function Home() {
           <div className="intro-label">/ 01 — THE WORK</div>
           <div className="intro-grid">
             <div className="intro-quote">
-              <span className="marker-orb">?</span>
+              <span className="marker-orb">01</span>
               <p>Commerce has changed. <strong>Neighbourhood attention</strong> is still earned one smart message at a time.</p>
             </div>
             <div className="intro-side">
@@ -153,7 +155,7 @@ export default function Home() {
             <div className="feature-copy">
               <div className="feature-counter"><span>01</span><span>—</span><span>Featured system</span></div>
               <h2>Give every<br /><em>offer</em> a point<br />of view.</h2>
-              <p>One campaign language, working across landing pages, paid ads, social, menus, posters, and the place where customers make their final decision.</p>
+              <p>One campaign language, working across the website, paid ads, social, short-form cuts, menus, posters, and the place where customers make their final decision.</p>
               <div className="feature-tags">
                 <span>Campaign creative</span><span>Retail launch</span><span>Content system</span>
               </div>
@@ -164,8 +166,8 @@ export default function Home() {
         <section className="services-section" id="scope">
           <div className="service-heading">
             <div className="intro-label light-label">/ 02 — THE SCOPE</div>
-            <h2>Small shop.<br />Big <em>signal.</em></h2>
-            <p>Pick the lane you need—or bring us the whole aisle.</p>
+            <h2>Small team.<br />Big <em>signal.</em></h2>
+            <p>Bring us one sharp need—or put both halves of the studio to work.</p>
           </div>
           <div className="service-list">
             {services.map((service) => (
@@ -180,6 +182,35 @@ export default function Home() {
           <div className="service-footnote"><Sparkles size={15} /> Built to be picked up by real teams—not left in a deck.</div>
         </section>
 
+        <section className="team-section" id="team" aria-labelledby="team-title">
+          <div className="team-aisle-strip">
+            <div><img src="/manus-storage/shopfront-logo_1518a960.png" alt="" /><span>AISLE 03 / TWO-PERSON STUDIO</span></div>
+            <span>DEV ↔ VISUAL</span>
+          </div>
+          <div className="team-heading">
+            <div className="intro-label">/ 03 — THE TEAM</div>
+            <h2 id="team-title">Two minds.<br />One <em>storefront</em><br />signal.</h2>
+            <p>We stay close to the work. One of us makes the digital experience work beautifully; the other makes the visual story move.</p>
+          </div>
+          <div className="team-roles">
+            <article className="team-card build-card">
+              <div className="team-card-top"><span>01 / THE BUILDER</span><span className="role-glyph">01</span></div>
+              <div className="role-index">DEV</div>
+              <h3>Coding &<br />development.</h3>
+              <p>From the technical foundation to the launch-ready finish, this is the role that turns a strong idea into a fast, useful, reliable website.</p>
+              <div className="role-tags"><span>Front-end builds</span><span>Interactions</span><span>Launch support</span></div>
+            </article>
+            <article className="team-card visual-card">
+              <div className="team-card-top"><span>02 / THE VISUAL LEAD</span><span className="role-glyph">02</span></div>
+              <div className="role-index">VIS</div>
+              <h3>Design &<br />video editing.</h3>
+              <p>This is the role that finds the campaign look, directs the visual rhythm, and cuts the moving pieces that make people pause and notice.</p>
+              <div className="role-tags"><span>Art direction</span><span>Campaign design</span><span>Video edits</span></div>
+            </article>
+          </div>
+          <p className="team-connector"><span>Two disciplines, one clear point of contact.</span><ArrowRight size={18} /></p>
+        </section>
+
         <section className="case-study-section">
           <div className="case-study-visual">
             <div className="window-crop">
@@ -191,7 +222,7 @@ export default function Home() {
           <div className="case-study-copy">
             <div className="eyebrow"><span className="eyebrow-dot" /> Field notes / retail identity</div>
             <h2>Make a name<br />on your <em>street.</em></h2>
-            <p>Your customers do not separate the window, the website, and the social post. Neither do we. We build the cues that make a local business feel instantly familiar from every angle.</p>
+            <p>Your customers do not separate the window, the website, the campaign cut, and the social post. Neither do we. We build the cues that make a local business feel instantly familiar from every angle.</p>
             <ul className="check-list">
               <li><Check size={16} /> Distinctive brand building blocks</li>
               <li><Check size={16} /> Built for seasonal changeovers</li>
@@ -203,7 +234,7 @@ export default function Home() {
         <section className="method-section" id="method">
           <div className="method-top">
             <div>
-              <div className="intro-label">/ 03 — THE METHOD</div>
+              <div className="intro-label">/ 04 — THE METHOD</div>
               <h2>From shop floor<br />to <em>scroll stop.</em></h2>
             </div>
             <p>No handoff maze. No vague ‘brand moment.’ Just a tight retail loop that gets sharper as it moves.</p>
@@ -221,11 +252,11 @@ export default function Home() {
         </section>
 
         <section className="contact-section" id="contact">
-          <div className="contact-orb" aria-hidden="true"><span>✦</span></div>
+          <div className="contact-orb" aria-hidden="true"><span>GET<br />VISIBLE</span></div>
           <div className="contact-copy">
             <div className="eyebrow eyebrow-light"><span className="eyebrow-dot" /> Let&apos;s make it visible</div>
             <h2>Ready to put<br />your shop <em>out front?</em></h2>
-            <p>Bring the launch, refresh, promotion, or bigger retail question. We&apos;ll find the right first move together.</p>
+            <p>Bring the launch, refresh, promotion, or bigger retail question. You&apos;ll work directly with a developer and a designer-editor from the first move.</p>
           </div>
           <a className="contact-link" href="mailto:hello@shopfront.studio" aria-label="Email Shopfront Studio">
             <span>START A<br />CONVERSATION</span>
@@ -235,9 +266,9 @@ export default function Home() {
       </main>
 
       <footer className="site-footer">
-        <a className="footer-brand" href="#top">SHOPFRONT<br />STUDIO</a>
-        <p>Websites & advertising for the<br />places people buy from nearby.</p>
-        <div className="footer-links"><a href="#scope">Services</a><a href="#method">Method</a><a href="#contact">Contact</a></div>
+        <a className="footer-brand" href="#top"><img src="/manus-storage/shopfront-logo_1518a960.png" alt="" /> <span>SHOPFRONT<br />STUDIO</span></a>
+        <p>Development, design & video for the<br />places people buy from nearby.</p>
+        <div className="footer-links"><a href="#scope">Services</a><a href="#team">Team</a><a href="#method">Method</a><a href="#contact">Contact</a></div>
         <span>© 2026 / Built for local commerce</span>
       </footer>
     </div>
