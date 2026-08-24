@@ -3,7 +3,7 @@
  * Swiss retail wayfinding meets contemporary editorial art direction.
  * Use ink, counter cream, and signal tangerine; preserve the asymmetric aisle-map rhythm.
  */
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState, type FormEvent } from "react";
 import {
   ArrowDownRight,
   ArrowRight,
@@ -47,12 +47,65 @@ const process = [
   ["03", "Put it in the window", "We ship the assets, pages, and playbook needed to stay active long after launch day."],
 ];
 
+const packages = [
+  {
+    number: "01",
+    kind: "SHOP SHOWCASE",
+    title: "Basic shop<br />website",
+    price: "₹10K",
+    note: "Starting package",
+    description: "A focused digital shopfront for presenting your business, story, features, and the reasons customers should walk in.",
+    points: ["Shop-first presentation", "Feature-led layout", "Built for enquiries"],
+    tone: "showcase-plan",
+  },
+  {
+    number: "02",
+    kind: "E-COMMERCE",
+    title: "Online shop<br />setup",
+    price: "₹10K+",
+    note: "Flexible to your scope",
+    description: "For a selling-ready storefront shaped around your catalogue, customer journey, and the complexity of your setup.",
+    points: ["Catalogue-ready structure", "Scope-led build", "Designed to sell"],
+    tone: "commerce-plan",
+  },
+  {
+    number: "03",
+    kind: "3D WEBSITE",
+    title: "Immersive<br />shopfront",
+    price: "₹13K+",
+    note: "Flexible to your spec",
+    description: "For stores that need motion, depth, and a memorable digital window experience built around a more ambitious brief.",
+    points: ["Interactive depth", "3D-led direction", "Custom scope"],
+    tone: "immersive-plan",
+  },
+];
+
 export default function Home() {
   const [menuOpen, setMenuOpen] = useState(false);
+  const [briefStatus, setBriefStatus] = useState("");
   const heroSceneRef = useRef<HTMLElement>(null);
   const teamSectionRef = useRef<HTMLElement>(null);
 
   const closeMenu = () => setMenuOpen(false);
+
+  const handleBriefSubmit = (event: FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+    const values = new FormData(event.currentTarget);
+    const projectType = String(values.get("projectType") || "Project enquiry");
+    const subject = `Shopfront Studio enquiry — ${projectType}`;
+    const body = [
+      `Name: ${values.get("name") || "Not supplied"}`,
+      `Business: ${values.get("business") || "Not supplied"}`,
+      `Project type: ${projectType}`,
+      `Budget: ${values.get("budget") || "Not supplied"}`,
+      "",
+      "Project details:",
+      String(values.get("details") || "Not supplied"),
+    ].join("\n");
+
+    setBriefStatus("Your email draft is opening with the project brief included.");
+    window.location.href = `mailto:hello@shopfront.studio?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+  };
 
   useEffect(() => {
     const section = teamSectionRef.current;
@@ -320,6 +373,29 @@ export default function Home() {
           <p className="team-connector"><span>Scroll to see code and craft become one signal.</span><ArrowRight size={18} /></p>
         </section>
 
+        <section className="pricing-section" id="packages" aria-labelledby="pricing-title">
+          <div className="pricing-heading">
+            <div>
+              <div className="intro-label">/ 04 — STARTING PACKAGES</div>
+              <h2 id="pricing-title">Pick the<br />right <em>entry point.</em></h2>
+            </div>
+            <p>These starting points give the first signal. Final pricing adjusts to your exact scope, specifications, and retail ambitions.</p>
+          </div>
+          <div className="pricing-grid">
+            {packages.map((plan) => (
+              <article className={`pricing-card ${plan.tone}`} key={plan.number}>
+                <div className="pricing-card-top"><span>{plan.number} / {plan.kind}</span><span className="price-stamp">₹</span></div>
+                <div className="price-lockup"><span>{plan.note}</span><strong>{plan.price}</strong></div>
+                <h3 dangerouslySetInnerHTML={{ __html: plan.title }} />
+                <p>{plan.description}</p>
+                <div className="package-points">{plan.points.map((point) => <span key={point}>{point}</span>)}</div>
+                <a href="#project-brief" className="plan-cta">Choose this route <ArrowRight size={17} /></a>
+              </article>
+            ))}
+          </div>
+          <p className="pricing-footnote"><span>Video ad campaigns</span> are quoted to the runtime, edit volume, and campaign requirements of your brief.</p>
+        </section>
+
         <section className="work-with-us-section" id="work-with-us" aria-labelledby="work-with-us-title">
           <div className="work-route-bar">
             <span><img src="/manus-storage/shopfront-logo_1518a960.png" alt="" /> ROUTE 04 / WORK WITH US</span>
@@ -337,22 +413,38 @@ export default function Home() {
               <div className="enquiry-card-top"><span>01 / START A PROJECT</span><MoveUpRight size={21} /></div>
               <h3>Bring us the<br />brief.</h3>
               <p>For a new website, campaign, video edit, or a full shopfront refresh.</p>
-              <a href="mailto:hello@shopfront.studio?subject=Project%20enquiry" className="enquiry-link">Talk project <ArrowRight size={17} /></a>
+              <a href="#project-brief" className="enquiry-link">Open brief form <ArrowRight size={17} /></a>
             </article>
             <article className="enquiry-card pricing-route">
               <div className="enquiry-card-top"><span>02 / PRICING GUIDE</span><span className="route-count">₹</span></div>
               <h3>Get the<br /><em>right</em> quote.</h3>
               <p>We price around your scope, retail footprint, and launch timeline—not a one-size package.</p>
-              <a href="mailto:hello@shopfront.studio?subject=Pricing%20guide%20request" className="enquiry-link">Ask for pricing <ArrowRight size={17} /></a>
+              <a href="#packages" className="enquiry-link">See packages <ArrowRight size={17} /></a>
             </article>
             <article className="enquiry-card partner-route">
               <div className="enquiry-card-top"><span>03 / DEALERSHIP & PARTNERS</span><span className="route-count">03</span></div>
               <h3>Make every<br />location <em>look local.</em></h3>
               <p>For dealership groups, franchises, and multi-location retail teams ready to move as one.</p>
-              <a href="mailto:hello@shopfront.studio?subject=Dealership%20or%20partnership%20enquiry" className="enquiry-link">Explore partnership <ArrowRight size={17} /></a>
+              <a href="#project-brief" className="enquiry-link">Open brief form <ArrowRight size={17} /></a>
             </article>
           </div>
           <p className="work-with-us-footnote"><span>Need a different route?</span> Send the short version. We&apos;ll map the right next move together. <ArrowRight size={16} /></p>
+          <div className="brief-form-shell" id="project-brief">
+            <div className="brief-form-heading">
+              <div className="eyebrow eyebrow-light"><span className="eyebrow-dot" /> The counter is open</div>
+              <h3>Send the<br /><em>short version.</em></h3>
+              <p>Tell us what you are making. The form prepares a clear project brief in your email app with the details already in place.</p>
+            </div>
+            <form className="project-brief-form" onSubmit={handleBriefSubmit}>
+              <label><span>Your name</span><input name="name" type="text" required placeholder="Your name" /></label>
+              <label><span>Shop or business</span><input name="business" type="text" required placeholder="Business name" /></label>
+              <label><span>Project type</span><select name="projectType" required defaultValue=""><option value="" disabled>Choose a route</option><option>Basic shop website</option><option>E-commerce setup</option><option>3D website</option><option>Video ad campaign</option><option>Dealership or partnership</option><option>Not sure yet</option></select></label>
+              <label><span>Budget range</span><select name="budget" required defaultValue=""><option value="" disabled>Select a range</option><option>Up to ₹10K</option><option>₹10K–₹25K</option><option>₹25K–₹50K</option><option>₹50K+</option><option>Let&apos;s discuss</option></select></label>
+              <label className="details-field"><span>What needs to move?</span><textarea name="details" required rows={4} placeholder="Tell us about the shop, offer, timeline, or the next problem to solve." /></label>
+              <button className="brief-submit" type="submit">Prepare project brief <ArrowRight size={19} /></button>
+              {briefStatus && <p className="brief-status" role="status">{briefStatus}</p>}
+            </form>
+          </div>
         </section>
 
         <section className="method-section" id="method">

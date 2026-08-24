@@ -262,6 +262,38 @@ h1 em, h2 em { color: var(--orange); font-family: "Space Grotesk", sans-serif; f
 .skill-tags span:nth-child(3) { transition-delay: 130ms; }
 .team-connector { display: flex; align-items: center; justify-content: center; gap: 9px; margin-top: 22px; color: var(--orange); font-family: "Space Grotesk", sans-serif; font-size: 11px; font-weight: 700; letter-spacing: .04em; text-transform: uppercase; }
 
+/* Package board: shop-counter pricing with tactile depth rather than generic SaaS pricing. */
+.pricing-section { position: relative; padding: 100px 4.2vw 86px; background: var(--cream); overflow: hidden; }
+.pricing-section::before { content: ""; position: absolute; top: 0; right: 7vw; width: 1px; height: 58px; background: var(--orange); box-shadow: -10px 0 0 var(--orange), -20px 0 0 rgba(23,24,23,.22); }
+.pricing-heading, .pricing-grid, .pricing-footnote { position: relative; z-index: 1; max-width: 1150px; margin-left: auto; margin-right: auto; }
+.pricing-heading { display: grid; grid-template-columns: minmax(370px, 1fr) minmax(220px, .45fr); gap: 60px; align-items: end; margin-bottom: 55px; }
+.pricing-heading h2 { margin: 25px 0 0; font-family: "Archivo Black", sans-serif; font-size: clamp(50px, 5.7vw, 87px); font-weight: 400; letter-spacing: -.075em; line-height: .89; }
+.pricing-heading p { max-width: 330px; margin: 0 0 7px; font-size: 16px; font-weight: 500; line-height: 1.5; }
+.pricing-grid { display: grid; grid-template-columns: repeat(3, 1fr); perspective: 1500px; border-top: 1px solid var(--ink); border-left: 1px solid var(--ink); }
+.pricing-card { position: relative; min-height: 438px; display: flex; flex-direction: column; padding: 24px; color: var(--ink); border-right: 1px solid var(--ink); border-bottom: 1px solid var(--ink); transform-style: preserve-3d; transition: transform 260ms var(--ease-out), box-shadow 260ms var(--ease-out); }
+.pricing-card::after { content: ""; position: absolute; z-index: -1; inset: 10px -10px -10px 10px; background: var(--ink); opacity: 0; transform: translate3d(0, 0, -20px); transition: opacity 260ms var(--ease-out); }
+.pricing-card:hover { z-index: 2; transform: translate3d(0, -10px, 22px) rotateX(2deg) rotateY(-2deg); box-shadow: 13px 15px 0 var(--ink); }
+.pricing-card:hover::after { opacity: .42; }
+.showcase-plan { background: var(--cream); }
+.commerce-plan { background: var(--orange); }
+.immersive-plan { color: var(--cream); background: var(--charcoal); }
+.pricing-card-top { position: relative; z-index: 1; display: flex; align-items: start; justify-content: space-between; font-family: "Space Grotesk", sans-serif; font-size: 10px; font-weight: 700; letter-spacing: .08em; }
+.price-stamp { display: grid; place-items: center; width: 32px; height: 32px; color: var(--ink); background: var(--lime); border-radius: 50%; font-size: 15px; letter-spacing: 0; }
+.price-lockup { position: relative; z-index: 1; display: flex; flex-direction: column; gap: 5px; margin-top: auto; }
+.price-lockup span { font-family: "Space Grotesk", sans-serif; font-size: 9px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; }
+.price-lockup strong { font-family: "Archivo Black", sans-serif; font-size: clamp(43px, 4.6vw, 67px); font-weight: 400; letter-spacing: -.08em; line-height: .85; }
+.pricing-card h3 { position: relative; z-index: 1; margin: 19px 0 13px; font-family: "Archivo Black", sans-serif; font-size: clamp(29px, 2.9vw, 42px); font-weight: 400; letter-spacing: -.07em; line-height: .9; }
+.pricing-card p { position: relative; z-index: 1; max-width: 310px; margin: 0; font-size: 14px; line-height: 1.45; }
+.immersive-plan p { color: rgba(244,240,232,.75); }
+.package-points { position: relative; z-index: 1; display: flex; flex-wrap: wrap; gap: 6px; margin-top: 18px; }
+.package-points span { padding: 5px 7px; border: 1px solid currentColor; font-family: "Space Grotesk", sans-serif; font-size: 8px; font-weight: 700; letter-spacing: .07em; text-transform: uppercase; }
+.plan-cta { position: relative; z-index: 1; display: inline-flex; align-items: center; gap: 7px; width: fit-content; margin-top: 21px; padding: 10px 12px; color: var(--cream); background: var(--ink); font-family: "Space Grotesk", sans-serif; font-size: 10px; font-weight: 700; letter-spacing: .05em; text-transform: uppercase; transform-style: preserve-3d; transition: transform 180ms var(--ease-out), background 180ms var(--ease-out); }
+.plan-cta::after { content: ""; position: absolute; inset: 4px -4px -4px 4px; z-index: -1; background: var(--orange); transition: transform 180ms var(--ease-out); }
+.plan-cta:hover { background: var(--orange); transform: translate3d(0, -4px, 8px) rotateX(4deg); }
+.plan-cta:hover::after { transform: translate3d(2px, 2px, -5px); }
+.pricing-footnote { display: flex; align-items: center; gap: 8px; margin-top: 23px; font-family: "Space Grotesk", sans-serif; font-size: 11px; font-weight: 700; }
+.pricing-footnote span { padding: 4px 6px; color: var(--cream); background: var(--ink); }
+
 /* Work With Us / Market Signal conversion route: each card acts like a retail counter sign. */
 .work-with-us-section { position: relative; padding: 0 4.2vw 95px; color: var(--cream); background: var(--ink); overflow: hidden; }
 .work-with-us-section::before { content: ""; position: absolute; right: -13vw; bottom: -23vw; width: 46vw; height: 46vw; border: 1px solid rgba(244,240,232,.17); border-radius: 50%; box-shadow: 0 0 0 34px rgba(255,90,54,.08), 0 0 0 68px rgba(213,230,104,.08); }
@@ -274,14 +306,14 @@ h1 em, h2 em { color: var(--orange); font-family: "Space Grotesk", sans-serif; f
 .work-with-us-heading h2 em { color: var(--lime); }
 .work-with-us-heading p { max-width: 330px; margin: 0 0 7px; color: rgba(244,240,232,.74); font-size: 16px; font-weight: 500; line-height: 1.5; }
 .enquiry-grid { display: grid; grid-template-columns: repeat(3, 1fr); border-top: 1px solid rgba(244,240,232,.46); border-left: 1px solid rgba(244,240,232,.46); }
-.enquiry-card { position: relative; min-height: 345px; display: flex; flex-direction: column; padding: 24px; color: var(--ink); border-right: 1px solid var(--ink); border-bottom: 1px solid var(--ink); transition: transform 200ms var(--ease-out), background 200ms var(--ease-out), color 200ms var(--ease-out); }
+.enquiry-card { position: relative; min-height: 345px; display: flex; flex-direction: column; padding: 24px; color: var(--ink); border-right: 1px solid var(--ink); border-bottom: 1px solid var(--ink); transform-style: preserve-3d; transition: transform 220ms var(--ease-out), background 220ms var(--ease-out), color 220ms var(--ease-out), box-shadow 220ms var(--ease-out); }
 .project-route { color: var(--cream); background: var(--charcoal); border-color: rgba(244,240,232,.46); }
 .pricing-route { background: var(--cream); }
 .partner-route { background: var(--orange); }
 .enquiry-card::before { content: ""; position: absolute; right: 21px; bottom: 21px; width: 66px; height: 66px; border: 1px solid currentColor; border-radius: 50%; opacity: .15; }
 .pricing-route::before { border-radius: 0; transform: rotate(45deg); }
 .partner-route::before { width: 79px; height: 79px; background: var(--lime); border: 0; opacity: .78; }
-.enquiry-card:hover { z-index: 2; color: var(--cream); background: var(--ink); transform: translateY(-8px); box-shadow: 9px 9px 0 var(--orange); }
+.enquiry-card:hover { z-index: 2; color: var(--cream); background: var(--ink); transform: translate3d(0, -9px, 18px) rotateX(2deg) rotateY(-2deg); box-shadow: 11px 13px 0 var(--orange); }
 .enquiry-card-top { position: relative; z-index: 1; display: flex; align-items: start; justify-content: space-between; font-family: "Space Grotesk", sans-serif; font-size: 10px; font-weight: 700; letter-spacing: .08em; }
 .route-count { display: grid; place-items: center; width: 29px; height: 29px; color: var(--cream); background: var(--ink); border-radius: 50%; font-size: 12px; letter-spacing: 0; }
 .enquiry-card h3 { position: relative; z-index: 1; margin: auto 0 13px; font-family: "Archivo Black", sans-serif; font-size: clamp(31px, 3.1vw, 46px); font-weight: 400; letter-spacing: -.07em; line-height: .9; }
@@ -294,6 +326,20 @@ h1 em, h2 em { color: var(--orange); font-family: "Space Grotesk", sans-serif; f
 .enquiry-link svg { transition: transform 160ms var(--ease-out); }
 .work-with-us-footnote { display: flex; align-items: center; justify-content: center; gap: 7px; margin-top: 25px; color: rgba(244,240,232,.72); font-family: "Space Grotesk", sans-serif; font-size: 11px; font-weight: 700; }
 .work-with-us-footnote span { color: var(--lime); }
+.brief-form-shell { position: relative; z-index: 1; display: grid; grid-template-columns: minmax(290px, .68fr) minmax(420px, 1.32fr); gap: 54px; max-width: 1150px; margin: 58px auto 0; padding: 42px; color: var(--ink); background: var(--cream); box-shadow: 12px 14px 0 var(--orange); }
+.brief-form-heading h3 { margin: 23px 0 17px; font-family: "Archivo Black", sans-serif; font-size: clamp(37px, 4vw, 56px); font-weight: 400; letter-spacing: -.075em; line-height: .89; }
+.brief-form-heading h3 em { color: var(--orange); }
+.brief-form-heading p { max-width: 295px; margin: 0; font-size: 15px; line-height: 1.5; }
+.project-brief-form { display: grid; grid-template-columns: 1fr 1fr; gap: 17px; align-content: start; }
+.project-brief-form label { display: grid; gap: 7px; font-family: "Space Grotesk", sans-serif; font-size: 10px; font-weight: 700; letter-spacing: .07em; text-transform: uppercase; }
+.project-brief-form input, .project-brief-form select, .project-brief-form textarea { width: 100%; min-height: 44px; padding: 10px 11px; color: var(--ink); background: transparent; border: 1px solid rgba(23,24,23,.5); border-radius: 0; outline: none; font-family: "DM Sans", sans-serif; font-size: 14px; font-weight: 500; letter-spacing: 0; text-transform: none; transition: border-color 160ms var(--ease-out), box-shadow 160ms var(--ease-out), transform 160ms var(--ease-out); }
+.project-brief-form textarea { resize: vertical; min-height: 102px; }
+.project-brief-form input:focus, .project-brief-form select:focus, .project-brief-form textarea:focus { border-color: var(--orange); box-shadow: 4px 4px 0 var(--orange); transform: translate(-2px, -2px); }
+.details-field { grid-column: 1 / -1; }
+.brief-submit { display: flex; align-items: center; justify-content: space-between; grid-column: 1 / -1; min-height: 52px; padding: 0 16px; color: var(--cream); background: var(--ink); border: 0; font-family: "Space Grotesk", sans-serif; font-size: 11px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; transform-style: preserve-3d; transition: transform 180ms var(--ease-out), background 180ms var(--ease-out), box-shadow 180ms var(--ease-out); }
+.brief-submit:hover { background: var(--orange); transform: translate3d(0, -4px, 8px) rotateX(3deg); box-shadow: 7px 8px 0 var(--ink); }
+.brief-submit:active { transform: scale(.98); }
+.brief-status { grid-column: 1 / -1; margin: 0; color: var(--orange); font-family: "Space Grotesk", sans-serif; font-size: 11px; font-weight: 700; }
 
 .case-study-section { position: relative; display: grid; grid-template-columns: minmax(370px, 1fr) minmax(380px, 1fr); align-items: center; gap: clamp(55px, 9vw, 150px); padding: 132px max(4.2vw, 28px) 112px; background: var(--cream); }
 .case-study-section::before { content: "AISLE 04 / IDENTITY"; position: absolute; top: 27px; left: 4.2vw; display: flex; align-items: center; min-height: 30px; padding: 0 10px 0 36px; color: var(--cream); background: var(--ink); font-family: "Space Grotesk", sans-serif; font-size: 9px; font-weight: 700; letter-spacing: .1em; }

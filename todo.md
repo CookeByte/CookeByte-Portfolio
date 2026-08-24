@@ -30,3 +30,11 @@
 - [x] Define the project, pricing, and dealership/partnership enquiry paths.
 - [x] Replace the identity showcase section with the new conversion-focused layout.
 - [x] Validate the contact, pricing, and partnership section on desktop and mobile before delivery.
+
+## Packages and On-Page Enquiry Form
+
+- [x] Define clear starting packages: basic shop showcase website at ₹10,000; e-commerce from ₹10,000; 3D website from ₹13,000, with scope-based flexibility noted.
+- [x] Add a visually distinct starting-package pricing section.
+- [x] Replace email enquiry links with an on-page form including project type and budget fields.
+- [x] Add refined 3D hover depth to Work With Us cards and form controls.
+- [x] Validate package cards, form states, and responsive behavior before delivery.
