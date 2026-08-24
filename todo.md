@@ -149,4 +149,4 @@
 - [x] Replace Manus-only image references with deployment-safe assets and preserve the existing visual direction.
 - [x] Repair the entrance scroll expansion for the live deployment by restoring its image asset from a Vercel-served public path.
 - [x] Validate the local build, public media responses, and repaired scroll entrance before redeployment.
-- [ ] Push the verified repair to CookeByte/CookeByte-Portfolio.
+- [x] Push the verified repair to CookeByte/CookeByte-Portfolio.
