@@ -3,12 +3,13 @@
  * Monocraft character shuffle and retail-signal progress strip used before the site becomes interactive.
  */
 import { useEffect, useRef, useState } from "react";
+import { Radio, Volume2, VolumeX } from "lucide-react";
 
 type LaunchLoaderProps = {
   onComplete: () => void;
 };
 
-const target = "SHOPFRONT STUDIO";
+const target = "COOKEBYTE";
 const characters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789/<>*+-";
 
 const randomCharacter = () => characters[Math.floor(Math.random() * characters.length)];
@@ -17,7 +18,38 @@ export default function LaunchLoader({ onComplete }: LaunchLoaderProps) {
   const [displayText, setDisplayText] = useState(() => target.split("").map((character) => (character === " " ? " " : randomCharacter())).join(""));
   const [progress, setProgress] = useState(0);
   const [leaving, setLeaving] = useState(false);
+  const [muted, setMuted] = useState(false);
+  const [audioBlocked, setAudioBlocked] = useState(false);
+  const audioRef = useRef<HTMLAudioElement>(null);
   const completed = useRef(false);
+
+  const playLaunchSound = async () => {
+    const audio = audioRef.current;
+    if (!audio || muted) return;
+    try {
+      audio.currentTime = 0;
+      await audio.play();
+      setAudioBlocked(false);
+    } catch {
+      setAudioBlocked(true);
+    }
+  };
+
+  const handleAudioToggle = () => {
+    const audio = audioRef.current;
+    if (!audio) return;
+    if (muted) {
+      setMuted(false);
+      void playLaunchSound();
+      return;
+    }
+    if (audioBlocked) {
+      void playLaunchSound();
+      return;
+    }
+    audio.pause();
+    setMuted(true);
+  };
 
   useEffect(() => {
     const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
@@ -27,15 +59,19 @@ export default function LaunchLoader({ onComplete }: LaunchLoaderProps) {
     let frame = 0;
     let exitTimer = 0;
 
+    void playLaunchSound();
+
     const animate = (time: number) => {
       const ratio = Math.min((time - start) / duration, 1);
       const eased = 1 - Math.pow(1 - ratio, 3);
       const resolvedCharacters = Math.floor(eased * target.length);
+      const unstableTail = Math.max(0, 0.31 - ratio) / 0.31;
 
       setProgress(eased);
       setDisplayText(target.split("").map((character, index) => {
         if (character === " ") return " ";
-        return index < resolvedCharacters ? character : randomCharacter();
+        const shouldGlitchResolvedCharacter = index < resolvedCharacters && Math.random() < unstableTail * 0.28;
+        return index < resolvedCharacters && !shouldGlitchResolvedCharacter ? character : randomCharacter();
       }).join(""));
 
       if (ratio < 1) {
@@ -61,17 +97,25 @@ export default function LaunchLoader({ onComplete }: LaunchLoaderProps) {
   }, [onComplete]);
 
   return (
-    <div className={`launch-loader${leaving ? " launch-loader--leaving" : ""}`} role="status" aria-live="polite" aria-label="Launching Shopfront Studio">
+    <div className={`launch-loader${leaving ? " launch-loader--leaving" : ""}`} role="status" aria-live="polite" aria-label="Launching CookeByte">
+      <audio ref={audioRef} src="/manus-storage/cookebyte-launch_173034d5.mp3" preload="auto" />
       <div className="launch-loader__rule" />
-      <div className="launch-loader__topline"><span>SHOPFRONT / SIGNAL BOOT</span><span>{String(Math.round(progress * 100)).padStart(3, "0")}%</span></div>
+      <div className="launch-loader__topline"><span>COOKEBYTE / SIGNAL BOOT</span><span>{String(Math.round(progress * 100)).padStart(3, "0")}%</span></div>
       <div className="launch-loader__center">
-        <span className="launch-loader__ticket">S</span>
-        <p className="launch-loader__kicker">LOCAL RETAIL / DIGITAL DISPLAY</p>
+        <span className="launch-loader__ticket">C</span>
+        <p className="launch-loader__kicker">RETAIL CREATIVE / DIGITAL DISPLAY</p>
         <h1 aria-label={target}>{displayText}</h1>
-        <p className="launch-loader__subline">BUILDING THE WINDOW</p>
+        <p className="launch-loader__subline">COMPILING THE WINDOW</p>
       </div>
       <div className="launch-loader__progress" aria-hidden="true"><span style={{ transform: `scaleX(${progress})` }} /></div>
-      <div className="launch-loader__footer"><span>01 / OPENING THE DISPLAY</span><span>EST. 2026</span></div>
+      <div className="launch-loader__footer">
+        <span>01 / OPENING THE DISPLAY</span>
+        <button type="button" className="launch-loader__sound" onClick={handleAudioToggle} aria-pressed={!muted} aria-label={muted ? "Enable launch sound" : "Mute launch sound"}>
+          {muted ? <VolumeX size={13} /> : audioBlocked ? <Radio size={13} /> : <Volume2 size={13} />}
+          {muted ? "SOUND OFF" : audioBlocked ? "TAP FOR SOUND" : "SOUND ON"}
+        </button>
+        <span>EST. 2026</span>
+      </div>
     </div>
   );
 }

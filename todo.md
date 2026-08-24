@@ -74,4 +74,11 @@
 ## Extended Launch Timing
 
 - [x] Extend the visible launch loader duration to at least three seconds while preserving the reduced-motion fallback.
-- [ ] Validate the longer loading sequence before delivery.
+- [x] Validate the longer loading sequence before delivery.
+
+## CookeByte Sound and Glitch Update
+
+- [x] Define the CookeByte loader identity, dynamic shuffle cadence, and audible fallback behavior: a rapid pixel-scramble resolves over the three-second launch, a short boot tone attempts to play at low volume, and the visible toggle lets visitors mute or explicitly start sound when autoplay is blocked.
+- [x] Create a short futuristic launch sound and add a visible mute control.
+- [x] Rename the loader interface to CookeByte and intensify its character scramble.
+- [x] Validate audio, mute control, reduced-motion behavior, and responsive presentation before delivery.
