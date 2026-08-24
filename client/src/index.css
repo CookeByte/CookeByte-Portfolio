@@ -132,6 +132,46 @@ h1 em, h2 em { color: var(--orange); font-family: "Space Grotesk", sans-serif; f
 .hero-3d-stage span { position: absolute; z-index: 2; top: 16px; left: 6px; padding: 5px 6px; color: var(--ink); background: var(--lime); font-family: "Space Grotesk", sans-serif; font-size: 9px; font-weight: 700; line-height: .98; letter-spacing: .05em; }
 .hero-3d-stage img { position: relative; z-index: 1; display: block; width: 100%; filter: drop-shadow(12px 13px 9px rgba(0,0,0,.35)); animation: float-3d 4.5s var(--ease-out) infinite alternate; }
 
+/* Scroll-led 3D retail display: a single physical shop-window scene, not floating stickers. */
+.scroll-hero-section { --scene-scale: 1; --scene-image-x: 0px; --scene-window-x: 0px; --scene-window-y: 0px; --rail-back-x: 0px; --rail-mid-x: 0px; --rail-front-y: 0px; --disc-y: 0px; --disc-turn: 0deg; --plinth-x: 0px; --copy-y: 0px; --copy-opacity: 1; --scene-veil: 0; --hint-opacity: 1; --hint-scale: 0; position: relative; height: 195vh; color: var(--cream); background: var(--cream); }
+.scroll-hero-stage { position: sticky; top: 0; height: 100vh; min-height: 640px; overflow: hidden; isolation: isolate; background: #10110f; perspective: 1400px; }
+.scroll-hero-stage .hero-rail { position: absolute; z-index: 7; inset: 0 auto 0 0; width: 67px; padding: 29px 0; }
+.retail-scene { position: absolute; inset: 0; z-index: 1; overflow: hidden; transform: scale(var(--scene-scale)); transform-origin: 72% 53%; }
+.retail-scene::before { content: ""; position: absolute; inset: 0; z-index: 2; background: linear-gradient(90deg, #10110f 0%, rgba(16,17,15,.96) 27%, rgba(16,17,15,.42) 55%, rgba(16,17,15,.05) 79%), linear-gradient(0deg, rgba(16,17,15,.66), transparent 44%); pointer-events: none; }
+.scene-atmosphere { position: absolute; inset: 0 -5vw 0 21%; z-index: 0; width: calc(100% + 5vw); height: 100%; object-fit: cover; object-position: 54% center; opacity: .82; filter: saturate(.92) contrast(1.08) brightness(.76); transform: translateX(var(--scene-image-x)) scale(1.06); }
+.scene-window-crop { position: absolute; z-index: 1; top: 11vh; right: 3.9vw; width: min(35vw, 515px); aspect-ratio: .82; overflow: hidden; border: 11px solid var(--ink); box-shadow: -18px 20px 0 rgba(0,0,0,.22), 0 0 0 1px rgba(244,240,232,.22); transform: translate3d(var(--scene-window-x), var(--scene-window-y), 65px) rotateY(-11deg) rotateZ(2deg); transform-style: preserve-3d; }
+.scene-window-crop::after { content: ""; position: absolute; inset: 0; background: linear-gradient(125deg, rgba(255,255,255,.25), transparent 26%, transparent 72%, rgba(255,90,54,.23)); mix-blend-mode: screen; }
+.scene-window-crop img { width: 100%; height: 100%; display: block; object-fit: cover; object-position: 60% center; filter: saturate(.95) contrast(1.08) brightness(.8); }
+.scene-rail { position: absolute; z-index: 3; display: block; height: 48px; background: linear-gradient(120deg, #ff784e, var(--orange) 46%, #b92f15); box-shadow: inset 0 2px 0 rgba(255,255,255,.22), inset 0 -7px 0 rgba(0,0,0,.16), 14px 15px 18px rgba(0,0,0,.32); transform-style: preserve-3d; }
+.scene-rail::after { content: ""; position: absolute; right: -18px; top: 5px; width: 20px; height: 43px; background: #943019; transform: skewY(36deg); transform-origin: left top; }
+.scene-rail-back { top: 20.5%; right: 12%; width: min(37vw, 505px); opacity: .82; transform: translate3d(var(--rail-back-x), -8px, 22px) rotateY(-18deg) rotateZ(-8deg); }
+.scene-rail-mid { top: 44%; right: 7%; width: min(31vw, 420px); height: 58px; transform: translate3d(var(--rail-mid-x), 0, 98px) rotateY(-12deg) rotateZ(11deg); }
+.scene-rail-front { bottom: 17.5%; right: 17%; width: min(28vw, 370px); height: 69px; transform: translate3d(0, var(--rail-front-y), 162px) rotateY(-8deg) rotateZ(-4deg); }
+.scene-disc { position: absolute; z-index: 5; right: 24%; top: 24%; width: clamp(118px, 12vw, 184px); aspect-ratio: 1; display: grid; place-items: center; color: var(--ink); background: radial-gradient(circle at 31% 26%, #f2ffa4, var(--lime) 48%, #9cac2f 100%); border: 10px solid rgba(244,240,232,.15); border-radius: 50%; box-shadow: inset -17px -18px 25px rgba(41,51,3,.22), 18px 25px 25px rgba(0,0,0,.37); transform: translate3d(0, var(--disc-y), 205px) rotateY(-20deg) rotateZ(var(--disc-turn)); }
+.scene-disc::after { content: ""; position: absolute; width: 75%; height: 16%; top: 18%; left: 13%; border-radius: 50%; background: rgba(255,255,255,.5); filter: blur(3px); transform: rotate(-23deg); }
+.scene-disc i { position: relative; z-index: 1; font-family: "Space Grotesk", sans-serif; font-size: clamp(11px, 1.25vw, 17px); font-style: normal; font-weight: 700; letter-spacing: .11em; transform: rotate(-10deg); }
+.scene-plinth { position: absolute; z-index: 4; right: 31%; bottom: 18%; width: min(25vw, 347px); height: clamp(70px, 8vw, 112px); background: linear-gradient(145deg, #fffaf0, #d4cfc6); box-shadow: inset 0 2px 0 white, 17px 22px 23px rgba(0,0,0,.35); transform: translate3d(var(--plinth-x), 0, 134px) skewX(-16deg) rotateX(7deg); }
+.scene-plinth::after { content: ""; position: absolute; left: 9%; right: 9%; bottom: -21px; height: 23px; background: #a59f96; transform: skewX(41deg); transform-origin: top; }
+.scene-pedestal { position: absolute; z-index: 6; right: 7%; bottom: -17vh; width: min(37vw, 520px); height: 36vh; background: linear-gradient(135deg, #30342f, #111210 76%); border: 1px solid rgba(244,240,232,.18); box-shadow: inset 2px 2px 0 rgba(255,255,255,.07), -30px -20px 38px rgba(0,0,0,.29); transform: translate3d(0, 0, 250px) rotateX(58deg) rotateZ(-10deg); transform-origin: bottom; }
+.scene-sheen { position: absolute; z-index: 6; inset: 0; background: radial-gradient(ellipse at 75% 22%, rgba(255,255,255,.15), transparent 29%), linear-gradient(120deg, transparent 42%, rgba(255,255,255,.08) 49%, transparent 55%); mix-blend-mode: screen; pointer-events: none; }
+.scroll-hero-copy { position: relative; z-index: 8; width: min(52vw, 640px); min-height: 100%; display: flex; flex-direction: column; justify-content: center; margin-left: clamp(96px, 11.5vw, 175px); padding: 80px 0 92px; opacity: var(--copy-opacity); transform: translateY(var(--copy-y)); will-change: transform, opacity; }
+.scroll-hero-copy h1 { max-width: 640px; margin: 25px 0; font-family: "Archivo Black", sans-serif; font-size: clamp(48px, 5.6vw, 93px); font-weight: 400; letter-spacing: -.072em; line-height: .89; }
+.scroll-hero-copy .hero-bottom-row { max-width: 450px; }
+.scene-system-tag { position: absolute; z-index: 8; top: 12vh; right: 4.2vw; display: flex; gap: 8px; align-items: center; color: var(--cream); font-family: "Space Grotesk", sans-serif; font-size: 9px; font-weight: 700; letter-spacing: .11em; }
+.scene-system-tag span { padding: 7px 9px; background: var(--ink); border: 1px solid rgba(244,240,232,.35); }
+.scene-system-tag strong { display: grid; place-items: center; width: 31px; height: 31px; color: var(--ink); background: var(--lime); border-radius: 50%; }
+.scene-scroll-cue { position: absolute; z-index: 8; left: 10.6vw; bottom: 33px; display: flex; align-items: center; gap: 9px; color: var(--cream); font-family: "Space Grotesk", sans-serif; font-size: 9px; font-weight: 700; letter-spacing: .14em; opacity: var(--hint-opacity); }
+.scene-scroll-cue i { display: block; width: 70px; height: 1px; overflow: hidden; background: rgba(244,240,232,.28); }
+.scene-scroll-cue b { display: block; height: 100%; width: 100%; background: var(--lime); transform: scaleX(var(--hint-scale)); transform-origin: left; }
+.scene-exit-veil { position: absolute; z-index: 9; inset: 0; background: linear-gradient(0deg, var(--cream), rgba(244,240,232,.42) 57%, transparent); opacity: var(--scene-veil); pointer-events: none; }
+.scroll-beat { position: absolute; z-index: 12; width: min(29vw, 380px); padding: 15px 17px 17px 50px; border-top: 2px solid currentColor; font-family: "Space Grotesk", sans-serif; pointer-events: none; }
+.scroll-beat::before { content: ""; position: absolute; left: 16px; top: 15px; width: 20px; height: 20px; background: url('/manus-storage/shopfront-logo_1518a960.png') center / contain no-repeat; }
+.scroll-beat span { display: block; margin-bottom: 9px; font-size: 9px; font-weight: 700; letter-spacing: .1em; }
+.scroll-beat strong { display: block; font-family: "Archivo Black", sans-serif; font-size: clamp(20px, 2vw, 31px); font-weight: 400; letter-spacing: -.06em; line-height: .92; }
+.beat-one { top: 106vh; left: max(95px, 10vw); color: var(--lime); background: rgba(16,17,15,.78); box-shadow: 8px 9px 0 rgba(0,0,0,.2); }
+.beat-two { top: 145vh; right: max(40px, 7vw); color: var(--cream); background: rgba(16,17,15,.9); box-shadow: -8px 9px 0 rgba(255,90,54,.68); }
+.beat-three { top: 175vh; left: max(95px, 16vw); color: var(--ink); background: var(--cream); box-shadow: 10px 11px 0 var(--orange); }
+
 .ticker { overflow: hidden; padding: 18px 0; color: var(--ink); background: var(--lime); border-top: 1px solid var(--ink); border-bottom: 1px solid var(--ink); }
 .ticker-track { width: max-content; display: flex; align-items: center; gap: 26px; font-family: "Archivo Black", sans-serif; font-size: clamp(18px, 2vw, 29px); letter-spacing: -.04em; animation: ticker 24s linear infinite; }
 .ticker-track i { color: var(--orange); font-family: Georgia, serif; font-weight: 400; }
@@ -268,6 +308,26 @@ h1 em, h2 em { color: var(--orange); font-family: "Space Grotesk", sans-serif; f
   .mobile-nav a { display: flex; align-items: center; justify-content: space-between; padding: 15px 0; border-bottom: 1px solid rgba(244,240,232,.18); font-family: "Archivo Black", sans-serif; font-size: 23px; letter-spacing: -.04em; }
   .mobile-nav a:last-child { border: 0; color: var(--lime); }
   .hero-section { grid-template-columns: 44px minmax(0, 1fr); grid-template-rows: auto 325px; min-height: 0; }
+  .scroll-hero-section { height: 170vh; }
+  .scroll-hero-stage { min-height: 0; }
+  .scroll-hero-stage .hero-rail { width: 44px; }
+  .scroll-hero-copy { width: auto; margin-left: 44px; padding: 64px 8vw 82px; }
+  .scroll-hero-copy h1 { font-size: clamp(44px, 9.8vw, 68px); }
+  .scene-window-crop { top: 51%; right: 5.6vw; width: min(48vw, 355px); }
+  .scene-rail-back { top: 46%; right: 4%; width: 48vw; }
+  .scene-rail-mid { top: 60%; right: -6%; width: 43vw; }
+  .scene-rail-front { bottom: 6%; right: 17%; width: 42vw; }
+  .scene-disc { right: 12%; top: 44%; }
+  .scene-plinth { right: 22%; bottom: 9%; width: 42vw; }
+  .scene-pedestal { right: -11%; bottom: -8vh; width: 73vw; }
+  .scene-system-tag { top: auto; right: 5.6vw; bottom: 23px; }
+  .scene-scroll-cue { left: 15.5vw; bottom: 27px; }
+  .scroll-beat { width: min(74vw, 330px); padding: 12px 13px 14px 43px; }
+  .scroll-beat::before { left: 13px; top: 13px; width: 18px; height: 18px; }
+  .scroll-beat strong { font-size: 23px; }
+  .beat-one { top: 103vh; left: 13vw; }
+  .beat-two { top: 132vh; right: 8vw; }
+  .beat-three { top: 156vh; left: 15vw; }
   .hero-rail { padding: 21px 0; grid-row: span 2; }
   .hero-content { min-height: 480px; padding: 64px 8vw 44px; }
   .hero-image-wrap { grid-column: 2; min-height: 325px; }
@@ -312,6 +372,28 @@ h1 em, h2 em { color: var(--orange); font-family: "Space Grotesk", sans-serif; f
   .brand-lockup { font-size: 11px; }
   .brand-lockup img { width: 32px; height: 32px; }
   .hero-section { grid-template-columns: 34px minmax(0, 1fr); }
+  .scroll-hero-section { height: 160vh; }
+  .scroll-hero-stage .hero-rail { width: 34px; }
+  .scroll-hero-copy { margin-left: 34px; padding: 50px 7vw 62px; }
+  .scroll-hero-copy h1 { margin: 19px 0 17px; font-size: clamp(42px, 13vw, 57px); }
+  .scene-window-crop { top: 54%; right: 3vw; width: 53vw; border-width: 7px; }
+  .scene-rail { height: 31px; }
+  .scene-rail::after { right: -12px; top: 4px; width: 13px; height: 28px; }
+  .scene-rail-back { top: 49%; right: -3%; width: 54vw; }
+  .scene-rail-mid { top: 62%; right: -8%; width: 48vw; height: 38px; }
+  .scene-rail-front { bottom: 9%; right: 9%; width: 49vw; height: 43px; }
+  .scene-disc { top: 46%; right: 8%; width: 97px; border-width: 6px; }
+  .scene-disc i { font-size: 9px; }
+  .scene-plinth { right: 14%; bottom: 12%; height: 58px; }
+  .scene-system-tag { right: 4vw; bottom: 17px; transform: scale(.82); transform-origin: bottom right; }
+  .scene-scroll-cue { left: 12vw; bottom: 21px; font-size: 7px; }
+  .scroll-beat { width: 76vw; padding: 10px 12px 12px 37px; }
+  .scroll-beat::before { left: 11px; top: 11px; width: 15px; height: 15px; }
+  .scroll-beat span { margin-bottom: 6px; font-size: 7px; }
+  .scroll-beat strong { font-size: 19px; }
+  .beat-one { top: 101vh; left: 10vw; }
+  .beat-two { top: 127vh; right: 7vw; }
+  .beat-three { top: 149vh; left: 12vw; }
   .hero-content { min-height: 430px; padding: 50px 7vw 36px; }
   .eyebrow, .intro-label { font-size: 9px; }
   .hero-content h1 { margin: 19px 0 17px; font-size: clamp(42px, 13vw, 57px); }

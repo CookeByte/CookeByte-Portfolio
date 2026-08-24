@@ -3,7 +3,7 @@
  * Swiss retail wayfinding meets contemporary editorial art direction.
  * Use ink, counter cream, and signal tangerine; preserve the asymmetric aisle-map rhythm.
  */
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import {
   ArrowDownRight,
   ArrowRight,
@@ -50,8 +50,54 @@ const process = [
 
 export default function Home() {
   const [menuOpen, setMenuOpen] = useState(false);
+  const heroSceneRef = useRef<HTMLElement>(null);
 
   const closeMenu = () => setMenuOpen(false);
+
+  useEffect(() => {
+    const section = heroSceneRef.current;
+    if (!section) return;
+
+    let frame = 0;
+    const clamp = (value: number) => Math.min(1, Math.max(0, value));
+
+    const paintScene = () => {
+      frame = 0;
+      const rect = section.getBoundingClientRect();
+      const range = Math.max(1, section.offsetHeight - window.innerHeight);
+      const progress = clamp(-rect.top / range);
+      const eased = progress * progress * (3 - 2 * progress);
+
+      section.style.setProperty("--scene-scale", `${1 + eased * 0.1}`);
+      section.style.setProperty("--scene-image-x", `${eased * -42}px`);
+      section.style.setProperty("--scene-window-x", `${eased * -86}px`);
+      section.style.setProperty("--scene-window-y", `${eased * -30}px`);
+      section.style.setProperty("--rail-back-x", `${eased * 78}px`);
+      section.style.setProperty("--rail-mid-x", `${eased * -52}px`);
+      section.style.setProperty("--rail-front-y", `${eased * -83}px`);
+      section.style.setProperty("--disc-y", `${eased * -66}px`);
+      section.style.setProperty("--disc-turn", `${eased * 22}deg`);
+      section.style.setProperty("--plinth-x", `${eased * 62}px`);
+      section.style.setProperty("--copy-y", `${eased * -28}px`);
+      section.style.setProperty("--copy-opacity", `${1 - eased * 0.16}`);
+      section.style.setProperty("--scene-veil", `${eased * 0.58}`);
+      section.style.setProperty("--hint-opacity", `${1 - progress * 3.3}`);
+      section.style.setProperty("--hint-scale", `${Math.min(1, progress * 2.2)}`);
+    };
+
+    const schedulePaint = () => {
+      if (!frame) frame = window.requestAnimationFrame(paintScene);
+    };
+
+    paintScene();
+    window.addEventListener("scroll", schedulePaint, { passive: true });
+    window.addEventListener("resize", schedulePaint);
+    return () => {
+      window.removeEventListener("scroll", schedulePaint);
+      window.removeEventListener("resize", schedulePaint);
+      if (frame) window.cancelAnimationFrame(frame);
+    };
+  }, []);
 
   return (
     <div className="site-shell">
@@ -95,12 +141,26 @@ export default function Home() {
       </header>
 
       <main id="top">
-        <section className="hero-section" aria-labelledby="hero-title">
+        <section ref={heroSceneRef} className="scroll-hero-section" aria-labelledby="hero-title">
+          <div className="scroll-hero-stage">
           <div className="hero-rail" aria-hidden="true">
-            <span>SCROLL TO STOCK UP</span>
+            <span>SCROLL THE DISPLAY</span>
             <ArrowDownRight size={19} />
           </div>
-          <div className="hero-content">
+          <div className="retail-scene" aria-hidden="true">
+            <img className="scene-atmosphere" src="/manus-storage/shopfront-3d-window-keyframe_a6906135.jpg" alt="" />
+            <div className="scene-window-crop">
+              <img src="/manus-storage/shopfront-hero_9ab16615.jpg" alt="" />
+            </div>
+            <span className="scene-rail scene-rail-back" />
+            <span className="scene-rail scene-rail-mid" />
+            <span className="scene-rail scene-rail-front" />
+            <span className="scene-disc"><i>OPEN</i></span>
+            <span className="scene-plinth" />
+            <span className="scene-pedestal" />
+            <span className="scene-sheen" />
+          </div>
+          <div className="scroll-hero-copy">
             <div className="eyebrow eyebrow-light"><span className="eyebrow-dot" /> Digital creative for local retail</div>
             <h1 id="hero-title">
               Your best<br />
@@ -114,20 +174,27 @@ export default function Home() {
               </a>
             </div>
           </div>
-          <div className="hero-image-wrap">
-            <img
-              className="hero-image"
-              src="/manus-storage/shopfront-hero_9ab16615.jpg"
-              alt="A warm local market storefront with citrus displays and abstract orange window markers"
-            />
-            <div className="hero-ticket">
-              <span>OPEN<br />FOR BUSINESS</span>
-              <div className="ticket-mark">✳</div>
-            </div>
-            <div className="hero-3d-stage" aria-hidden="true">
-              <span>3D<br />SIGNAL</span>
-              <img src="/manus-storage/shopfront-3d-hero_e50aacac.png" alt="" />
-            </div>
+          <div className="scene-system-tag" aria-hidden="true">
+            <span>DISPLAY SYSTEM</span>
+            <strong>01</strong>
+          </div>
+          <div className="scene-scroll-cue" aria-hidden="true">
+            <span>ENTER THE WINDOW</span>
+            <i><b /></i>
+          </div>
+          <div className="scene-exit-veil" aria-hidden="true" />
+          </div>
+          <div className="scroll-beat beat-one" aria-hidden="true">
+            <span>01 / PULL THE STREET IN</span>
+            <strong>Shop-window thinking,<br />built for the scroll.</strong>
+          </div>
+          <div className="scroll-beat beat-two" aria-hidden="true">
+            <span>02 / SET THE OFFER</span>
+            <strong>Every layer earns<br />its place in the display.</strong>
+          </div>
+          <div className="scroll-beat beat-three" aria-hidden="true">
+            <span>03 / TAKE IT WITH YOU</span>
+            <strong>Now the story<br />hits the street.</strong>
           </div>
         </section>
 
@@ -210,10 +277,6 @@ export default function Home() {
               <h3>Design &<br />video editing.</h3>
               <p>This is the role that finds the campaign look, directs the visual rhythm, and cuts the moving pieces that make people pause and notice.</p>
               <div className="role-tags"><span>Art direction</span><span>Campaign design</span><span>Video edits</span></div>
-              <div className="team-3d-stage" aria-hidden="true">
-                <span>MAKE<br />IT MOVE</span>
-                <img src="/manus-storage/shopfront-3d-team_d8c4789b.png" alt="" />
-              </div>
             </article>
           </div>
           <p className="team-connector"><span>Two disciplines, one clear point of contact.</span><ArrowRight size={18} /></p>
