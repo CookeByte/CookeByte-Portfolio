@@ -25,7 +25,7 @@ export function SiteSoundProvider({ children }: { children: ReactNode }) {
   const toggleSound = useCallback(() => setSoundEnabled(!soundEnabled), [setSoundEnabled, soundEnabled]);
 
   useEffect(() => {
-    const soundscape = new Audio("/manus-storage/cookebyte-launch_173034d5.mp3");
+    const soundscape = new Audio("/media/cookebyte-launch_173034d5.mp3");
     soundscape.loop = true;
     soundscape.volume = 0.11;
     soundscape.preload = "auto";

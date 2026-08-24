@@ -10,7 +10,7 @@
 /* Market Signal typography: Monocraft carries the pixel-forward retail signage and control layer. */
 @font-face {
   font-family: "Monocraft";
-  src: url("/manus-storage/Monocraft_d1ca0832.ttf") format("truetype");
+  src: url("/media/Monocraft_d1ca0832.ttf") format("truetype");
   font-weight: 400;
   font-style: normal;
   font-display: swap;
@@ -122,7 +122,7 @@ button { font: inherit; }
 .hero-rail span { font-family: "Space Grotesk", sans-serif; font-size: 9px; font-weight: 700; letter-spacing: .14em; writing-mode: vertical-rl; transform: rotate(180deg); }
 .hero-content { position: relative; display: flex; flex-direction: column; justify-content: center; padding: 82px 5.8vw 62px; }
 .eyebrow, .intro-label { display: flex; align-items: center; gap: 9px; font-family: "Space Grotesk", sans-serif; font-size: 10px; font-weight: 700; letter-spacing: .11em; text-transform: uppercase; }
-.intro-label::before { content: ""; width: 16px; height: 16px; flex: 0 0 16px; display: inline-block; background: url('/manus-storage/shopfront-logo_1518a960.png') center / contain no-repeat; }
+.intro-label::before { content: ""; width: 16px; height: 16px; flex: 0 0 16px; display: inline-block; background: url('/media/shopfront-logo_1518a960.png') center / contain no-repeat; }
 .eyebrow-dot { width: 8px; height: 8px; display: inline-block; background: var(--orange); border-radius: 50%; }
 .eyebrow-light { color: var(--cream); }
 .hero-content h1, .service-heading h2, .feature-copy h2, .team-heading h2, .case-study-copy h2, .method-top h2, .contact-copy h2 { margin: 25px 0; font-family: "Archivo Black", sans-serif; font-size: clamp(46px, 5.25vw, 89px); font-weight: 400; letter-spacing: -.072em; line-height: .89; }
@@ -174,7 +174,7 @@ h1 em, h2 em { color: var(--orange); font-family: "Space Grotesk", sans-serif; f
 .scene-scroll-cue b { display: block; height: 100%; width: 100%; background: var(--lime); transform: scaleX(var(--hint-scale)); transform-origin: left; }
 .scene-exit-veil { position: absolute; z-index: 9; inset: 0; background: linear-gradient(0deg, var(--cream), rgba(244,240,232,.42) 57%, transparent); opacity: var(--scene-veil); pointer-events: none; }
 .scroll-beat { position: absolute; z-index: 12; width: min(29vw, 380px); padding: 15px 17px 17px 50px; border-top: 2px solid currentColor; font-family: "Space Grotesk", sans-serif; pointer-events: none; }
-.scroll-beat::before { content: ""; position: absolute; left: 16px; top: 15px; width: 20px; height: 20px; background: url('/manus-storage/shopfront-logo_1518a960.png') center / contain no-repeat; }
+.scroll-beat::before { content: ""; position: absolute; left: 16px; top: 15px; width: 20px; height: 20px; background: url('/media/shopfront-logo_1518a960.png') center / contain no-repeat; }
 .scroll-beat span { display: block; margin-bottom: 9px; font-size: 9px; font-weight: 700; letter-spacing: .1em; }
 .scroll-beat strong { display: block; font-family: "Archivo Black", sans-serif; font-size: clamp(20px, 2vw, 31px); font-weight: 400; letter-spacing: -.06em; line-height: .92; }
 .beat-one { top: 106vh; left: max(95px, 10vw); color: var(--lime); background: rgba(16,17,15,.78); box-shadow: 8px 9px 0 rgba(0,0,0,.2); }
@@ -201,7 +201,7 @@ h1 em, h2 em { color: var(--orange); font-family: "Space Grotesk", sans-serif; f
 .feature-panel { position: relative; display: grid; grid-template-columns: minmax(300px, .94fr) minmax(350px, 1.06fr); max-width: 1150px; margin: 0 auto; background: var(--ink); color: var(--cream); }
 .feature-panel--text { display: block; max-width: none; min-height: 465px; overflow: hidden; }
 .feature-panel--text::before { content: ""; position: absolute; inset: 0 0 0 54%; opacity: .7; background: linear-gradient(135deg, transparent 0 35%, rgba(255,90,54,.7) 35.2% 39%, transparent 39.2% 100%), repeating-linear-gradient(90deg, rgba(244,240,232,.14) 0 1px, transparent 1px 76px); }
-.feature-panel--text::after { content: ""; position: absolute; right: 8vw; bottom: 31px; width: 70px; height: 70px; background: var(--lime) url('/manus-storage/shopfront-logo_1518a960.png') center / 54% no-repeat; border-radius: 50%; box-shadow: -12px 12px 0 var(--orange); transform: rotate(-12deg); }
+.feature-panel--text::after { content: ""; position: absolute; right: 8vw; bottom: 31px; width: 70px; height: 70px; background: var(--lime) url('/media/shopfront-logo_1518a960.png') center / 54% no-repeat; border-radius: 50%; box-shadow: -12px 12px 0 var(--orange); transform: rotate(-12deg); }
 .feature-image-frame { position: relative; min-height: 535px; overflow: hidden; border-right: 1px solid rgba(244,240,232,.22); }
 .feature-image-frame img { display: block; width: 100%; height: 100%; object-fit: cover; filter: saturate(.9); }
 .feature-image-frame::after { content: ""; position: absolute; inset: 0; background: linear-gradient(0deg, rgba(23,24,23,.47), transparent 44%); }
@@ -209,7 +209,7 @@ h1 em, h2 em { color: var(--orange); font-family: "Space Grotesk", sans-serif; f
 .feature-copy { display: flex; flex-direction: column; justify-content: center; padding: 56px 6vw; }
 .feature-panel--text .feature-copy { position: relative; z-index: 1; max-width: 1150px; min-height: 465px; margin: 0 auto; padding: 76px min(47vw, 540px) 76px 8.5vw; }
 .feature-counter { display: flex; align-items: center; gap: 12px; color: var(--lime); font-family: "Space Grotesk", sans-serif; font-size: 11px; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; }
-.feature-counter::before { content: ""; width: 17px; height: 17px; display: inline-block; background: url('/manus-storage/shopfront-logo_1518a960.png') center / contain no-repeat; }
+.feature-counter::before { content: ""; width: 17px; height: 17px; display: inline-block; background: url('/media/shopfront-logo_1518a960.png') center / contain no-repeat; }
 .feature-copy h2 { margin: 30px 0 20px; font-size: clamp(42px, 4.5vw, 72px); }
 .feature-copy p { max-width: 340px; margin: 0; color: rgba(244,240,232,.75); font-size: 15px; line-height: 1.55; }
 .feature-tags { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 34px; }
@@ -226,7 +226,7 @@ h1 em, h2 em { color: var(--orange); font-family: "Space Grotesk", sans-serif; f
 }
 
 .services-section { position: relative; padding: 109px 4.2vw 78px; color: var(--cream); background: var(--orange); }
-.services-section::before { content: ""; position: absolute; inset: 0; opacity: .3; pointer-events: none; background: url('/manus-storage/shopfront-texture_60b31686.jpg') center/cover; mix-blend-mode: multiply; }
+.services-section::before { content: ""; position: absolute; inset: 0; opacity: .3; pointer-events: none; background: url('/media/shopfront-texture_60b31686.jpg') center/cover; mix-blend-mode: multiply; }
 .service-heading, .service-list, .service-footnote { position: relative; z-index: 1; }
 .light-label { color: var(--cream); }
 .service-heading { display: grid; grid-template-columns: 1fr auto; gap: 35px; align-items: end; max-width: 1150px; margin: 0 auto 56px; }
@@ -619,7 +619,7 @@ h1 em, h2 em { color: var(--orange); font-family: "Space Grotesk", sans-serif; f
 
 .case-study-section { position: relative; display: grid; grid-template-columns: minmax(370px, 1fr) minmax(380px, 1fr); align-items: center; gap: clamp(55px, 9vw, 150px); padding: 132px max(4.2vw, 28px) 112px; background: var(--cream); }
 .case-study-section::before { content: "AISLE 04 / IDENTITY"; position: absolute; top: 27px; left: 4.2vw; display: flex; align-items: center; min-height: 30px; padding: 0 10px 0 36px; color: var(--cream); background: var(--ink); font-family: "Space Grotesk", sans-serif; font-size: 9px; font-weight: 700; letter-spacing: .1em; }
-.case-study-section::after { content: ""; position: absolute; top: 32px; left: calc(4.2vw + 10px); width: 18px; height: 18px; background: url('/manus-storage/shopfront-logo_1518a960.png') center / contain no-repeat; }
+.case-study-section::after { content: ""; position: absolute; top: 32px; left: calc(4.2vw + 10px); width: 18px; height: 18px; background: url('/media/shopfront-logo_1518a960.png') center / contain no-repeat; }
 .case-study-visual { position: relative; max-width: 530px; margin-left: auto; }
 .window-crop { position: relative; padding: 14px; background: var(--orange); box-shadow: 14px 14px 0 var(--ink); }
 .window-crop::before { content: ""; position: absolute; z-index: 1; top: 14px; left: 14px; width: 34%; height: 26%; border-right: 14px solid var(--orange); border-bottom: 14px solid var(--orange); }

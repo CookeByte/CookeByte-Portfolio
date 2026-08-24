@@ -258,7 +258,7 @@ export default function Home() {
       </header>
 
       <main>
-        {siteReady && <ScrollExpand src="/manus-storage/cookebyte-entrance-retail-creative_e936c541.jpg" alt="CookeByte digital retail creative installation" title="SCROLL TO COOK"><p>WEBSITES / CAMPAIGNS / VIDEO / IDENTITY</p><strong>SCROLL TO ENTER</strong></ScrollExpand>}
+        {siteReady && <ScrollExpand src="/media/cookebyte-entrance-retail-creative_e936c541.jpg" alt="CookeByte digital retail creative installation" title="SCROLL TO COOK"><p>WEBSITES / CAMPAIGNS / VIDEO / IDENTITY</p><strong>SCROLL TO ENTER</strong></ScrollExpand>}
         <section ref={heroSceneRef} className="scroll-hero-section" aria-labelledby="hero-title">
           <div className="scroll-hero-stage">
           <div className="hero-rail" aria-hidden="true">
@@ -266,9 +266,9 @@ export default function Home() {
             <ArrowDownRight size={19} />
           </div>
           <div className="retail-scene" aria-hidden="true">
-            <img className="scene-atmosphere" src="/manus-storage/shopfront-3d-window-keyframe_a6906135.jpg" alt="" />
+            <img className="scene-atmosphere" src="/media/shopfront-3d-window-keyframe_a6906135.jpg" alt="" />
             <div className="scene-window-crop">
-              <img src="/manus-storage/shopfront-hero_9ab16615.jpg" alt="" />
+              <img src="/media/shopfront-hero_9ab16615.jpg" alt="" />
             </div>
             <span className="scene-rail scene-rail-back" />
             <span className="scene-rail scene-rail-mid" />
@@ -374,7 +374,7 @@ export default function Home() {
               handle="benitto.builds"
               status="Building live"
               skills={["Game Dev", "Web Dev", "AI LLMs"]}
-              imageUrl="/manus-storage/shopfront-work_afd5a85a.jpg"
+              imageUrl="/media/shopfront-work_afd5a85a.jpg"
               imageAlt="Temporary retail storefront image for Benitto Joshua"
               accent="#d5e668"
               theme="ink"
@@ -386,7 +386,7 @@ export default function Home() {
               handle="abisheik.edits"
               status="Cutting fresh"
               skills={["Video Editor", "Web Designer", "Photoshop Designer"]}
-              imageUrl="/manus-storage/shopfront-campaign_ec6714db.jpg"
+              imageUrl="/media/shopfront-campaign_ec6714db.jpg"
               imageAlt="Temporary retail campaign image for Abisheik"
               accent="#ff5a36"
               theme="cream"

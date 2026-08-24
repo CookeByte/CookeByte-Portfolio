@@ -142,3 +142,11 @@
 - [x] Validate the build and static SPA routing configuration locally.
 - [x] Push the Vercel repair to CookeByte/CookeByte-Portfolio.
 - [x] Confirm the Vercel redeploy completed automatically and now serves the CookeByte application.
+
+## Live Vercel Asset and Entrance Repair
+
+- [x] Inspect the live Vercel page, console, and network responses for failed images and entrance behavior: the SPA rewrite returned HTML for every `/manus-storage` image request.
+- [x] Replace Manus-only image references with deployment-safe assets and preserve the existing visual direction.
+- [x] Repair the entrance scroll expansion for the live deployment by restoring its image asset from a Vercel-served public path.
+- [x] Validate the local build, public media responses, and repaired scroll entrance before redeployment.
+- [ ] Push the verified repair to CookeByte/CookeByte-Portfolio.
