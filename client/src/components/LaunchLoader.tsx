@@ -4,6 +4,7 @@
  */
 import { useEffect, useRef, useState } from "react";
 import { Radio, Volume2, VolumeX } from "lucide-react";
+import { useSiteSound } from "@/contexts/SiteSoundContext";
 
 type LaunchLoaderProps = {
   onComplete: () => void;
@@ -18,14 +19,14 @@ export default function LaunchLoader({ onComplete }: LaunchLoaderProps) {
   const [displayText, setDisplayText] = useState(() => target.split("").map((character) => (character === " " ? " " : randomCharacter())).join(""));
   const [progress, setProgress] = useState(0);
   const [leaving, setLeaving] = useState(false);
-  const [muted, setMuted] = useState(false);
   const [audioBlocked, setAudioBlocked] = useState(false);
   const audioRef = useRef<HTMLAudioElement>(null);
   const completed = useRef(false);
+  const { soundEnabled, setSoundEnabled } = useSiteSound();
 
   const playLaunchSound = async () => {
     const audio = audioRef.current;
-    if (!audio || muted) return;
+    if (!audio || !soundEnabled) return;
     try {
       audio.currentTime = 0;
       await audio.play();
@@ -38,8 +39,8 @@ export default function LaunchLoader({ onComplete }: LaunchLoaderProps) {
   const handleAudioToggle = () => {
     const audio = audioRef.current;
     if (!audio) return;
-    if (muted) {
-      setMuted(false);
+    if (!soundEnabled) {
+      setSoundEnabled(true);
       void playLaunchSound();
       return;
     }
@@ -48,7 +49,7 @@ export default function LaunchLoader({ onComplete }: LaunchLoaderProps) {
       return;
     }
     audio.pause();
-    setMuted(true);
+    setSoundEnabled(false);
   };
 
   useEffect(() => {
@@ -110,9 +111,9 @@ export default function LaunchLoader({ onComplete }: LaunchLoaderProps) {
       <div className="launch-loader__progress" aria-hidden="true"><span style={{ transform: `scaleX(${progress})` }} /></div>
       <div className="launch-loader__footer">
         <span>01 / OPENING THE DISPLAY</span>
-        <button type="button" className="launch-loader__sound" onClick={handleAudioToggle} aria-pressed={!muted} aria-label={muted ? "Enable launch sound" : "Mute launch sound"}>
-          {muted ? <VolumeX size={13} /> : audioBlocked ? <Radio size={13} /> : <Volume2 size={13} />}
-          {muted ? "SOUND OFF" : audioBlocked ? "TAP FOR SOUND" : "SOUND ON"}
+        <button type="button" className="launch-loader__sound" onClick={handleAudioToggle} aria-pressed={soundEnabled} aria-label={!soundEnabled ? "Enable launch sound" : "Mute launch sound"}>
+          {!soundEnabled ? <VolumeX size={13} /> : audioBlocked ? <Radio size={13} /> : <Volume2 size={13} />}
+          {!soundEnabled ? "SOUND OFF" : audioBlocked ? "TAP FOR SOUND" : "SOUND ON"}
         </button>
         <span>EST. 2026</span>
       </div>

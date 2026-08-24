@@ -11,10 +11,13 @@ import {
   Menu,
   MoveUpRight,
   Sparkles,
+  Volume2,
+  VolumeX,
   X,
 } from "lucide-react";
 import InteractiveSkillCard from "@/components/InteractiveSkillCard";
 import LaunchLoader from "@/components/LaunchLoader";
+import { useSiteSound } from "@/contexts/SiteSoundContext";
 
 const services = [
   {
@@ -87,6 +90,7 @@ export default function Home() {
   const [siteReady, setSiteReady] = useState(false);
   const [briefStatus, setBriefStatus] = useState("");
   const [privatePanel, setPrivatePanel] = useState<"pricing" | "brief" | null>(null);
+  const { soundEnabled, toggleSound } = useSiteSound();
   const heroSceneRef = useRef<HTMLElement>(null);
   const teamSectionRef = useRef<HTMLElement>(null);
 
@@ -103,7 +107,7 @@ export default function Home() {
     event.preventDefault();
     const values = new FormData(event.currentTarget);
     const projectType = String(values.get("projectType") || "Project enquiry");
-    const subject = `Shopfront Studio enquiry — ${projectType}`;
+    const subject = `CookeByte enquiry — ${projectType}`;
     const body = [
       `Name: ${values.get("name") || "Not supplied"}`,
       `Business: ${values.get("business") || "Not supplied"}`,
@@ -218,9 +222,9 @@ export default function Home() {
       {!siteReady && <LaunchLoader onComplete={() => setSiteReady(true)} />}
       <div className="top-rule" />
       <header className="site-header">
-        <a className="brand-lockup" href="#top" aria-label="Shopfront Studio home" onClick={closeMenu}>
-          <img src="/manus-storage/shopfront-logo_1518a960.png" alt="Shopfront Studio symbol" />
-          <span>SHOPFRONT<br />STUDIO</span>
+        <a className="brand-lockup" href="#top" aria-label="CookeByte home" onClick={closeMenu}>
+          <span className="cookebyte-sigil" aria-hidden="true">C</span>
+          <span className="cookebyte-wordmark">COOKE<b>BYTE</b><small>CREATIVE SYSTEMS</small></span>
         </a>
 
         <nav className="desktop-nav" aria-label="Primary navigation">
@@ -234,6 +238,9 @@ export default function Home() {
         <a className="header-cta mono-glitch" href="#contact">
           Let&apos;s talk <ArrowUpRightIcon />
         </a>
+        <button type="button" className="header-sound-toggle mono-glitch" onClick={toggleSound} aria-pressed={soundEnabled} aria-label={soundEnabled ? "Mute site sounds" : "Enable site sounds"}>
+          {soundEnabled ? <Volume2 size={14} /> : <VolumeX size={14} />}<span>{soundEnabled ? "SOUND" : "MUTED"}</span>
+        </button>
 
         <button
           className="menu-button"
@@ -324,7 +331,7 @@ export default function Home() {
         </section>
 
         <section className="feature-panel feature-panel--text" id="work" aria-labelledby="feature-title">
-          <span className="feature-stamp" aria-hidden="true">S</span>
+          <span className="feature-stamp" aria-hidden="true">C</span>
           <div className="feature-copy">
             <div className="feature-counter"><span>01</span><span>—</span><span>Featured system</span></div>
             <h2 id="feature-title">Give every<br /><em>offer</em> a point<br />of view.</h2>
@@ -336,7 +343,7 @@ export default function Home() {
         </section>
 
         <section className="services-section" id="scope">
-          <span className="section-ticket services-ticket" aria-hidden="true">S</span>
+          <span className="section-ticket services-ticket" aria-hidden="true">C</span>
           <div className="service-heading">
             <div className="intro-label light-label">/ 02 — THE SCOPE</div>
             <h2>Small team.<br />Big <em>signal.</em></h2>
@@ -357,7 +364,7 @@ export default function Home() {
 
         <section ref={teamSectionRef} className="team-section" id="team" aria-labelledby="team-title">
           <div className="team-aisle-strip">
-            <div><img src="/manus-storage/shopfront-logo_1518a960.png" alt="" /><span>AISLE 03 / TWO-PERSON STUDIO</span></div>
+            <div><span className="inline-cookebyte-sigil">C</span><span>AISLE 03 / TWO-PERSON STUDIO</span></div>
             <span>DEV ↔ VISUAL</span>
           </div>
           <div className="team-heading">
@@ -396,7 +403,7 @@ export default function Home() {
 
         <section className="work-with-us-section" id="work-with-us" aria-labelledby="work-with-us-title">
           <div className="work-route-bar">
-            <span><img src="/manus-storage/shopfront-logo_1518a960.png" alt="" /> ROUTE 04 / WORK WITH US</span>
+            <span><span className="inline-cookebyte-sigil">C</span> ROUTE 04 / WORK WITH US</span>
             <span>PROJECT · PRICING · PARTNERS</span>
           </div>
           <div className="work-with-us-heading">
@@ -430,7 +437,7 @@ export default function Home() {
         </section>
 
         <section className="method-section" id="method">
-          <span className="section-ticket method-ticket" aria-hidden="true">S</span>
+          <span className="section-ticket method-ticket" aria-hidden="true">C</span>
           <div className="method-top">
             <div>
               <div className="intro-label">/ 05 — THE METHOD</div>
@@ -451,14 +458,14 @@ export default function Home() {
         </section>
 
         <section className="contact-section" id="contact">
-          <span className="section-ticket contact-ticket" aria-hidden="true">S</span>
+          <span className="section-ticket contact-ticket" aria-hidden="true">C</span>
           <div className="contact-orb" aria-hidden="true"><span>GET<br />VISIBLE</span></div>
           <div className="contact-copy">
             <div className="eyebrow eyebrow-light"><span className="eyebrow-dot" /> Let&apos;s make it visible</div>
             <h2>Ready to put<br />your shop <em>out front?</em></h2>
             <p>Bring the launch, refresh, promotion, or bigger retail question. You&apos;ll work directly with a developer and a designer-editor from the first move.</p>
           </div>
-          <a className="contact-link mono-glitch" href="mailto:hello@shopfront.studio" aria-label="Email Shopfront Studio">
+          <a className="contact-link mono-glitch" href="mailto:hello@shopfront.studio" aria-label="Email CookeByte">
             <span>START A<br />CONVERSATION</span>
             <ArrowRight size={28} />
           </a>
@@ -472,7 +479,7 @@ export default function Home() {
             <button type="button" className="private-panel-close" onClick={closePrivatePanel} aria-label="Close private panel"><X size={21} /></button>
             {privatePanel === "pricing" ? (
               <div className="private-panel-content">
-                <div className="private-panel-label"><img src="/manus-storage/shopfront-logo_1518a960.png" alt="" /> PRIVATE STARTING PACKAGES</div>
+                <div className="private-panel-label"><span className="inline-cookebyte-sigil">C</span> PRIVATE STARTING PACKAGES</div>
                 <div className="pricing-heading private-pricing-heading">
                   <div>
                     <div className="intro-label">/ PRIVATE PRICE GUIDE</div>
@@ -517,7 +524,7 @@ export default function Home() {
       )}
 
       <footer className="site-footer">
-        <a className="footer-brand" href="#top"><img src="/manus-storage/shopfront-logo_1518a960.png" alt="" /> <span>SHOPFRONT<br />STUDIO</span></a>
+        <a className="footer-brand" href="#top"><span className="cookebyte-sigil" aria-hidden="true">C</span> <span className="cookebyte-wordmark">COOKE<b>BYTE</b><small>CREATIVE SYSTEMS</small></span></a>
         <p>Development, design & video for the<br />places people buy from nearby.</p>
         <div className="footer-links"><a href="#scope">Services</a><a href="#team">Team</a><a href="#method">Method</a><a href="#contact">Contact</a></div>
         <span>© 2026 / Built for local commerce</span>
