@@ -199,17 +199,31 @@ h1 em, h2 em { color: var(--orange); font-family: "Space Grotesk", sans-serif; f
 .text-link { display: inline-flex; align-items: center; gap: 8px; padding-bottom: 3px; border-bottom: 2px solid var(--orange); font-family: "Space Grotesk", sans-serif; font-size: 13px; font-weight: 700; transition: color 160ms var(--ease-out); }
 .text-link:hover { color: var(--orange); }
 .feature-panel { position: relative; display: grid; grid-template-columns: minmax(300px, .94fr) minmax(350px, 1.06fr); max-width: 1150px; margin: 0 auto; background: var(--ink); color: var(--cream); }
+.feature-panel--text { display: block; max-width: none; min-height: 465px; overflow: hidden; }
+.feature-panel--text::before { content: ""; position: absolute; inset: 0 0 0 54%; opacity: .7; background: linear-gradient(135deg, transparent 0 35%, rgba(255,90,54,.7) 35.2% 39%, transparent 39.2% 100%), repeating-linear-gradient(90deg, rgba(244,240,232,.14) 0 1px, transparent 1px 76px); }
+.feature-panel--text::after { content: ""; position: absolute; right: 8vw; bottom: 31px; width: 70px; height: 70px; background: var(--lime) url('/manus-storage/shopfront-logo_1518a960.png') center / 54% no-repeat; border-radius: 50%; box-shadow: -12px 12px 0 var(--orange); transform: rotate(-12deg); }
 .feature-image-frame { position: relative; min-height: 535px; overflow: hidden; border-right: 1px solid rgba(244,240,232,.22); }
 .feature-image-frame img { display: block; width: 100%; height: 100%; object-fit: cover; filter: saturate(.9); }
 .feature-image-frame::after { content: ""; position: absolute; inset: 0; background: linear-gradient(0deg, rgba(23,24,23,.47), transparent 44%); }
 .vertical-stamp { position: absolute; z-index: 2; right: 18px; bottom: 20px; color: var(--cream); font-family: "Space Grotesk", sans-serif; font-size: 10px; font-weight: 700; letter-spacing: .13em; writing-mode: vertical-rl; }
 .feature-copy { display: flex; flex-direction: column; justify-content: center; padding: 56px 6vw; }
+.feature-panel--text .feature-copy { position: relative; z-index: 1; max-width: 1150px; min-height: 465px; margin: 0 auto; padding: 76px min(47vw, 540px) 76px 8.5vw; }
 .feature-counter { display: flex; align-items: center; gap: 12px; color: var(--lime); font-family: "Space Grotesk", sans-serif; font-size: 11px; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; }
 .feature-counter::before { content: ""; width: 17px; height: 17px; display: inline-block; background: url('/manus-storage/shopfront-logo_1518a960.png') center / contain no-repeat; }
 .feature-copy h2 { margin: 30px 0 20px; font-size: clamp(42px, 4.5vw, 72px); }
 .feature-copy p { max-width: 340px; margin: 0; color: rgba(244,240,232,.75); font-size: 15px; line-height: 1.55; }
 .feature-tags { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 34px; }
 .feature-tags span { padding: 6px 9px; border: 1px solid rgba(244,240,232,.35); font-family: "Space Grotesk", sans-serif; font-size: 10px; font-weight: 700; text-transform: uppercase; }
+
+/* Monocraft action feedback: a short pixel-scan glitch that does not interrupt the primary 3D hover depth. */
+.mono-glitch { position: relative; isolation: isolate; }
+.mono-glitch:hover { animation: monocraft-glitch 330ms steps(2, end) both; }
+@keyframes monocraft-glitch {
+  0%, 100% { letter-spacing: inherit; text-shadow: none; filter: none; }
+  18% { letter-spacing: .09em; text-shadow: 1px 0 var(--lime), -1px 0 var(--orange); filter: contrast(1.25); }
+  42% { letter-spacing: .025em; text-shadow: -2px 0 var(--orange), 2px 0 var(--lime); filter: contrast(1.1); }
+  67% { letter-spacing: .065em; text-shadow: 1px 1px var(--orange); }
+}
 
 .services-section { position: relative; padding: 109px 4.2vw 78px; color: var(--cream); background: var(--orange); }
 .services-section::before { content: ""; position: absolute; inset: 0; opacity: .3; pointer-events: none; background: url('/manus-storage/shopfront-texture_60b31686.jpg') center/cover; mix-blend-mode: multiply; }
@@ -581,6 +595,10 @@ h1 em, h2 em { color: var(--orange); font-family: "Space Grotesk", sans-serif; f
 @keyframes rise-in { from { opacity: 0; transform: translateY(12px); } to { opacity: 1; transform: translateY(0); } }
 @keyframes float-3d { from { transform: translate3d(0, 0, 0) rotate(-2deg); } to { transform: translate3d(0, -11px, 0) rotate(3deg); } }
 @media (prefers-reduced-motion: reduce) { *, *::before, *::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; scroll-behavior: auto !important; transition-duration: .01ms !important; } }
+@media (prefers-reduced-motion: reduce) { .mono-glitch:hover { animation: none; text-shadow: none; } }
+
+/* Primary promotion headlines retain the heavy shop-window display authority; Monocraft is for signs, controls, and route markers. */
+h1 em, h2 em { font-family: "Archivo Black", sans-serif; font-style: normal; font-weight: 400; letter-spacing: -.072em; }
 @media (prefers-reduced-motion: reduce) { .build-card, .visual-card { opacity: 1; transform: none; } .skill-tags span { opacity: 1 !important; transform: none !important; } }
 
 @media (max-width: 850px) {

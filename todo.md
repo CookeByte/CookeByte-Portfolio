@@ -51,3 +51,9 @@
 - [x] Define how Monocraft will be used for the display, signage, and utility hierarchy: Monocraft for navigation, labels, markers, controls, prices, and utility copy; existing display and body fonts remain for headings and long-form readability.
 - [x] Add Monocraft to the site and apply it across the selected typography roles.
 - [x] Validate desktop and mobile readability after the typography change.
+
+## Streamlined Work Section and Button Motion
+
+- [x] Remove the light Work introduction and its campaign image while retaining the black feature section.
+- [x] Add a restrained Monocraft typing/glitch response to button hover states.
+- [x] Respect reduced-motion settings and validate the streamlined layout on desktop and mobile.

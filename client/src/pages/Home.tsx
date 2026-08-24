@@ -227,7 +227,7 @@ export default function Home() {
           <a href="#method">Our method</a>
         </nav>
 
-        <a className="header-cta" href="#contact">
+        <a className="header-cta mono-glitch" href="#contact">
           Let&apos;s talk <ArrowUpRightIcon />
         </a>
 
@@ -319,30 +319,13 @@ export default function Home() {
           </div>
         </section>
 
-        <section className="intro-section" id="work">
-          <div className="intro-label">/ 01 — THE WORK</div>
-          <div className="intro-grid">
-            <div className="intro-quote">
-              <span className="marker-orb">01</span>
-              <p>Commerce has changed. <strong>Neighbourhood attention</strong> is still earned one smart message at a time.</p>
-            </div>
-            <div className="intro-side">
-              <p>We make the digital side of a shop feel as considered as the physical one: readable, memorable, and ready to sell.</p>
-              <a href="#contact" className="text-link">Tell us what&apos;s on your shelf <ArrowRight size={18} /></a>
-            </div>
-          </div>
-          <div className="feature-panel">
-            <div className="feature-image-frame">
-              <img src="/manus-storage/shopfront-campaign_ec6714db.jpg" alt="Abstract retail campaign collage with citrus and orange promotion stickers" />
-              <span className="vertical-stamp">CAMPAIGN DESIGN</span>
-            </div>
-            <div className="feature-copy">
-              <div className="feature-counter"><span>01</span><span>—</span><span>Featured system</span></div>
-              <h2>Give every<br /><em>offer</em> a point<br />of view.</h2>
-              <p>One campaign language, working across the website, paid ads, social, short-form cuts, menus, posters, and the place where customers make their final decision.</p>
-              <div className="feature-tags">
-                <span>Campaign creative</span><span>Retail launch</span><span>Content system</span>
-              </div>
+        <section className="feature-panel feature-panel--text" id="work" aria-labelledby="feature-title">
+          <div className="feature-copy">
+            <div className="feature-counter"><span>01</span><span>—</span><span>Featured system</span></div>
+            <h2 id="feature-title">Give every<br /><em>offer</em> a point<br />of view.</h2>
+            <p>One campaign language, working across the website, paid ads, social, short-form cuts, menus, posters, and the place where customers make their final decision.</p>
+            <div className="feature-tags">
+              <span>Campaign creative</span><span>Retail launch</span><span>Content system</span>
             </div>
           </div>
         </section>
@@ -412,19 +395,19 @@ export default function Home() {
               <div className="enquiry-card-top"><span>01 / START A PROJECT</span><MoveUpRight size={21} /></div>
               <h3>Bring us the<br />brief.</h3>
               <p>For a new website, campaign, video edit, or a full shopfront refresh.</p>
-              <button type="button" className="enquiry-link" onClick={() => openPrivatePanel("brief")}>Open project brief <ArrowRight size={17} /></button>
+              <button type="button" className="enquiry-link mono-glitch" onClick={() => openPrivatePanel("brief")}>Open project brief <ArrowRight size={17} /></button>
             </article>
             <article className="enquiry-card pricing-route">
               <div className="enquiry-card-top"><span>02 / PRICING GUIDE</span><span className="route-count">₹</span></div>
               <h3>Get the<br /><em>right</em> quote.</h3>
               <p>We price around your scope, retail footprint, and launch timeline—not a one-size package.</p>
-              <button type="button" className="enquiry-link" onClick={() => openPrivatePanel("pricing")}>View starting packages <ArrowRight size={17} /></button>
+              <button type="button" className="enquiry-link mono-glitch" onClick={() => openPrivatePanel("pricing")}>View starting packages <ArrowRight size={17} /></button>
             </article>
             <article className="enquiry-card partner-route">
               <div className="enquiry-card-top"><span>03 / DEALERSHIP & PARTNERS</span><span className="route-count">03</span></div>
               <h3>Make every<br />location <em>look local.</em></h3>
               <p>For dealership groups, franchises, and multi-location retail teams ready to move as one.</p>
-              <button type="button" className="enquiry-link" onClick={() => openPrivatePanel("brief")}>Open partnership brief <ArrowRight size={17} /></button>
+              <button type="button" className="enquiry-link mono-glitch" onClick={() => openPrivatePanel("brief")}>Open partnership brief <ArrowRight size={17} /></button>
             </article>
           </div>
           <p className="work-with-us-footnote"><span>Need a different route?</span> Send the short version. We&apos;ll map the right next move together. <ArrowRight size={16} /></p>
@@ -457,7 +440,7 @@ export default function Home() {
             <h2>Ready to put<br />your shop <em>out front?</em></h2>
             <p>Bring the launch, refresh, promotion, or bigger retail question. You&apos;ll work directly with a developer and a designer-editor from the first move.</p>
           </div>
-          <a className="contact-link" href="mailto:hello@shopfront.studio" aria-label="Email Shopfront Studio">
+          <a className="contact-link mono-glitch" href="mailto:hello@shopfront.studio" aria-label="Email Shopfront Studio">
             <span>START A<br />CONVERSATION</span>
             <ArrowRight size={28} />
           </a>
@@ -487,7 +470,7 @@ export default function Home() {
                       <h3 dangerouslySetInnerHTML={{ __html: plan.title }} />
                       <p>{plan.description}</p>
                       <div className="package-points">{plan.points.map((point) => <span key={point}>{point}</span>)}</div>
-                      <button type="button" className="plan-cta" onClick={() => openPrivatePanel("brief")}>Choose this route <ArrowRight size={17} /></button>
+                      <button type="button" className="plan-cta mono-glitch" onClick={() => openPrivatePanel("brief")}>Choose this route <ArrowRight size={17} /></button>
                     </article>
                   ))}
                 </div>
@@ -506,7 +489,7 @@ export default function Home() {
                   <label><span>Project type</span><select name="projectType" required defaultValue=""><option value="" disabled>Choose a route</option><option>Basic shop website</option><option>E-commerce setup</option><option>3D website</option><option>Video ad campaign</option><option>Dealership or partnership</option><option>Not sure yet</option></select></label>
                   <label><span>Budget range</span><select name="budget" required defaultValue=""><option value="" disabled>Select a range</option><option>Up to ₹10K</option><option>₹10K–₹25K</option><option>₹25K–₹50K</option><option>₹50K+</option><option>Let&apos;s discuss</option></select></label>
                   <label className="details-field"><span>What needs to move?</span><textarea name="details" required rows={4} placeholder="Tell us about the shop, offer, timeline, or the next problem to solve." /></label>
-                  <button className="brief-submit" type="submit">Prepare project brief <ArrowRight size={19} /></button>
+                  <button className="brief-submit mono-glitch" type="submit">Prepare project brief <ArrowRight size={19} /></button>
                   {briefStatus && <p className="brief-status" role="status">{briefStatus}</p>}
                 </form>
               </div>

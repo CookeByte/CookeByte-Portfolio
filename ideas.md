@@ -84,3 +84,8 @@ Every scroll beat carries either a shop-window display cue or practical retail-w
 Signal Tangerine owns the large commercial gestures, while Citrus Lime is reserved for high-attention offer discs, counts, status markers, and small callouts. Each major page zone carries a retail-system cue such as an aisle rail, a ticket stamp, a marker, a storefront crop, or a ruled module, so the visitor experiences one continuous shopfront route rather than a sequence of unrelated panels.
 
 Monocraft is used as the studio’s digital-signage voice for navigation, labels, price markers, interaction controls, and wayfinding copy. The display face remains reserved for major commercial headlines and the clean body face stays in place for longer reading and form completion.
+
+## Style Decisions
+
+- Pixel typography is reserved for signage accents, selected commercial words, labels, counts, controls, and wayfinding. Primary promotional headlines retain the heavy Shopfront-style display face.
+- Counter Cream sections must carry an active retail-system cue such as a ruled route, ticket frame, price marker, aisle label, or stamped symbol. The black featured-system panel remains intentionally image-free after the Work introduction is removed, using a large Shopfront stamp and display rails instead.
