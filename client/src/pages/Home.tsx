@@ -373,6 +373,11 @@ export default function Home() {
               handle="benitto.builds"
               status="Building live"
               skills={["Game Dev", "Web Dev", "AI LLMs"]}
+              links={[
+                { label: "MAIL", href: "mailto:joshua072308@gmail.com" },
+                { label: "GITHUB", href: "https://github.com/Joshua-zlitch" },
+                { label: "PORTFOLIO", href: "https://portfolio-2-0-gamma-blue.vercel.app/" },
+              ]}
               imageUrl="/media/shopfront-work_afd5a85a.jpg"
               imageAlt="Temporary retail storefront image for Benitto Joshua"
               accent="#d5e668"
