@@ -184,5 +184,5 @@
 - [x] Add Abisheik’s email address to his team profile.
 - [x] Add links for GitHub account abisheik-cmd and Instagram account abizk.ae.
 - [x] Validate profile links and team-card presentation.
-- [ ] Push the personal-profile update to CookeByte/CookeByte-Portfolio.
+- [x] Push the personal-profile update to CookeByte/CookeByte-Portfolio.
 - [x] Push the verified repair to CookeByte/CookeByte-Portfolio.
