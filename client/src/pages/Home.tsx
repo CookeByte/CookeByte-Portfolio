@@ -7,7 +7,6 @@ import { useEffect, useRef, useState } from "react";
 import {
   ArrowDownRight,
   ArrowRight,
-  Check,
   ChevronRight,
   Menu,
   MoveUpRight,
@@ -149,6 +148,7 @@ export default function Home() {
           <a href="#work">Selected work</a>
           <a href="#scope">What we do</a>
           <a href="#team">The team</a>
+          <a href="#work-with-us">Work with us</a>
           <a href="#method">Our method</a>
         </nav>
 
@@ -171,6 +171,7 @@ export default function Home() {
             <a href="#work" onClick={closeMenu}>Selected work <ArrowRight size={18} /></a>
             <a href="#scope" onClick={closeMenu}>What we do <ArrowRight size={18} /></a>
             <a href="#team" onClick={closeMenu}>The team <ArrowRight size={18} /></a>
+            <a href="#work-with-us" onClick={closeMenu}>Work with us <ArrowRight size={18} /></a>
             <a href="#method" onClick={closeMenu}>Our method <ArrowRight size={18} /></a>
             <a href="#contact" onClick={closeMenu}>Let&apos;s talk <ArrowRight size={18} /></a>
           </nav>
@@ -319,30 +320,45 @@ export default function Home() {
           <p className="team-connector"><span>Scroll to see code and craft become one signal.</span><ArrowRight size={18} /></p>
         </section>
 
-        <section className="case-study-section">
-          <div className="case-study-visual">
-            <div className="window-crop">
-              <img src="/manus-storage/shopfront-work_afd5a85a.jpg" alt="A neighborhood grocery storefront with orange graphic window framing" />
+        <section className="work-with-us-section" id="work-with-us" aria-labelledby="work-with-us-title">
+          <div className="work-route-bar">
+            <span><img src="/manus-storage/shopfront-logo_1518a960.png" alt="" /> ROUTE 04 / WORK WITH US</span>
+            <span>PROJECT · PRICING · PARTNERS</span>
+          </div>
+          <div className="work-with-us-heading">
+            <div>
+              <div className="intro-label">/ 04 — MAKE THE MOVE</div>
+              <h2 id="work-with-us-title">One shop.<br />A whole <em>network.</em></h2>
             </div>
-            <div className="case-sticker">LOCAL<br />LOOKS<br />GOOD</div>
-            <span className="image-caption"><img src="/manus-storage/shopfront-logo_1518a960.png" alt="" /> A street-side identity<br />that keeps working inside.</span>
+            <p>Whether you need a better digital shopfront, a clear estimate, or one visual system across multiple locations, choose the route that fits.</p>
           </div>
-          <div className="case-study-copy">
-            <div className="eyebrow"><span className="eyebrow-dot" /> Field notes / retail identity</div>
-            <h2>Make a name<br />on your <em>street.</em></h2>
-            <p>Your customers do not separate the window, the website, the campaign cut, and the social post. Neither do we. We build the cues that make a local business feel instantly familiar from every angle.</p>
-            <ul className="check-list">
-              <li><Check size={16} /> Distinctive brand building blocks</li>
-              <li><Check size={16} /> Built for seasonal changeovers</li>
-              <li><Check size={16} /> Designed around real buying moments</li>
-            </ul>
+          <div className="enquiry-grid">
+            <article className="enquiry-card project-route">
+              <div className="enquiry-card-top"><span>01 / START A PROJECT</span><MoveUpRight size={21} /></div>
+              <h3>Bring us the<br />brief.</h3>
+              <p>For a new website, campaign, video edit, or a full shopfront refresh.</p>
+              <a href="mailto:hello@shopfront.studio?subject=Project%20enquiry" className="enquiry-link">Talk project <ArrowRight size={17} /></a>
+            </article>
+            <article className="enquiry-card pricing-route">
+              <div className="enquiry-card-top"><span>02 / PRICING GUIDE</span><span className="route-count">₹</span></div>
+              <h3>Get the<br /><em>right</em> quote.</h3>
+              <p>We price around your scope, retail footprint, and launch timeline—not a one-size package.</p>
+              <a href="mailto:hello@shopfront.studio?subject=Pricing%20guide%20request" className="enquiry-link">Ask for pricing <ArrowRight size={17} /></a>
+            </article>
+            <article className="enquiry-card partner-route">
+              <div className="enquiry-card-top"><span>03 / DEALERSHIP & PARTNERS</span><span className="route-count">03</span></div>
+              <h3>Make every<br />location <em>look local.</em></h3>
+              <p>For dealership groups, franchises, and multi-location retail teams ready to move as one.</p>
+              <a href="mailto:hello@shopfront.studio?subject=Dealership%20or%20partnership%20enquiry" className="enquiry-link">Explore partnership <ArrowRight size={17} /></a>
+            </article>
           </div>
+          <p className="work-with-us-footnote"><span>Need a different route?</span> Send the short version. We&apos;ll map the right next move together. <ArrowRight size={16} /></p>
         </section>
 
         <section className="method-section" id="method">
           <div className="method-top">
             <div>
-              <div className="intro-label">/ 04 — THE METHOD</div>
+              <div className="intro-label">/ 05 — THE METHOD</div>
               <h2>From shop floor<br />to <em>scroll stop.</em></h2>
             </div>
             <p>No handoff maze. No vague ‘brand moment.’ Just a tight retail loop that gets sharper as it moves.</p>

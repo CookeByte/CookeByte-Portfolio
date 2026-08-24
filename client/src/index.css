@@ -262,6 +262,39 @@ h1 em, h2 em { color: var(--orange); font-family: "Space Grotesk", sans-serif; f
 .skill-tags span:nth-child(3) { transition-delay: 130ms; }
 .team-connector { display: flex; align-items: center; justify-content: center; gap: 9px; margin-top: 22px; color: var(--orange); font-family: "Space Grotesk", sans-serif; font-size: 11px; font-weight: 700; letter-spacing: .04em; text-transform: uppercase; }
 
+/* Work With Us / Market Signal conversion route: each card acts like a retail counter sign. */
+.work-with-us-section { position: relative; padding: 0 4.2vw 95px; color: var(--cream); background: var(--ink); overflow: hidden; }
+.work-with-us-section::before { content: ""; position: absolute; right: -13vw; bottom: -23vw; width: 46vw; height: 46vw; border: 1px solid rgba(244,240,232,.17); border-radius: 50%; box-shadow: 0 0 0 34px rgba(255,90,54,.08), 0 0 0 68px rgba(213,230,104,.08); }
+.work-route-bar, .work-with-us-heading, .enquiry-grid, .work-with-us-footnote { position: relative; z-index: 1; max-width: 1150px; margin-left: auto; margin-right: auto; }
+.work-route-bar { display: flex; align-items: center; justify-content: space-between; min-height: 48px; margin-bottom: 68px; padding: 0 12px; color: var(--ink); background: var(--lime); font-family: "Space Grotesk", sans-serif; font-size: 10px; font-weight: 700; letter-spacing: .1em; }
+.work-route-bar > span { display: flex; align-items: center; gap: 8px; }
+.work-route-bar img { width: 25px; height: 25px; padding: 2px; background: var(--cream); object-fit: contain; }
+.work-with-us-heading { display: grid; grid-template-columns: minmax(370px, 1fr) minmax(220px, .45fr); gap: 60px; align-items: end; margin-bottom: 54px; }
+.work-with-us-heading h2 { margin: 25px 0 0; font-family: "Archivo Black", sans-serif; font-size: clamp(50px, 5.7vw, 87px); font-weight: 400; letter-spacing: -.075em; line-height: .89; }
+.work-with-us-heading h2 em { color: var(--lime); }
+.work-with-us-heading p { max-width: 330px; margin: 0 0 7px; color: rgba(244,240,232,.74); font-size: 16px; font-weight: 500; line-height: 1.5; }
+.enquiry-grid { display: grid; grid-template-columns: repeat(3, 1fr); border-top: 1px solid rgba(244,240,232,.46); border-left: 1px solid rgba(244,240,232,.46); }
+.enquiry-card { position: relative; min-height: 345px; display: flex; flex-direction: column; padding: 24px; color: var(--ink); border-right: 1px solid var(--ink); border-bottom: 1px solid var(--ink); transition: transform 200ms var(--ease-out), background 200ms var(--ease-out), color 200ms var(--ease-out); }
+.project-route { color: var(--cream); background: var(--charcoal); border-color: rgba(244,240,232,.46); }
+.pricing-route { background: var(--cream); }
+.partner-route { background: var(--orange); }
+.enquiry-card::before { content: ""; position: absolute; right: 21px; bottom: 21px; width: 66px; height: 66px; border: 1px solid currentColor; border-radius: 50%; opacity: .15; }
+.pricing-route::before { border-radius: 0; transform: rotate(45deg); }
+.partner-route::before { width: 79px; height: 79px; background: var(--lime); border: 0; opacity: .78; }
+.enquiry-card:hover { z-index: 2; color: var(--cream); background: var(--ink); transform: translateY(-8px); box-shadow: 9px 9px 0 var(--orange); }
+.enquiry-card-top { position: relative; z-index: 1; display: flex; align-items: start; justify-content: space-between; font-family: "Space Grotesk", sans-serif; font-size: 10px; font-weight: 700; letter-spacing: .08em; }
+.route-count { display: grid; place-items: center; width: 29px; height: 29px; color: var(--cream); background: var(--ink); border-radius: 50%; font-size: 12px; letter-spacing: 0; }
+.enquiry-card h3 { position: relative; z-index: 1; margin: auto 0 13px; font-family: "Archivo Black", sans-serif; font-size: clamp(31px, 3.1vw, 46px); font-weight: 400; letter-spacing: -.07em; line-height: .9; }
+.enquiry-card h3 em { color: var(--orange); }
+.project-route h3 em, .enquiry-card:hover h3 em { color: var(--lime); }
+.enquiry-card p { position: relative; z-index: 1; max-width: 280px; margin: 0; font-size: 14px; line-height: 1.45; }
+.project-route p { color: rgba(244,240,232,.72); }
+.enquiry-link { position: relative; z-index: 1; display: inline-flex; align-items: center; gap: 7px; width: fit-content; margin-top: 20px; padding-bottom: 3px; border-bottom: 2px solid currentColor; font-family: "Space Grotesk", sans-serif; font-size: 11px; font-weight: 700; letter-spacing: .04em; text-transform: uppercase; }
+.enquiry-link:hover svg { transform: translateX(5px); }
+.enquiry-link svg { transition: transform 160ms var(--ease-out); }
+.work-with-us-footnote { display: flex; align-items: center; justify-content: center; gap: 7px; margin-top: 25px; color: rgba(244,240,232,.72); font-family: "Space Grotesk", sans-serif; font-size: 11px; font-weight: 700; }
+.work-with-us-footnote span { color: var(--lime); }
+
 .case-study-section { position: relative; display: grid; grid-template-columns: minmax(370px, 1fr) minmax(380px, 1fr); align-items: center; gap: clamp(55px, 9vw, 150px); padding: 132px max(4.2vw, 28px) 112px; background: var(--cream); }
 .case-study-section::before { content: "AISLE 04 / IDENTITY"; position: absolute; top: 27px; left: 4.2vw; display: flex; align-items: center; min-height: 30px; padding: 0 10px 0 36px; color: var(--cream); background: var(--ink); font-family: "Space Grotesk", sans-serif; font-size: 9px; font-weight: 700; letter-spacing: .1em; }
 .case-study-section::after { content: ""; position: absolute; top: 32px; left: calc(4.2vw + 10px); width: 18px; height: 18px; background: url('/manus-storage/shopfront-logo_1518a960.png') center / contain no-repeat; }
@@ -443,3 +476,20 @@ h1 em, h2 em { color: var(--orange); font-family: "Space Grotesk", sans-serif; f
 @keyframes float-3d { from { transform: translate3d(0, 0, 0) rotate(-2deg); } to { transform: translate3d(0, -11px, 0) rotate(3deg); } }
 @media (prefers-reduced-motion: reduce) { *, *::before, *::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; scroll-behavior: auto !important; transition-duration: .01ms !important; } }
 @media (prefers-reduced-motion: reduce) { .build-card, .visual-card { opacity: 1; transform: none; } .skill-tags span { opacity: 1 !important; transform: none !important; } }
+
+@media (max-width: 850px) {
+  .work-with-us-section { padding: 0 22px 67px; }
+  .work-route-bar { margin-bottom: 47px; }
+  .work-with-us-heading { grid-template-columns: 1fr; gap: 23px; }
+  .enquiry-grid { grid-template-columns: 1fr; }
+  .enquiry-card { min-height: 260px; }
+  .enquiry-card + .enquiry-card { border-top: 0; }
+}
+
+@media (max-width: 500px) {
+  .work-route-bar { min-height: 41px; margin-left: -22px; margin-right: -22px; padding: 0 12px; font-size: 8px; }
+  .work-route-bar > span:last-child { display: none; }
+  .work-with-us-heading h2 { font-size: clamp(44px, 13vw, 59px); }
+  .enquiry-card { min-height: 245px; padding: 20px; }
+  .enquiry-card h3 { font-size: 34px; }
+}

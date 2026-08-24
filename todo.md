@@ -24,3 +24,9 @@
 - [x] Add Benitto Joshua’s Game Dev, Web Dev, and AI LLM skills to the coding profile.
 - [x] Add Abisheik’s Video Editor, Web Designer, and Photoshop Designer skills to the visual profile.
 - [x] Validate the new animated team section on desktop and mobile before delivery.
+
+## Work With Us Conversion Section
+
+- [x] Define the project, pricing, and dealership/partnership enquiry paths.
+- [x] Replace the identity showcase section with the new conversion-focused layout.
+- [x] Validate the contact, pricing, and partnership section on desktop and mobile before delivery.
