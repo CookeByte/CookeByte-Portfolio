@@ -38,3 +38,10 @@
 - [x] Replace email enquiry links with an on-page form including project type and budget fields.
 - [x] Add refined 3D hover depth to Work With Us cards and form controls.
 - [x] Validate package cards, form states, and responsive behavior before delivery.
+
+## Private Pricing and Enquiry Panels
+
+- [x] Remove the public starting-package pricing board from the page flow.
+- [x] Add buttons that reveal private pricing or the project brief panel on demand.
+- [x] Ensure private panels can be closed accessibly and work on mobile.
+- [x] Validate button-triggered pricing and enquiry interactions before delivery.

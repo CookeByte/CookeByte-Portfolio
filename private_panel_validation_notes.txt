@@ -1,0 +1,5 @@
+Private panel validation note: The live public page exposes only the Work With Us action buttons; package prices and the project brief are absent from the public page content. Browser inspection confirmed three private-action controls: “Open project brief,” “View starting packages,” and “Open partnership brief.”
+
+The “View starting packages” action successfully opens a modal panel containing the private package prices. The public page remains visually free of these commercial details.
+
+The “Open project brief” action also opens a private modal panel. The panel exposes the name, business, project type, budget, project details, submit, and close controls as intended.

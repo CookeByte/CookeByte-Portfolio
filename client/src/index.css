@@ -321,7 +321,7 @@ h1 em, h2 em { color: var(--orange); font-family: "Space Grotesk", sans-serif; f
 .project-route h3 em, .enquiry-card:hover h3 em { color: var(--lime); }
 .enquiry-card p { position: relative; z-index: 1; max-width: 280px; margin: 0; font-size: 14px; line-height: 1.45; }
 .project-route p { color: rgba(244,240,232,.72); }
-.enquiry-link { position: relative; z-index: 1; display: inline-flex; align-items: center; gap: 7px; width: fit-content; margin-top: 20px; padding-bottom: 3px; border-bottom: 2px solid currentColor; font-family: "Space Grotesk", sans-serif; font-size: 11px; font-weight: 700; letter-spacing: .04em; text-transform: uppercase; }
+.enquiry-link { position: relative; z-index: 1; display: inline-flex; align-items: center; gap: 7px; width: fit-content; margin-top: 20px; padding: 0 0 3px; color: inherit; background: transparent; border: 0; border-bottom: 2px solid currentColor; font-family: "Space Grotesk", sans-serif; font-size: 11px; font-weight: 700; letter-spacing: .04em; text-transform: uppercase; }
 .enquiry-link:hover svg { transform: translateX(5px); }
 .enquiry-link svg { transition: transform 160ms var(--ease-out); }
 .work-with-us-footnote { display: flex; align-items: center; justify-content: center; gap: 7px; margin-top: 25px; color: rgba(244,240,232,.72); font-family: "Space Grotesk", sans-serif; font-size: 11px; font-weight: 700; }
@@ -340,6 +340,43 @@ h1 em, h2 em { color: var(--orange); font-family: "Space Grotesk", sans-serif; f
 .brief-submit:hover { background: var(--orange); transform: translate3d(0, -4px, 8px) rotateX(3deg); box-shadow: 7px 8px 0 var(--ink); }
 .brief-submit:active { transform: scale(.98); }
 .brief-status { grid-column: 1 / -1; margin: 0; color: var(--orange); font-family: "Space Grotesk", sans-serif; font-size: 11px; font-weight: 700; }
+
+/* Private enquiry panels keep commercial prices and form details out of the public scroll. */
+.private-panel-overlay { position: fixed; z-index: 100; inset: 0; display: grid; place-items: center; padding: 28px; }
+.private-panel-backdrop { position: absolute; inset: 0; border: 0; background: rgba(11,12,10,.72); backdrop-filter: blur(8px); }
+.private-panel { position: relative; z-index: 1; width: min(1180px, 100%); max-height: min(860px, calc(100vh - 56px)); overflow: auto; padding: 40px; color: var(--ink); background: var(--cream); box-shadow: 20px 22px 0 var(--orange); animation: private-panel-in 320ms var(--ease-out) both; }
+.private-panel-close { position: sticky; z-index: 4; top: 0; margin-left: auto; margin-bottom: -31px; display: grid; place-items: center; width: 38px; height: 38px; color: var(--cream); background: var(--ink); border: 0; transition: background 160ms var(--ease-out), transform 160ms var(--ease-out); }
+.private-panel-close:hover { color: var(--ink); background: var(--lime); transform: rotate(8deg); }
+.private-panel-content { padding-top: 12px; }
+.private-panel-label { display: flex; align-items: center; gap: 8px; width: fit-content; min-height: 33px; padding: 0 10px; color: var(--cream); background: var(--ink); font-family: "Space Grotesk", sans-serif; font-size: 9px; font-weight: 700; letter-spacing: .1em; }
+.private-panel-label img { width: 20px; height: 20px; padding: 2px; background: var(--cream); object-fit: contain; }
+.private-pricing-heading { margin-top: 43px; margin-bottom: 39px; }
+.private-panel .pricing-grid { max-width: none; }
+.private-panel .pricing-footnote { max-width: none; }
+.private-panel .plan-cta { border: 0; }
+.private-brief-form { max-width: none; margin: 11px 0 0; padding: 0; box-shadow: none; }
+@keyframes private-panel-in { from { opacity: 0; transform: translate3d(0, 22px, 0) scale(.98); } to { opacity: 1; transform: translate3d(0, 0, 0) scale(1); } }
+
+@media (max-width: 850px) {
+  .private-panel-overlay { padding: 16px; }
+  .private-panel { max-height: calc(100vh - 32px); padding: 28px; box-shadow: 10px 12px 0 var(--orange); }
+  .private-panel .pricing-heading { grid-template-columns: 1fr; gap: 22px; }
+  .private-panel .pricing-grid { grid-template-columns: 1fr; }
+  .private-panel .pricing-card { min-height: 300px; }
+  .private-brief-form { grid-template-columns: 1fr; gap: 30px; }
+  .private-brief-form .project-brief-form { grid-template-columns: 1fr; }
+}
+
+@media (max-width: 500px) {
+  .private-panel-overlay { padding: 9px; }
+  .private-panel { max-height: calc(100vh - 18px); padding: 22px 17px; box-shadow: 6px 7px 0 var(--orange); }
+  .private-panel-close { width: 34px; height: 34px; margin-bottom: -26px; }
+  .private-panel-label { font-size: 8px; }
+  .private-panel .pricing-heading h2 { font-size: clamp(42px, 12vw, 57px); }
+  .private-panel .pricing-card { min-height: 272px; padding: 19px; }
+  .private-panel .price-lockup strong { font-size: 49px; }
+  .private-panel .pricing-card h3 { font-size: 32px; }
+}
 
 .case-study-section { position: relative; display: grid; grid-template-columns: minmax(370px, 1fr) minmax(380px, 1fr); align-items: center; gap: clamp(55px, 9vw, 150px); padding: 132px max(4.2vw, 28px) 112px; background: var(--cream); }
 .case-study-section::before { content: "AISLE 04 / IDENTITY"; position: absolute; top: 27px; left: 4.2vw; display: flex; align-items: center; min-height: 30px; padding: 0 10px 0 36px; color: var(--cream); background: var(--ink); font-family: "Space Grotesk", sans-serif; font-size: 9px; font-weight: 700; letter-spacing: .1em; }
