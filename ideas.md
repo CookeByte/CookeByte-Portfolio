@@ -82,3 +82,5 @@ The desktop experience will hold this scene in a sticky stage while the visitor 
 Every scroll beat carries either a shop-window display cue or practical retail-wayfinding copy; no extended plain dark spacer is allowed. The final beat resolves into Counter Cream before the page continues, preserving Cream as the dominant canvas beyond the display bay. The Shopfront ticket “S” appears in each beat as an intentionally repeated studio stamp.
 
 Signal Tangerine owns the large commercial gestures, while Citrus Lime is reserved for high-attention offer discs, counts, status markers, and small callouts. Each major page zone carries a retail-system cue such as an aisle rail, a ticket stamp, a marker, a storefront crop, or a ruled module, so the visitor experiences one continuous shopfront route rather than a sequence of unrelated panels.
+
+Monocraft is used as the studio’s digital-signage voice for navigation, labels, price markers, interaction controls, and wayfinding copy. The display face remains reserved for major commercial headlines and the clean body face stays in place for longer reading and form completion.

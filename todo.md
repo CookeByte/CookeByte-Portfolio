@@ -45,3 +45,9 @@
 - [x] Add buttons that reveal private pricing or the project brief panel on demand.
 - [x] Ensure private panels can be closed accessibly and work on mobile.
 - [x] Validate button-triggered pricing and enquiry interactions before delivery.
+
+## Monocraft Typography Update
+
+- [x] Define how Monocraft will be used for the display, signage, and utility hierarchy: Monocraft for navigation, labels, markers, controls, prices, and utility copy; existing display and body fonts remain for headings and long-form readability.
+- [x] Add Monocraft to the site and apply it across the selected typography roles.
+- [x] Validate desktop and mobile readability after the typography change.

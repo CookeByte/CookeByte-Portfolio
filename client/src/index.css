@@ -7,6 +7,15 @@
 @import "tailwindcss";
 @import "tw-animate-css";
 
+/* Market Signal typography: Monocraft carries the pixel-forward retail signage and control layer. */
+@font-face {
+  font-family: "Monocraft";
+  src: url("/manus-storage/Monocraft_d1ca0832.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
 @custom-variant dark (&:is(.dark *));
 
 @theme inline {
@@ -376,6 +385,20 @@ h1 em, h2 em { color: var(--orange); font-family: "Space Grotesk", sans-serif; f
   .private-panel .pricing-card { min-height: 272px; padding: 19px; }
   .private-panel .price-lockup strong { font-size: 49px; }
   .private-panel .pricing-card h3 { font-size: 32px; }
+}
+
+/* Monocraft is intentionally kept to information-dense, interactive, and signage roles; body copy stays highly readable. */
+.site-header, .desktop-nav, .header-cta, .mobile-nav,
+.hero-rail span, .eyebrow, .intro-label, h1 em, h2 em,
+.hero-ticket, .hero-3d-stage span, .scene-disc i, .scene-system-tag, .scene-scroll-cue, .scroll-beat,
+.marker-orb, .text-link, .vertical-stamp, .feature-counter, .feature-tags span,
+.service-top, .service-detail, .service-footnote,
+.team-aisle-strip, .team-card-top, .role-glyph, .role-index small, .team-3d-stage span, .role-tags span, .team-connector,
+.pricing-card-top, .price-lockup span, .package-points span, .plan-cta, .pricing-footnote,
+.work-route-bar, .enquiry-card-top, .enquiry-link, .work-with-us-footnote,
+.project-brief-form label, .brief-submit, .brief-status, .private-panel-label,
+.case-study-section::before, .image-caption, .check-list li, .process-number, .contact-orb, .contact-link {
+  font-family: "Monocraft", monospace;
 }
 
 .case-study-section { position: relative; display: grid; grid-template-columns: minmax(370px, 1fr) minmax(380px, 1fr); align-items: center; gap: clamp(55px, 9vw, 150px); padding: 132px max(4.2vw, 28px) 112px; background: var(--cream); }
