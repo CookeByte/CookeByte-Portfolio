@@ -121,7 +121,7 @@ export default function Home() {
     ].join("\n");
 
     setBriefStatus("Your email draft is opening with the project brief included.");
-    window.location.href = `mailto:hello@shopfront.studio?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+    window.location.href = `mailto:cookebyte@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
   };
 
   useEffect(() => {
@@ -459,7 +459,7 @@ export default function Home() {
             <h2>Ready to put<br />your shop <em>out front?</em></h2>
             <p>Bring the launch, refresh, promotion, or bigger retail question. You&apos;ll work directly with a developer and a designer-editor from the first move.</p>
           </div>
-          <a className="contact-link mono-glitch" href="mailto:hello@shopfront.studio" aria-label="Email CookeByte">
+          <a className="contact-link mono-glitch" href="mailto:cookebyte@gmail.com" aria-label="Email CookeByte at cookebyte@gmail.com">
             <span>START A<br />CONVERSATION</span>
             <ArrowRight size={28} />
           </a>
@@ -520,7 +520,7 @@ export default function Home() {
       <footer className="site-footer">
         <a className="footer-brand" href="#top"><span className="cookebyte-sigil" aria-hidden="true">C</span> <span className="cookebyte-wordmark">COOKE<b>BYTE</b><small>CREATIVE SYSTEMS</small></span></a>
         <p>Development, design & video for the<br />places people buy from nearby.</p>
-        <div className="footer-links"><a href="#scope">Services</a><a href="#team">Team</a><a href="#method">Method</a><a href="#contact">Contact</a></div>
+        <div className="footer-links"><a href="#scope">Services</a><a href="#team">Team</a><a href="#method">Method</a><a href="#contact">Contact</a><a href="https://github.com/CookeByte" target="_blank" rel="noreferrer">GitHub ↗</a></div>
         <span>© 2026 / Built for local commerce</span>
       </footer>
     </div>
