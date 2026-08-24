@@ -172,4 +172,10 @@
 - [x] Mix CookeByte display lettering with a Monocraft detail line in the expanded entrance callout.
 - [x] Validate the partner callout on desktop and mobile.
 - [x] Push the completed callout update to CookeByte/CookeByte-Portfolio.
+
+## Abisheik Skill Label
+
+- [x] Replace “Photoshop Designer” with “Graphic Designer” in Abisheik’s skills.
+- [x] Validate the revised team-card label.
+- [ ] Push the skill-label update to CookeByte/CookeByte-Portfolio.
 - [x] Push the verified repair to CookeByte/CookeByte-Portfolio.

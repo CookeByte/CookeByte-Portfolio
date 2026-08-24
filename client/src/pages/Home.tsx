@@ -384,7 +384,7 @@ export default function Home() {
               role="Visual lead"
               handle="abisheik.edits"
               status="Cutting fresh"
-              skills={["Video Editor", "Web Designer", "Photoshop Designer"]}
+              skills={["Video Editor", "Web Designer", "Graphic Designer"]}
               imageUrl="/media/shopfront-campaign_ec6714db.jpg"
               imageAlt="Temporary retail campaign image for Abisheik"
               accent="#ff5a36"
