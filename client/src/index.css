@@ -331,6 +331,59 @@ h1 em, h2 em { color: var(--orange); font-family: "Space Grotesk", sans-serif; f
   .skill-profile__glow { display: none; }
 }
 
+/* Monocraft launch loader: a short retail-signal boot sequence before the shopfront opens. */
+.launch-loader { position: fixed; z-index: 200; inset: 0; display: flex; flex-direction: column; color: var(--cream); background: var(--ink); overflow: hidden; }
+.launch-loader__rule { height: 8px; background: var(--orange); }
+.launch-loader__topline, .launch-loader__footer { display: flex; align-items: center; justify-content: space-between; padding: 18px 4.2vw; font-family: "Monocraft", monospace; font-size: 10px; letter-spacing: .09em; }
+.launch-loader__topline { border-bottom: 1px solid rgba(244,240,232,.25); }
+.launch-loader__footer { border-top: 1px solid rgba(244,240,232,.25); }
+.launch-loader__center { position: relative; flex: 1; display: grid; place-content: center; justify-items: center; padding: 30px; text-align: center; }
+.launch-loader__center::before, .launch-loader__center::after { content: ""; position: absolute; width: min(47vw, 570px); aspect-ratio: 1; border: 1px solid rgba(244,240,232,.14); border-radius: 50%; }
+.launch-loader__center::before { transform: translate(-12%, 5%); box-shadow: 0 0 0 34px rgba(213,230,104,.07), 0 0 0 68px rgba(255,90,54,.06); }
+.launch-loader__center::after { width: min(22vw, 255px); background: var(--orange); border: 0; opacity: .92; transform: translate(89%, -49%); }
+.launch-loader__ticket { position: relative; z-index: 2; display: grid; place-items: center; width: 54px; height: 54px; margin-bottom: 25px; color: var(--ink); background: var(--lime); clip-path: polygon(0 0, 100% 0, 100% 77%, 77% 100%, 0 100%); font-family: "Archivo Black", sans-serif; font-size: 28px; }
+.launch-loader__kicker, .launch-loader__subline { position: relative; z-index: 2; margin: 0; font-family: "Monocraft", monospace; font-size: 10px; letter-spacing: .13em; }
+.launch-loader h1 { position: relative; z-index: 2; max-width: 900px; margin: 19px 0 16px; color: var(--cream); font-family: "Monocraft", monospace; font-size: clamp(30px, 7vw, 103px); font-weight: 400; letter-spacing: .05em; line-height: .94; word-break: break-word; }
+.launch-loader__subline { color: var(--lime); }
+.launch-loader__progress { height: 12px; margin: 0 4.2vw; background: rgba(244,240,232,.16); overflow: hidden; }
+.launch-loader__progress span { display: block; width: 100%; height: 100%; background: var(--lime); transform-origin: left; }
+.launch-loader--leaving { animation: launch-loader-exit 460ms var(--ease-out) forwards; }
+@keyframes launch-loader-exit { to { opacity: 0; transform: translateY(-100%); } }
+
+@media (max-width: 500px) {
+  .launch-loader__topline, .launch-loader__footer { padding: 14px 20px; font-size: 8px; }
+  .launch-loader__center { padding: 22px; }
+  .launch-loader h1 { font-size: clamp(25px, 10vw, 47px); }
+  .launch-loader__center::after { width: 130px; transform: translate(67%, -82%); }
+  .launch-loader__progress { margin: 0 20px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .launch-loader--leaving { animation-duration: 80ms; }
+}
+
+/* Strengthened aisle-map continuity: the Shopfront ticket stamp and physical window cues recur through each major retail zone. */
+.feature-panel--text .feature-stamp { position: absolute; z-index: 3; right: 8vw; bottom: 31px; display: grid; place-items: center; width: 70px; height: 70px; color: var(--ink); background: var(--lime); border-radius: 50%; box-shadow: -12px 12px 0 var(--orange); font-family: "Archivo Black", sans-serif; font-size: 36px; transform: rotate(-12deg); }
+.feature-panel--text::after { display: none; }
+.section-ticket { position: absolute; z-index: 4; display: grid; place-items: center; width: 46px; height: 46px; color: var(--ink); background: var(--lime); box-shadow: 6px 6px 0 var(--ink); clip-path: polygon(0 0, 100% 0, 100% 78%, 78% 100%, 0 100%); font-family: "Archivo Black", sans-serif; font-size: 24px; }
+.services-ticket { top: -23px; right: 8vw; }
+.method-section, .contact-section { position: relative; }
+.method-section::before { content: ""; position: absolute; top: 0; left: 4.2vw; right: 4.2vw; height: 1px; background: var(--orange); box-shadow: 18px 8px 0 var(--orange), 36px 8px 0 var(--orange); }
+.method-ticket { top: -23px; right: 8vw; background: var(--orange); }
+.contact-section::before { content: ""; position: absolute; top: 0; left: 4.2vw; width: min(48vw, 580px); height: 1px; background: var(--lime); box-shadow: 18px 8px 0 var(--lime), 36px 8px 0 var(--lime); }
+.contact-ticket { top: -23px; left: 8vw; }
+.scene-window-crop { outline: 1px solid rgba(244,240,232,.42); outline-offset: 7px; }
+.scene-window-crop::before { content: "SHOP WINDOW / 01"; position: absolute; z-index: 3; right: 9px; bottom: 9px; padding: 5px 7px; color: var(--ink); background: var(--lime); font-family: "Monocraft", monospace; font-size: 8px; letter-spacing: .06em; }
+.scene-plinth::before { content: "OFFER RAIL"; position: absolute; left: 12%; top: 15px; color: var(--ink); font-family: "Monocraft", monospace; font-size: 9px; letter-spacing: .09em; }
+
+@media (max-width: 500px) {
+  .feature-panel--text .feature-stamp { right: 18px; bottom: 17px; width: 49px; height: 49px; font-size: 25px; box-shadow: -8px 8px 0 var(--orange); }
+  .section-ticket { width: 36px; height: 36px; font-size: 18px; }
+  .services-ticket, .method-ticket { right: 21px; }
+  .contact-ticket { left: 21px; }
+  .scene-window-crop::before, .scene-plinth::before { font-size: 6px; }
+}
+
 /* Package board: shop-counter pricing with tactile depth rather than generic SaaS pricing. */
 .pricing-section { position: relative; padding: 100px 4.2vw 86px; background: var(--cream); overflow: hidden; }
 .pricing-section::before { content: ""; position: absolute; top: 0; right: 7vw; width: 1px; height: 58px; background: var(--orange); box-shadow: -10px 0 0 var(--orange), -20px 0 0 rgba(23,24,23,.22); }

@@ -89,3 +89,4 @@ Monocraft is used as the studio’s digital-signage voice for navigation, labels
 
 - Pixel typography is reserved for signage accents, selected commercial words, labels, counts, controls, and wayfinding. Primary promotional headlines retain the heavy Shopfront-style display face.
 - Counter Cream sections must carry an active retail-system cue such as a ruled route, ticket frame, price marker, aisle label, or stamped symbol. The black featured-system panel remains intentionally image-free after the Work introduction is removed, using a large Shopfront stamp and display rails instead.
+- The Shopfront ticket “S” recurs as a recognizable stamp within every major zone. Major section transitions carry a visible rail, ticket edge, marker, or directional cue, and the hero prioritizes a physical shop-window frame, offer rail, plinth, disc, and retail-lighting language.

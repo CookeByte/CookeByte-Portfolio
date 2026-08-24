@@ -1,0 +1,1 @@
+Launch loader validation: A fresh live session displayed the Monocraft Shopfront signal-boot loader with shuffled text, progress, and the retail-signage composition. A subsequent inspection confirmed that the loader exited cleanly and normal homepage controls became available.

@@ -14,6 +14,7 @@ import {
   X,
 } from "lucide-react";
 import InteractiveSkillCard from "@/components/InteractiveSkillCard";
+import LaunchLoader from "@/components/LaunchLoader";
 
 const services = [
   {
@@ -83,6 +84,7 @@ const packages = [
 
 export default function Home() {
   const [menuOpen, setMenuOpen] = useState(false);
+  const [siteReady, setSiteReady] = useState(false);
   const [briefStatus, setBriefStatus] = useState("");
   const [privatePanel, setPrivatePanel] = useState<"pricing" | "brief" | null>(null);
   const heroSceneRef = useRef<HTMLElement>(null);
@@ -212,7 +214,8 @@ export default function Home() {
   }, [privatePanel]);
 
   return (
-    <div className="site-shell">
+    <div className={`site-shell${siteReady ? " site-shell--ready" : " site-shell--loading"}`}>
+      {!siteReady && <LaunchLoader onComplete={() => setSiteReady(true)} />}
       <div className="top-rule" />
       <header className="site-header">
         <a className="brand-lockup" href="#top" aria-label="Shopfront Studio home" onClick={closeMenu}>
@@ -321,6 +324,7 @@ export default function Home() {
         </section>
 
         <section className="feature-panel feature-panel--text" id="work" aria-labelledby="feature-title">
+          <span className="feature-stamp" aria-hidden="true">S</span>
           <div className="feature-copy">
             <div className="feature-counter"><span>01</span><span>—</span><span>Featured system</span></div>
             <h2 id="feature-title">Give every<br /><em>offer</em> a point<br />of view.</h2>
@@ -332,6 +336,7 @@ export default function Home() {
         </section>
 
         <section className="services-section" id="scope">
+          <span className="section-ticket services-ticket" aria-hidden="true">S</span>
           <div className="service-heading">
             <div className="intro-label light-label">/ 02 — THE SCOPE</div>
             <h2>Small team.<br />Big <em>signal.</em></h2>
@@ -425,6 +430,7 @@ export default function Home() {
         </section>
 
         <section className="method-section" id="method">
+          <span className="section-ticket method-ticket" aria-hidden="true">S</span>
           <div className="method-top">
             <div>
               <div className="intro-label">/ 05 — THE METHOD</div>
@@ -445,6 +451,7 @@ export default function Home() {
         </section>
 
         <section className="contact-section" id="contact">
+          <span className="section-ticket contact-ticket" aria-hidden="true">S</span>
           <div className="contact-orb" aria-hidden="true"><span>GET<br />VISIBLE</span></div>
           <div className="contact-copy">
             <div className="eyebrow eyebrow-light"><span className="eyebrow-dot" /> Let&apos;s make it visible</div>

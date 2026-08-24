@@ -64,3 +64,9 @@
 - [x] Prepare temporary profile imagery that can be swapped for uploaded portraits later.
 - [x] Replace the existing team cards with interactive skill-profile cards for Benitto Joshua and Abisheik.
 - [x] Validate tilt, glow, skill presentation, and mobile fallback behavior before delivery.
+
+## Monocraft Launch Loader
+
+- [x] Define the Shopfront launch sequence and reduced-motion fallback: a short character-scramble resolves into the Shopfront wordmark, displays loading progress, then lifts away; reduced-motion users receive the resolved mark with an accelerated exit.
+- [x] Add a loading screen with a Monocraft character-shuffle reveal.
+- [x] Validate loader timing, loading-state accessibility, and mobile presentation before delivery.
