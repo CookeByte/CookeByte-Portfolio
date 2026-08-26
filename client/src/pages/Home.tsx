@@ -20,6 +20,21 @@ import LaunchLoader from "@/components/LaunchLoader";
 import RouteSidebar from "@/components/RouteSidebar";
 import ScrollExpand from "@/components/ScrollExpand";
 import { useSiteSound } from "@/contexts/SiteSoundContext";
+import { trpc } from "@/lib/trpc";
+
+type BriefReceipt = {
+  receiptId: string;
+  createdAt: Date;
+  name: string;
+  business: string;
+  email: string;
+  projectType: string;
+  budget: string;
+  details: string;
+};
+
+type ProjectType = "Basic shop website" | "E-commerce setup" | "3D website" | "Video ad campaign" | "Dealership or partnership" | "Not sure yet";
+type BudgetRange = "Up to ₹10K" | "₹10K–₹25K" | "₹25K–₹50K" | "₹50K+" | "Let's discuss";
 
 const services = [
   {
@@ -91,15 +106,19 @@ export default function Home() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [siteReady, setSiteReady] = useState(false);
   const [briefStatus, setBriefStatus] = useState("");
+  const [briefReceipt, setBriefReceipt] = useState<BriefReceipt | null>(null);
   const [privatePanel, setPrivatePanel] = useState<"terms" | "pricing" | "brief" | null>(null);
   const { soundEnabled, toggleSound } = useSiteSound();
   const heroSceneRef = useRef<HTMLElement>(null);
   const teamSectionRef = useRef<HTMLElement>(null);
 
+  const submitProjectBrief = trpc.projectBrief.submit.useMutation();
+
   const closeMenu = () => setMenuOpen(false);
 
   const openPrivatePanel = (panel: "terms" | "pricing" | "brief") => {
     setBriefStatus("");
+    if (panel === "brief") setBriefReceipt(null);
     setPrivatePanel(panel);
   };
 
@@ -108,20 +127,29 @@ export default function Home() {
   const handleBriefSubmit = (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     const values = new FormData(event.currentTarget);
-    const projectType = String(values.get("projectType") || "Project enquiry");
-    const subject = `CookeByte enquiry — ${projectType}`;
-    const body = [
-      `Name: ${values.get("name") || "Not supplied"}`,
-      `Business: ${values.get("business") || "Not supplied"}`,
-      `Project type: ${projectType}`,
-      `Budget: ${values.get("budget") || "Not supplied"}`,
-      "",
-      "Project details:",
-      String(values.get("details") || "Not supplied"),
-    ].join("\n");
+    const submission = {
+      name: String(values.get("name") || "").trim(),
+      business: String(values.get("business") || "").trim(),
+      email: String(values.get("email") || "").trim(),
+      projectType: String(values.get("projectType") || "") as ProjectType,
+      budget: String(values.get("budget") || "") as BudgetRange,
+      details: String(values.get("details") || "").trim(),
+      receiptConsent: (values.get("receiptConsent") === "on") as true,
+    };
 
-    setBriefStatus("Your email draft is opening with the project brief included.");
-    window.location.href = `mailto:cookebyte@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+    setBriefStatus("");
+    submitProjectBrief.mutate(submission, {
+      onSuccess: (receipt) => {
+        setBriefReceipt({
+          ...submission,
+          receiptId: receipt.receiptId,
+          createdAt: new Date(receipt.createdAt),
+        });
+      },
+      onError: (error) => {
+        setBriefStatus(error.message || "Your brief could not be recorded right now. Please try again in a moment.");
+      },
+    });
   };
 
   useEffect(() => {
@@ -523,18 +551,44 @@ export default function Home() {
               <div className="brief-form-shell private-brief-form">
                 <div className="brief-form-heading">
                   <div className="eyebrow"><span className="eyebrow-dot" /> Private project brief</div>
-                  <h3 id="private-panel-title">Send the<br /><em>short version.</em></h3>
-                  <p>Tell us what you are making. The form prepares a clear project brief in your email app with the details already in place.</p>
+                  <h3 id="private-panel-title">{briefReceipt ? <>Brief<br /><em>received.</em></> : <>Send the<br /><em>short version.</em></>}</h3>
+                  <p>{briefReceipt ? "Your project brief is recorded with a CookeByte receipt ID. Email delivery is not active yet, so this is your on-screen confirmation." : "Tell us what you are making. We’ll record the project brief and generate an in-site CookeByte receipt."}</p>
                 </div>
-                <form className="project-brief-form" onSubmit={handleBriefSubmit}>
-                  <label><span>Your name</span><input name="name" type="text" required placeholder="Your name" /></label>
-                  <label><span>Shop or business</span><input name="business" type="text" required placeholder="Business name" /></label>
-                  <label><span>Project type</span><select name="projectType" required defaultValue=""><option value="" disabled>Choose a route</option><option>Basic shop website</option><option>E-commerce setup</option><option>3D website</option><option>Video ad campaign</option><option>Dealership or partnership</option><option>Not sure yet</option></select></label>
-                  <label><span>Budget range</span><select name="budget" required defaultValue=""><option value="" disabled>Select a range</option><option>Up to ₹10K</option><option>₹10K–₹25K</option><option>₹25K–₹50K</option><option>₹50K+</option><option>Let&apos;s discuss</option></select></label>
-                  <label className="details-field"><span>What needs to move?</span><textarea name="details" required rows={4} placeholder="Tell us about the shop, offer, timeline, or the next problem to solve." /></label>
-                  <button className="brief-submit mono-glitch" type="submit">Prepare project brief <ArrowRight size={19} /></button>
-                  {briefStatus && <p className="brief-status" role="status">{briefStatus}</p>}
-                </form>
+                {briefReceipt ? (
+                  <section className="brief-receipt" aria-live="polite" aria-label="CookeByte project brief receipt">
+                    <div className="receipt-masthead">
+                      <span className="receipt-stamp" aria-hidden="true">C</span>
+                      <span>PROJECT RECEIPT / 01</span>
+                    </div>
+                    <div className="receipt-id-row"><span>RECEIPT ID</span><strong>{briefReceipt.receiptId}</strong></div>
+                    <div className="receipt-grid">
+                      <div><span>LOGGED</span><strong>{new Intl.DateTimeFormat(undefined, { dateStyle: "medium", timeStyle: "short" }).format(briefReceipt.createdAt)}</strong></div>
+                      <div><span>CONTACT</span><strong>{briefReceipt.name}</strong></div>
+                      <div><span>BUSINESS</span><strong>{briefReceipt.business}</strong></div>
+                      <div><span>PROJECT TYPE</span><strong>{briefReceipt.projectType}</strong></div>
+                      <div><span>BUDGET</span><strong>{briefReceipt.budget}</strong></div>
+                      <div><span>EMAIL ON FILE</span><strong>{briefReceipt.email}</strong></div>
+                    </div>
+                    <div className="receipt-brief"><span>THE SHORT VERSION</span><p>{briefReceipt.details}</p></div>
+                    <p className="receipt-delivery-note"><span aria-hidden="true">●</span> In-site receipt created. Automated email delivery will be available once CookeByte connects an email service.</p>
+                    <div className="receipt-actions">
+                      <button type="button" className="receipt-action receipt-action--primary mono-glitch" onClick={closePrivatePanel}>Back to the site <ArrowRight size={18} /></button>
+                      <button type="button" className="receipt-action mono-glitch" onClick={() => { setBriefReceipt(null); setBriefStatus(""); }}>Send another brief</button>
+                    </div>
+                  </section>
+                ) : (
+                  <form className="project-brief-form" onSubmit={handleBriefSubmit}>
+                    <label><span>Your name</span><input name="name" type="text" required minLength={2} maxLength={120} placeholder="Your name" /></label>
+                    <label><span>Shop or business</span><input name="business" type="text" required minLength={2} maxLength={160} placeholder="Business name" /></label>
+                    <label className="details-field email-field"><span>Email for your receipt record</span><input name="email" type="email" required maxLength={320} placeholder="you@business.com" /><small>Automated email is not active yet. This address is recorded only with your project brief.</small></label>
+                    <label><span>Project type</span><select name="projectType" required defaultValue=""><option value="" disabled>Choose a route</option><option>Basic shop website</option><option>E-commerce setup</option><option>3D website</option><option>Video ad campaign</option><option>Dealership or partnership</option><option>Not sure yet</option></select></label>
+                    <label><span>Budget range</span><select name="budget" required defaultValue=""><option value="" disabled>Select a range</option><option>Up to ₹10K</option><option>₹10K–₹25K</option><option>₹25K–₹50K</option><option>Let&apos;s discuss</option></select></label>
+                    <label className="details-field"><span>What needs to move?</span><textarea name="details" required minLength={15} maxLength={4000} rows={4} placeholder="Tell us about the shop, offer, timeline, or the next problem to solve." /></label>
+                    <label className="brief-consent"><input name="receiptConsent" type="checkbox" required /><span>I understand CookeByte will record this brief and my contact details to prepare the project receipt. No automated email will be sent yet.</span></label>
+                    <button className="brief-submit mono-glitch" type="submit" disabled={submitProjectBrief.isPending}>{submitProjectBrief.isPending ? "Recording your brief…" : <>Create project receipt <ArrowRight size={19} /></>}</button>
+                    {briefStatus && <p className="brief-status brief-status--error" role="alert">{briefStatus}</p>}
+                  </form>
+                )}
               </div>
             )}
           </section>

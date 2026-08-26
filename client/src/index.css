@@ -578,10 +578,35 @@ h1 em, h2 em { color: var(--orange); font-family: "Space Grotesk", sans-serif; f
 .project-brief-form textarea { resize: vertical; min-height: 102px; }
 .project-brief-form input:focus, .project-brief-form select:focus, .project-brief-form textarea:focus { border-color: var(--orange); box-shadow: 4px 4px 0 var(--orange); transform: translate(-2px, -2px); }
 .details-field { grid-column: 1 / -1; }
+.email-field small { color: rgba(23,24,23,.66); font-family: "DM Sans", sans-serif; font-size: 12px; font-weight: 500; letter-spacing: 0; line-height: 1.35; text-transform: none; }
+.brief-consent { grid-column: 1 / -1; grid-template-columns: 18px minmax(0, 1fr); align-items: start; gap: 10px !important; padding: 13px; border-top: 1px solid rgba(23,24,23,.26); border-bottom: 1px solid rgba(23,24,23,.26); color: rgba(23,24,23,.78); font-family: "DM Sans", sans-serif !important; font-size: 12px !important; font-weight: 500 !important; letter-spacing: 0 !important; line-height: 1.45; text-transform: none !important; }
+.brief-consent input { width: 16px; min-height: 16px; height: 16px; margin: 1px 0 0; padding: 0; accent-color: var(--orange); box-shadow: none !important; transform: none !important; }
 .brief-submit { display: flex; align-items: center; justify-content: space-between; grid-column: 1 / -1; min-height: 52px; padding: 0 16px; color: var(--cream); background: var(--ink); border: 0; font-family: "Space Grotesk", sans-serif; font-size: 11px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; transform-style: preserve-3d; transition: transform 180ms var(--ease-out), background 180ms var(--ease-out), box-shadow 180ms var(--ease-out); }
 .brief-submit:hover { background: var(--orange); transform: translate3d(0, -4px, 8px) rotateX(3deg); box-shadow: 7px 8px 0 var(--ink); }
 .brief-submit:active { transform: scale(.98); }
+.brief-submit:disabled { cursor: wait; color: rgba(244,240,232,.72); background: rgba(23,24,23,.72); box-shadow: none; transform: none; }
 .brief-status { grid-column: 1 / -1; margin: 0; color: var(--orange); font-family: "Space Grotesk", sans-serif; font-size: 11px; font-weight: 700; }
+.brief-status--error { padding: 11px 12px; color: #991d12; background: rgba(255,90,54,.13); border-left: 3px solid var(--orange); }
+.brief-receipt { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; align-content: start; }
+.receipt-masthead, .receipt-id-row, .receipt-brief, .receipt-delivery-note, .receipt-actions { grid-column: 1 / -1; }
+.receipt-masthead { display: flex; align-items: center; gap: 10px; color: var(--cream); background: var(--ink); padding: 10px 13px 10px 10px; font-family: "Monocraft", monospace; font-size: 10px; letter-spacing: .08em; }
+.receipt-stamp { display: grid; place-items: center; width: 28px; height: 28px; color: var(--ink); background: var(--lime); font-family: "Archivo Black", sans-serif; font-size: 17px; }
+.receipt-id-row { display: flex; align-items: end; justify-content: space-between; gap: 18px; padding: 17px 0; border-bottom: 1px solid var(--ink); font-family: "Monocraft", monospace; }
+.receipt-id-row span, .receipt-grid span, .receipt-brief > span { font-size: 10px; letter-spacing: .08em; }
+.receipt-id-row strong { color: var(--orange); font-size: 16px; letter-spacing: -.03em; }
+.receipt-grid { display: grid; grid-template-columns: 1fr; gap: 0; border-top: 1px solid rgba(23,24,23,.24); border-left: 1px solid rgba(23,24,23,.24); }
+.receipt-grid > div { display: grid; gap: 6px; min-height: 78px; padding: 11px; border-right: 1px solid rgba(23,24,23,.24); border-bottom: 1px solid rgba(23,24,23,.24); }
+.receipt-grid span, .receipt-brief > span { color: rgba(23,24,23,.57); font-family: "Monocraft", monospace; }
+.receipt-grid strong { font-family: "DM Sans", sans-serif; font-size: 14px; font-weight: 700; line-height: 1.2; overflow-wrap: anywhere; }
+.receipt-brief { padding: 16px; background: #e6dfd1; border-left: 4px solid var(--orange); }
+.receipt-brief p { margin: 10px 0 0; font-size: 14px; line-height: 1.5; white-space: pre-wrap; }
+.receipt-delivery-note { display: flex; gap: 8px; margin: 0; padding: 10px 0; color: rgba(23,24,23,.7); border-bottom: 1px solid rgba(23,24,23,.24); font-family: "DM Sans", sans-serif; font-size: 12px; line-height: 1.4; }
+.receipt-delivery-note span { color: var(--orange); }
+.receipt-actions { display: flex; flex-wrap: wrap; gap: 10px; }
+.receipt-action { display: inline-flex; align-items: center; justify-content: space-between; gap: 24px; min-height: 44px; padding: 0 13px; color: var(--ink); background: transparent; border: 1px solid var(--ink); font-family: "Monocraft", monospace; font-size: 10px; letter-spacing: .04em; text-transform: uppercase; transition: background 160ms var(--ease-out), color 160ms var(--ease-out), transform 160ms var(--ease-out); }
+.receipt-action:hover { color: var(--cream); background: var(--ink); transform: translateY(-2px); }
+.receipt-action--primary { color: var(--cream); background: var(--orange); border-color: var(--orange); }
+.receipt-action--primary:hover { color: var(--ink); background: var(--lime); border-color: var(--lime); }
 
 /* Private enquiry panels keep commercial prices and form details out of the public scroll. */
 .private-panel-overlay { position: fixed; z-index: 100; inset: 0; display: grid; place-items: center; padding: 28px; }
@@ -609,6 +634,7 @@ h1 em, h2 em { color: var(--orange); font-family: "Space Grotesk", sans-serif; f
   .private-panel .pricing-card { min-height: 300px; }
   .private-brief-form { grid-template-columns: 1fr; gap: 30px; }
   .private-brief-form .project-brief-form { grid-template-columns: 1fr; }
+  .brief-receipt { grid-template-columns: 1fr; }
 }
 
 @media (max-width: 500px) {
@@ -624,6 +650,9 @@ h1 em, h2 em { color: var(--orange); font-family: "Space Grotesk", sans-serif; f
   .legal-suite-viewer { height: calc(100vh - 300px); min-height: 360px; margin-top: 22px; }
   .private-panel .price-lockup strong { font-size: 49px; }
   .private-panel .pricing-card h3 { font-size: 32px; }
+  .receipt-id-row { align-items: start; flex-direction: column; gap: 6px; }
+  .receipt-actions { flex-direction: column; }
+  .receipt-action { width: 100%; }
 }
 
 /* Monocraft is intentionally kept to information-dense, interactive, and signage roles; body copy stays highly readable. */
@@ -635,7 +664,7 @@ h1 em, h2 em { color: var(--orange); font-family: "Space Grotesk", sans-serif; f
 .team-aisle-strip, .team-card-top, .role-glyph, .role-index small, .team-3d-stage span, .role-tags span, .team-connector,
 .pricing-card-top, .price-lockup span, .package-points span, .plan-cta, .pricing-footnote,
 .work-route-bar, .enquiry-card-top, .enquiry-link, .work-with-us-footnote,
-.project-brief-form label, .brief-submit, .brief-status, .private-panel-label,
+.project-brief-form label:not(.brief-consent), .brief-submit, .brief-status, .private-panel-label,
 .case-study-section::before, .image-caption, .check-list li, .process-number, .contact-orb, .contact-link {
   font-family: "Monocraft", monospace;
 }

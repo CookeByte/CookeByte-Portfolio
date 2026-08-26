@@ -228,4 +228,32 @@
 - [x] Replace the public legal-suite PDF asset with the revised 12-page document.
 - [x] Validate the revised in-site viewer and page count: the embedded PDF now contains 12 pages and the production build passes.
 - [x] Push the revised legal suite to CookeByte/CookeByte-Portfolio.
+
+## Project Brief Receipt Previews
+
+- [x] Map the project brief fields into a reusable submission receipt.
+- [x] Draft an email receipt preview for CookeByte and the visitor.
+- [x] Draft a concise WhatsApp receipt preview.
+- [x] Present the two receipt formats and connection notes.
+
+## CookeByte Email Receipt Workflow
+
+- [ ] Define the CookeByte-themed receipt content and receipt ID behavior.
+- [ ] Prepare server-side form handling and secure email-delivery configuration.
+- [ ] Add recipient email capture and consent text to the project brief form.
+- [ ] Replace the mailto action with branded receipt confirmation and email submission.
+- [ ] Validate the receipt presentation and safe mail-delivery path.
+- [ ] Push the completed email receipt workflow to CookeByte/CookeByte-Portfolio.
 - [x] Push the verified repair to CookeByte/CookeByte-Portfolio.
+
+## CookeByte In-Site Project Receipt
+
+- [x] Preserve the upgraded CookeByte homepage and restore a clean full-stack development build.
+- [x] Define server-generated receipt IDs and store submitted project briefs without external email delivery.
+- [x] Add contact email capture and transparent receipt-status copy to the private project brief form.
+- [x] Replace the mailto action with an accessible CookeByte-themed in-site receipt confirmation.
+- [x] Add automated test coverage and validate receipt ID, consent-error, storage, database schema, desktop, mobile, typecheck, and production-build states.
+- [ ] Push the completed in-site receipt update to CookeByte/CookeByte-Portfolio.
+- [x] Exercise the private project-brief form in the browser and verify the success receipt panel appears with real mutation data.
+- [x] Verify the visible client-side validation error state in the private project-brief form.
+- [x] Document the managed full-stack publishing path separately from the existing static Vercel deployment.
