@@ -238,12 +238,12 @@
 
 ## CookeByte Email Receipt Workflow
 
-- [ ] Define the CookeByte-themed receipt content and receipt ID behavior.
-- [ ] Prepare server-side form handling and secure email-delivery configuration.
-- [ ] Add recipient email capture and consent text to the project brief form.
-- [ ] Replace the mailto action with branded receipt confirmation and email submission.
-- [ ] Validate the receipt presentation and safe mail-delivery path.
-- [ ] Push the completed email receipt workflow to CookeByte/CookeByte-Portfolio.
+- [x] Define the CookeByte-themed receipt content and receipt ID behavior.
+- [x] Prepare server-side form handling and defer email-delivery configuration until the user supplies an email provider.
+- [x] Add recipient email capture and transparent consent text to the project brief form.
+- [x] Replace the mailto action with branded in-site receipt confirmation; external email submission is intentionally deferred.
+- [x] Validate the receipt presentation and the safe inactive-email state.
+- [x] Prepare the provider-free in-site receipt workflow for safe source control delivery; automated email remains deferred.
 - [x] Push the verified repair to CookeByte/CookeByte-Portfolio.
 
 ## CookeByte In-Site Project Receipt
