@@ -503,6 +503,11 @@ h1 em, h2 em { color: var(--orange); font-family: "Space Grotesk", sans-serif; f
 .pricing-heading h2 { margin: 25px 0 0; font-family: "Archivo Black", sans-serif; font-size: clamp(50px, 5.7vw, 87px); font-weight: 400; letter-spacing: -.075em; line-height: .89; }
 .pricing-heading p { max-width: 330px; margin: 0 0 7px; font-size: 16px; font-weight: 500; line-height: 1.5; }
 .pricing-grid { display: grid; grid-template-columns: repeat(3, 1fr); perspective: 1500px; border-top: 1px solid var(--ink); border-left: 1px solid var(--ink); }
+.terms-grid { display: grid; grid-template-columns: repeat(3, 1fr); margin-top: 34px; border-top: 1px solid var(--ink); border-left: 1px solid var(--ink); }
+.terms-grid article { min-height: 230px; padding: 26px; border-right: 1px solid var(--ink); border-bottom: 1px solid var(--ink); }
+.terms-grid span { color: var(--orange); font-family: "Monocraft", monospace; font-size: 9px; letter-spacing: .1em; }
+.terms-grid h3 { margin: 42px 0 12px; font-family: "Archivo Black", sans-serif; font-size: clamp(20px, 2vw, 30px); line-height: .98; }
+.terms-grid p { margin: 0; color: rgba(11,12,10,.78); font-size: 13px; line-height: 1.5; }
 .pricing-card { position: relative; min-height: 438px; display: flex; flex-direction: column; padding: 24px; color: var(--ink); border-right: 1px solid var(--ink); border-bottom: 1px solid var(--ink); transform-style: preserve-3d; transition: transform 260ms var(--ease-out), box-shadow 260ms var(--ease-out); }
 .pricing-card::after { content: ""; position: absolute; z-index: -1; inset: 10px -10px -10px 10px; background: var(--ink); opacity: 0; transform: translate3d(0, 0, -20px); transition: opacity 260ms var(--ease-out); }
 .pricing-card:hover { z-index: 2; transform: translate3d(0, -10px, 22px) rotateX(2deg) rotateY(-2deg); box-shadow: 13px 15px 0 var(--ink); }
@@ -585,6 +590,7 @@ h1 em, h2 em { color: var(--orange); font-family: "Space Grotesk", sans-serif; f
 .private-panel-label img { width: 20px; height: 20px; padding: 2px; background: var(--cream); object-fit: contain; }
 .private-pricing-heading { margin-top: 43px; margin-bottom: 39px; }
 .private-panel .pricing-grid { max-width: none; }
+.private-panel .terms-grid { max-width: none; }
 .private-panel .pricing-footnote { max-width: none; }
 .private-panel .plan-cta { border: 0; }
 .private-brief-form { max-width: none; margin: 11px 0 0; padding: 0; box-shadow: none; }
@@ -595,6 +601,7 @@ h1 em, h2 em { color: var(--orange); font-family: "Space Grotesk", sans-serif; f
   .private-panel { max-height: calc(100vh - 32px); padding: 28px; box-shadow: 10px 12px 0 var(--orange); }
   .private-panel .pricing-heading { grid-template-columns: 1fr; gap: 22px; }
   .private-panel .pricing-grid { grid-template-columns: 1fr; }
+  .private-panel .terms-grid { grid-template-columns: 1fr; }
   .private-panel .pricing-card { min-height: 300px; }
   .private-brief-form { grid-template-columns: 1fr; gap: 30px; }
   .private-brief-form .project-brief-form { grid-template-columns: 1fr; }
@@ -607,6 +614,9 @@ h1 em, h2 em { color: var(--orange); font-family: "Space Grotesk", sans-serif; f
   .private-panel-label { font-size: 8px; }
   .private-panel .pricing-heading h2 { font-size: clamp(42px, 12vw, 57px); }
   .private-panel .pricing-card { min-height: 272px; padding: 19px; }
+  .private-panel .terms-grid { margin-top: 22px; }
+  .private-panel .terms-grid article { min-height: 0; padding: 20px; }
+  .private-panel .terms-grid h3 { margin-top: 28px; }
   .private-panel .price-lockup strong { font-size: 49px; }
   .private-panel .pricing-card h3 { font-size: 32px; }
 }

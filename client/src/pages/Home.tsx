@@ -91,14 +91,14 @@ export default function Home() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [siteReady, setSiteReady] = useState(false);
   const [briefStatus, setBriefStatus] = useState("");
-  const [privatePanel, setPrivatePanel] = useState<"pricing" | "brief" | null>(null);
+  const [privatePanel, setPrivatePanel] = useState<"terms" | "pricing" | "brief" | null>(null);
   const { soundEnabled, toggleSound } = useSiteSound();
   const heroSceneRef = useRef<HTMLElement>(null);
   const teamSectionRef = useRef<HTMLElement>(null);
 
   const closeMenu = () => setMenuOpen(false);
 
-  const openPrivatePanel = (panel: "pricing" | "brief") => {
+  const openPrivatePanel = (panel: "terms" | "pricing" | "brief") => {
     setBriefStatus("");
     setPrivatePanel(panel);
   };
@@ -417,11 +417,11 @@ export default function Home() {
             <p>Whether you need a better digital shopfront, a clear estimate, or one visual system across multiple locations, choose the route that fits.</p>
           </div>
           <div className="enquiry-grid">
-            <article className="enquiry-card project-route">
-              <div className="enquiry-card-top"><span>01 / START A PROJECT</span><MoveUpRight size={21} /></div>
-              <h3>Bring us the<br />brief.</h3>
-              <p>For a new website, campaign, video edit, or a full shopfront refresh.</p>
-              <button type="button" className="enquiry-link mono-glitch" onClick={() => openPrivatePanel("brief")}>Open project brief <ArrowRight size={17} /></button>
+            <article className="enquiry-card project-route terms-route">
+              <div className="enquiry-card-top"><span>01 / TERMS & CONDITIONS</span><MoveUpRight size={21} /></div>
+              <h3>Know the<br />terms.</h3>
+              <p>Clear scope, working rhythm, and handover expectations before the work begins.</p>
+              <button type="button" className="enquiry-link mono-glitch" onClick={() => openPrivatePanel("terms")}>View terms <ArrowRight size={17} /></button>
             </article>
             <article className="enquiry-card pricing-route">
               <div className="enquiry-card-top"><span>02 / PRICING GUIDE</span><span className="route-count">₹</span></div>
@@ -430,10 +430,10 @@ export default function Home() {
               <button type="button" className="enquiry-link mono-glitch" onClick={() => openPrivatePanel("pricing")}>View starting packages <ArrowRight size={17} /></button>
             </article>
             <article className="enquiry-card partner-route">
-              <div className="enquiry-card-top"><span>03 / DEALERSHIP & PARTNERS</span><span className="route-count">03</span></div>
-              <h3>Make every<br />location <em>look local.</em></h3>
-              <p>For dealership groups, franchises, and multi-location retail teams ready to move as one.</p>
-              <button type="button" className="enquiry-link mono-glitch" onClick={() => openPrivatePanel("brief")}>Open partnership brief <ArrowRight size={17} /></button>
+              <div className="enquiry-card-top"><span>03 / BRING US THE BRIEF</span><span className="route-count">03</span></div>
+              <h3>Bring us the<br /><em>brief.</em></h3>
+              <p>For a new website, campaign, video edit, or a full shopfront refresh.</p>
+              <button type="button" className="enquiry-link mono-glitch" onClick={() => openPrivatePanel("brief")}>Open project brief <ArrowRight size={17} /></button>
             </article>
           </div>
           <p className="work-with-us-footnote"><span>Need a different route?</span> Send the short version. We&apos;ll map the right next move together. <ArrowRight size={16} /></p>
@@ -503,6 +503,22 @@ export default function Home() {
                   ))}
                 </div>
                 <p className="pricing-footnote"><span>Video ad campaigns</span> are quoted to the runtime, edit volume, and campaign requirements of your brief.</p>
+              </div>
+            ) : privatePanel === "terms" ? (
+              <div className="private-panel-content terms-panel-content">
+                <div className="private-panel-label"><span className="inline-cookebyte-sigil">C</span> TERMS & CONDITIONS</div>
+                <div className="pricing-heading private-pricing-heading">
+                  <div>
+                    <div className="intro-label">/ HOW WE WORK</div>
+                    <h2 id="private-panel-title">Terms that keep<br />the <em>signal clear.</em></h2>
+                  </div>
+                  <p>This is a practical overview before a project starts. The written agreement for your final scope, timeline, and deliverables remains the definitive record.</p>
+                </div>
+                <div className="terms-grid">
+                  <article><span>01 / SCOPE</span><h3>Make the brief specific.</h3><p>We agree the core deliverables, review points, and what success looks like before production moves.</p></article>
+                  <article><span>02 / COLLABORATION</span><h3>Keep the route moving.</h3><p>Feedback is gathered at defined stages so design, edits, and development stay aligned with the launch plan.</p></article>
+                  <article><span>03 / HANDOVER</span><h3>Ship with clarity.</h3><p>Final files, access, and next steps are confirmed against the accepted project scope at delivery.</p></article>
+                </div>
               </div>
             ) : (
               <div className="brief-form-shell private-brief-form">

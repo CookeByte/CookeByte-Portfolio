@@ -192,4 +192,25 @@
 - [x] Add his GitHub and personal portfolio links.
 - [x] Validate the personal profile links and card presentation.
 - [x] Push the Benitto profile update to CookeByte/CookeByte-Portfolio.
+
+## Contact Form Connection Audit
+
+- [x] Inspect the project-brief form submission implementation.
+- [x] Test the submission behavior without sending a live enquiry: all five fields are required, the private form opens correctly, and the handler prepares a mailto draft addressed to cookebyte@gmail.com.
+- [x] Report whether delivery is connected and identify any needed setup: the form is connected to a visitor’s email client via mailto, not to a backend or inbox delivery service.
+
+## Final Live Vercel Audit
+
+- [x] Verify live navigation, contact, profile, and external links; in-page routes resolve to present sections, mail links use the supplied addresses, and profile links are exposed with valid destinations.
+- [x] Verify the private project brief form path and public media responses: the private panel opens with five required fields, it prepares a mailto draft rather than sending through a backend, and five expected public media elements render live.
+- [x] Verify loader, scroll entrance, and responsive navigation animations: the loader completes, the entrance image expands through the scroll range, and the previously tested mobile route menu retains keyboard selection and smooth section handoff.
+- [x] Report final Vercel audit findings and remaining limitation: enquiries rely on each visitor’s configured email client because no backend delivery service is connected.
+
+## Work With Us Card Order
+
+- [x] Make Terms & Conditions the first Work With Us card.
+- [x] Keep Pricing Guide as the second Work With Us card.
+- [x] Make Bring Us the Brief the third Work With Us card.
+- [x] Validate order, card actions, and responsive layout: the Terms panel opens correctly, all three cards are readable in desktop order, and the mobile sequence stacks cleanly.
+- [ ] Push the Work With Us update to CookeByte/CookeByte-Portfolio.
 - [x] Push the verified repair to CookeByte/CookeByte-Portfolio.
