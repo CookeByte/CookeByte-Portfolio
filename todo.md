@@ -213,4 +213,12 @@
 - [x] Make Bring Us the Brief the third Work With Us card.
 - [x] Validate order, card actions, and responsive layout: the Terms panel opens correctly, all three cards are readable in desktop order, and the mobile sequence stacks cleanly.
 - [x] Push the Work With Us update to CookeByte/CookeByte-Portfolio.
+
+## Embedded Legal Suite
+
+- [x] Prepare the uploaded CookeByte legal-suite PDF for production delivery.
+- [x] Replace the Terms overview copy with an embedded in-site PDF viewer.
+- [x] Provide an accessible fallback link without redirecting the primary in-site experience.
+- [x] Validate the legal-suite viewer on desktop and mobile: the in-site PDF viewer renders in the Terms panel, production build passes, and the public PDF returns HTTP 200 with application/pdf content.
+- [ ] Push the legal-suite viewer update to CookeByte/CookeByte-Portfolio.
 - [x] Push the verified repair to CookeByte/CookeByte-Portfolio.

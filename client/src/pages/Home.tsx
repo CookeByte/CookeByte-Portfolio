@@ -505,20 +505,19 @@ export default function Home() {
                 <p className="pricing-footnote"><span>Video ad campaigns</span> are quoted to the runtime, edit volume, and campaign requirements of your brief.</p>
               </div>
             ) : privatePanel === "terms" ? (
-              <div className="private-panel-content terms-panel-content">
+              <div className="private-panel-content legal-suite-panel-content">
                 <div className="private-panel-label"><span className="inline-cookebyte-sigil">C</span> TERMS & CONDITIONS</div>
                 <div className="pricing-heading private-pricing-heading">
                   <div>
-                    <div className="intro-label">/ HOW WE WORK</div>
-                    <h2 id="private-panel-title">Terms that keep<br />the <em>signal clear.</em></h2>
+                    <div className="intro-label">/ COOKEBYTE LEGAL SUITE</div>
+                    <h2 id="private-panel-title">Read the<br /><em>legal suite.</em></h2>
                   </div>
-                  <p>This is a practical overview before a project starts. The written agreement for your final scope, timeline, and deliverables remains the definitive record.</p>
+                  <p>Read the complete CookeByte terms and conditions in the viewer below. It stays on this page so you can review the document without leaving the site.</p>
                 </div>
-                <div className="terms-grid">
-                  <article><span>01 / SCOPE</span><h3>Make the brief specific.</h3><p>We agree the core deliverables, review points, and what success looks like before production moves.</p></article>
-                  <article><span>02 / COLLABORATION</span><h3>Keep the route moving.</h3><p>Feedback is gathered at defined stages so design, edits, and development stay aligned with the launch plan.</p></article>
-                  <article><span>03 / HANDOVER</span><h3>Ship with clarity.</h3><p>Final files, access, and next steps are confirmed against the accepted project scope at delivery.</p></article>
+                <div className="legal-suite-viewer">
+                  <iframe src="/legal/cookebyte-legal-suite.pdf#view=FitH" title="CookeByte Legal Suite" />
                 </div>
+                <p className="legal-suite-fallback">Having trouble viewing the document? <a href="/legal/cookebyte-legal-suite.pdf" target="_blank" rel="noreferrer">Open the legal suite in a new tab</a>.</p>
               </div>
             ) : (
               <div className="brief-form-shell private-brief-form">
