@@ -212,5 +212,5 @@
 - [x] Keep Pricing Guide as the second Work With Us card.
 - [x] Make Bring Us the Brief the third Work With Us card.
 - [x] Validate order, card actions, and responsive layout: the Terms panel opens correctly, all three cards are readable in desktop order, and the mobile sequence stacks cleanly.
-- [ ] Push the Work With Us update to CookeByte/CookeByte-Portfolio.
+- [x] Push the Work With Us update to CookeByte/CookeByte-Portfolio.
 - [x] Push the verified repair to CookeByte/CookeByte-Portfolio.
