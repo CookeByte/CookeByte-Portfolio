@@ -253,7 +253,8 @@
 - [x] Add contact email capture and transparent receipt-status copy to the private project brief form.
 - [x] Replace the mailto action with an accessible CookeByte-themed in-site receipt confirmation.
 - [x] Add automated test coverage and validate receipt ID, consent-error, storage, database schema, desktop, mobile, typecheck, and production-build states.
-- [ ] Push the completed in-site receipt update to CookeByte/CookeByte-Portfolio.
+- [x] Push the completed in-site receipt update to CookeByte/CookeByte-Portfolio on `feature/in-site-receipt` so the current static Vercel production branch remains unchanged.
 - [x] Exercise the private project-brief form in the browser and verify the success receipt panel appears with real mutation data.
 - [x] Verify the visible client-side validation error state in the private project-brief form.
 - [x] Document the managed full-stack publishing path separately from the existing static Vercel deployment.
+- [x] Reconfirm the browser’s visible required-field validation message for an incomplete private project brief before final delivery.
