@@ -227,5 +227,5 @@
 - [x] Remove page 13, the Client agreement page, from the embedded legal-suite PDF.
 - [x] Replace the public legal-suite PDF asset with the revised 12-page document.
 - [x] Validate the revised in-site viewer and page count: the embedded PDF now contains 12 pages and the production build passes.
-- [ ] Push the revised legal suite to CookeByte/CookeByte-Portfolio.
+- [x] Push the revised legal suite to CookeByte/CookeByte-Portfolio.
 - [x] Push the verified repair to CookeByte/CookeByte-Portfolio.
