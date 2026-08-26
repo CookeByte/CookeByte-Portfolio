@@ -221,4 +221,11 @@
 - [x] Provide an accessible fallback link without redirecting the primary in-site experience.
 - [x] Validate the legal-suite viewer on desktop and mobile: the in-site PDF viewer renders in the Terms panel, production build passes, and the public PDF returns HTTP 200 with application/pdf content.
 - [x] Push the legal-suite viewer update to CookeByte/CookeByte-Portfolio.
+
+## Legal Suite Client Agreement Removal
+
+- [x] Remove page 13, the Client agreement page, from the embedded legal-suite PDF.
+- [x] Replace the public legal-suite PDF asset with the revised 12-page document.
+- [x] Validate the revised in-site viewer and page count: the embedded PDF now contains 12 pages and the production build passes.
+- [ ] Push the revised legal suite to CookeByte/CookeByte-Portfolio.
 - [x] Push the verified repair to CookeByte/CookeByte-Portfolio.
