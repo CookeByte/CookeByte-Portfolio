@@ -276,3 +276,10 @@
 - [x] Consolidate the CookeByte content, visual system, interactive behavior, and responsive requirements into a single prompt.
 - [x] Write a complete paste-ready prompt that recreates the CookeByte site in an AI website builder.
 - [x] Deliver the full CookeByte website recreation prompt to the user.
+
+## Supplied CookeByte Header Logo
+
+- [x] Prepare the supplied CookeByte logo as a header-ready managed asset without altering its identity.
+- [x] Replace the current header wordmark treatment with the supplied logo and blend it into the Market Signal header.
+- [x] Verify header logo readability, spacing, hover state, and responsive behavior.
+- [x] Save and deliver the supplied-logo header update.

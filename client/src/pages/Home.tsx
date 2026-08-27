@@ -253,8 +253,7 @@ export default function Home() {
       <div className="top-rule" />
       <header className="site-header">
         <a className="brand-lockup" href="#top" aria-label="CookeByte home" onClick={closeMenu}>
-          <span className="cookebyte-sigil" aria-hidden="true">C</span>
-          <span className="cookebyte-wordmark">COOKE<b>BYTE</b><small>CREATIVE SYSTEMS</small></span>
+          <img className="cookebyte-header-logo" src="/manus-storage/cookebyte-header-logo_097e440a.png" alt="CookeByte" />
         </a>
 
         <nav className="desktop-nav" aria-label="Primary navigation">

@@ -84,7 +84,25 @@ button { font: inherit; }
   line-height: .87;
   letter-spacing: -.8px;
 }
+.brand-lockup { min-width: 0; }
 .brand-lockup img { width: 42px; height: 42px; object-fit: contain; }
+.brand-lockup .cookebyte-header-logo {
+  display: block;
+  width: clamp(154px, 15vw, 204px);
+  height: auto;
+  max-height: 54px;
+  object-fit: contain;
+  object-position: left center;
+  mix-blend-mode: multiply;
+  filter: saturate(.96) contrast(1.04);
+  transition: filter 180ms var(--ease-out), transform 180ms var(--ease-out);
+}
+.brand-lockup:hover .cookebyte-header-logo,
+.brand-lockup:focus-visible .cookebyte-header-logo {
+  filter: saturate(1.08) contrast(1.08);
+  transform: translateY(-1px);
+}
+.brand-lockup:focus-visible { outline: 2px solid var(--orange); outline-offset: 5px; }
 .desktop-nav { display: flex; gap: 28px; margin-left: auto; }
 .desktop-nav a, .header-cta, .footer-links a {
   position: relative;
@@ -626,6 +644,7 @@ h1 em, h2 em { color: var(--orange); font-family: "Space Grotesk", sans-serif; f
 @keyframes private-panel-in { from { opacity: 0; transform: translate3d(0, 22px, 0) scale(.98); } to { opacity: 1; transform: translate3d(0, 0, 0) scale(1); } }
 
 @media (max-width: 850px) {
+  .brand-lockup .cookebyte-header-logo { width: clamp(135px, 26vw, 176px); max-height: 46px; }
   .private-panel-overlay { padding: 16px; }
   .private-panel { max-height: calc(100vh - 32px); padding: 28px; box-shadow: 10px 12px 0 var(--orange); }
   .private-panel .pricing-heading { grid-template-columns: 1fr; gap: 22px; }
@@ -638,6 +657,7 @@ h1 em, h2 em { color: var(--orange); font-family: "Space Grotesk", sans-serif; f
 }
 
 @media (max-width: 500px) {
+  .brand-lockup .cookebyte-header-logo { width: min(158px, 52vw); max-height: 40px; }
   .private-panel-overlay { padding: 9px; }
   .private-panel { max-height: calc(100vh - 18px); padding: 22px 17px; box-shadow: 6px 7px 0 var(--orange); }
   .private-panel-close { width: 34px; height: 34px; margin-bottom: -26px; }
