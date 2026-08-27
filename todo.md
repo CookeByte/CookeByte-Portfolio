@@ -297,3 +297,10 @@
 - [x] Verify the managed logo asset resolves in the viewed deployment.
 - [x] Correct the branch, deployment, or asset reference that prevents the logo from appearing.
 - [x] Revalidate the visible desktop and mobile header and report the exact viewing path.
+
+## Transparent CookeByte Header Logo
+
+- [x] Remove the light background from the supplied CookeByte logo while preserving the cookie mark and wordmark.
+- [x] Replace the current header logo asset with the transparent version in the active site and static production branch.
+- [x] Verify there is no visible rectangular background and the logo remains readable on desktop and mobile.
+- [x] Save and deliver the transparent-logo header update.
