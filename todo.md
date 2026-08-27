@@ -283,3 +283,10 @@
 - [x] Replace the current header wordmark treatment with the supplied logo and blend it into the Market Signal header.
 - [x] Verify header logo readability, spacing, hover state, and responsive behavior.
 - [x] Save and deliver the supplied-logo header update.
+
+## GitHub Push — Supplied Header Logo
+
+- [ ] Inspect the current branch, remote, and supplied-logo header changes.
+- [ ] Commit the verified supplied-logo header update.
+- [ ] Push the commit to the connected CookeByte GitHub repository.
+- [ ] Verify the remote branch and latest commit after pushing.
