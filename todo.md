@@ -286,7 +286,14 @@
 
 ## GitHub Push — Supplied Header Logo
 
-- [ ] Inspect the current branch, remote, and supplied-logo header changes.
-- [ ] Commit the verified supplied-logo header update.
-- [ ] Push the commit to the connected CookeByte GitHub repository.
-- [ ] Verify the remote branch and latest commit after pushing.
+- [x] Inspect the current branch, remote, and supplied-logo header changes.
+- [x] Commit the verified supplied-logo header update.
+- [x] Push the commit to the connected CookeByte GitHub repository.
+- [x] Verify the remote branch and latest commit after pushing.
+
+## Supplied Logo Visibility Repair
+
+- [x] Inspect the viewed branch/deployment and confirm the supplied-logo header change is present.
+- [x] Verify the managed logo asset resolves in the viewed deployment.
+- [x] Correct the branch, deployment, or asset reference that prevents the logo from appearing.
+- [x] Revalidate the visible desktop and mobile header and report the exact viewing path.
