@@ -94,7 +94,7 @@ button { font: inherit; }
   object-fit: contain;
   object-position: left center;
   mix-blend-mode: multiply;
-  filter: saturate(.96) contrast(1.04);
+  filter: saturate(1.02) contrast(1.04);
   transition: filter 180ms var(--ease-out), transform 180ms var(--ease-out);
 }
 .brand-lockup:hover .cookebyte-header-logo,

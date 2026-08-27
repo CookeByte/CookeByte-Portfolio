@@ -225,7 +225,7 @@ export default function Home() {
       <div className="top-rule" />
       <header className="site-header">
         <a className="brand-lockup" href="#top" aria-label="CookeByte home" onClick={closeMenu}>
-          <img className="cookebyte-header-logo" src="/media/cookebyte-header-logo.jpg" alt="CookeByte" />
+          <img className="cookebyte-header-logo" src="/media/cookebyte-header-logo-transparent.png" alt="CookeByte" />
         </a>
 
         <nav className="desktop-nav" aria-label="Primary navigation">
