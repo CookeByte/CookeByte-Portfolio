@@ -1,7 +1,7 @@
 # CookeByte Contact Sphere Alignment Validation
 
-The Contact section was adjusted to separate decorative geometry from interactive contact controls. The orange `GET VISIBLE` orb now sits lower in the section and no longer competes with the directory buttons. The lime `START A CONVERSATION` CTA uses a centered layout with a constrained text width, while the arrow remains anchored to the lower-right of the circle so the full label, including the leading `S`, remains visible.
+The lime `START A CONVERSATION` label was restored to the original top-left position rather than centered. The circle now uses a controlled internal text width, larger safe side padding, smaller utility type, and left alignment so the leading `S` and every remaining letter stay inside the circle. The arrow remains anchored in the lower-right corner.
 
-The decorative orange orb is non-interactive and sits behind the contact content. The contact actions have a higher stacking layer, and the directory keeps its own local stacking context. Mobile rules preserve the stacked action layout and move the decorative orb farther below the content.
+The decorative orange `GET VISIBLE` orb stays lower in the Contact section, behind the interactive controls, so it does not overlap the directory. The same CSS treatment was mirrored in the static production worktree.
 
-TypeScript validation, tests, and production builds passed for both the active full-stack project and static production worktree. Desktop and 390px mobile full-page previews were captured after the repair.
+TypeScript validation, tests, and production builds passed for both branches. Desktop and 390px mobile full-page previews were captured after this refinement.

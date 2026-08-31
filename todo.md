@@ -335,3 +335,9 @@
 - [x] Reposition the spheres to clear the contact controls and correct the lime CTA label alignment.
 - [x] Validate the Contact layout, CTA readability, and responsive behavior.
 - [x] Save and deliver the Contact alignment repair.
+
+## Lime Contact CTA Label Refinement
+
+- [x] Restore the older top-aligned text position inside the lime Contact circle.
+- [x] Adjust internal width, padding, and wrapping so every CTA letter is visible.
+- [x] Validate the label on desktop and mobile and save the refinement.
