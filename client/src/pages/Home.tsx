@@ -92,6 +92,7 @@ export default function Home() {
   const [siteReady, setSiteReady] = useState(false);
   const [briefStatus, setBriefStatus] = useState("");
   const [privatePanel, setPrivatePanel] = useState<"terms" | "pricing" | "brief" | null>(null);
+  const [contactPopup, setContactPopup] = useState<"whatsapp" | "phone" | null>(null);
   const { soundEnabled, toggleSound } = useSiteSound();
   const heroSceneRef = useRef<HTMLElement>(null);
   const teamSectionRef = useRef<HTMLElement>(null);
@@ -104,6 +105,8 @@ export default function Home() {
   };
 
   const closePrivatePanel = () => setPrivatePanel(null);
+  const openContactPopup = (popup: "whatsapp" | "phone") => setContactPopup(popup);
+  const closeContactPopup = () => setContactPopup(null);
 
   const handleBriefSubmit = (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
@@ -206,10 +209,12 @@ export default function Home() {
   }, []);
 
   useEffect(() => {
-    if (!privatePanel) return;
+    if (!privatePanel && !contactPopup) return;
     const originalOverflow = document.body.style.overflow;
     const onKeyDown = (event: KeyboardEvent) => {
-      if (event.key === "Escape") closePrivatePanel();
+      if (event.key !== "Escape") return;
+      if (contactPopup) closeContactPopup();
+      else closePrivatePanel();
     };
     document.body.style.overflow = "hidden";
     window.addEventListener("keydown", onKeyDown);
@@ -217,7 +222,7 @@ export default function Home() {
       document.body.style.overflow = originalOverflow;
       window.removeEventListener("keydown", onKeyDown);
     };
-  }, [privatePanel]);
+  }, [privatePanel, contactPopup]);
 
   return (
     <div className={`site-shell${siteReady ? " site-shell--ready" : " site-shell--loading"}`}>
@@ -478,18 +483,16 @@ export default function Home() {
               <span>START A<br />CONVERSATION</span>
               <ArrowRight size={28} />
             </a>
-            <div className="contact-phones" aria-label="Call the CookeByte team">
+            <div className="contact-directory" aria-label="CookeByte contact directory">
               <span className="contact-phones-label">DIRECT LINES / 02</span>
-              <a className="contact-phone mono-glitch" href="tel:+916381914606" aria-label="Call Benitto Joshua at 6381914606">
-                <span>BENITTO JOSHUA</span>
-                <strong>638 191 4606</strong>
+              <button type="button" className="contact-directory-trigger mono-glitch" onClick={() => openContactPopup("whatsapp")}>
+                <span>WHATSAPP THE TEAM</span>
                 <ArrowUpRightIcon />
-              </a>
-              <a className="contact-phone mono-glitch" href="tel:+918903346957" aria-label="Call Abisheik at 8903346957">
-                <span>ABISHEIK</span>
-                <strong>890 334 6957</strong>
+              </button>
+              <button type="button" className="contact-directory-trigger mono-glitch" onClick={() => openContactPopup("phone")}>
+                <span>CALL THE TEAM</span>
                 <ArrowUpRightIcon />
-              </a>
+              </button>
             </div>
           </div>
         </section>
@@ -557,6 +560,39 @@ export default function Home() {
                 </form>
               </div>
             )}
+          </section>
+        </div>
+      )}
+
+      {contactPopup && (
+        <div className="private-panel-overlay" role="presentation">
+          <button type="button" className="private-panel-backdrop" aria-label="Close contact options" onClick={closeContactPopup} />
+          <section className="private-panel contact-popup-panel" role="dialog" aria-modal="true" aria-labelledby="contact-popup-title">
+            <button type="button" className="private-panel-close" onClick={closeContactPopup} aria-label="Close contact options"><X size={21} /></button>
+            <div className="private-panel-content">
+              <div className="private-panel-label"><span className="inline-cookebyte-sigil">C</span> {contactPopup === "whatsapp" ? "WHATSAPP DIRECTORY" : "DIRECT PHONE DIRECTORY"}</div>
+              <div className="pricing-heading private-pricing-heading contact-popup-heading">
+                <div>
+                  <div className="intro-label">/ COOKE BYTE CONTACT ROUTE</div>
+                  <h2 id="contact-popup-title">{contactPopup === "whatsapp" ? <>Choose a<br /><em>WhatsApp route.</em></> : <>Choose a<br /><em>phone route.</em></>}</h2>
+                </div>
+                <p>{contactPopup === "whatsapp" ? "Both team members are one tap away. Choose a name to open a WhatsApp chat with a short CookeByte project message ready to edit." : "Choose a direct line and call the CookeByte team member best matched to your next move."}</p>
+              </div>
+              <div className="contact-popup-list">
+                {contactPopup === "whatsapp" ? (
+                  <>
+                    <a className="contact-popup-card contact-popup-card--lime mono-glitch" href="https://wa.me/916381914606?text=Hi%20Benitto%2C%20I%20found%20CookeByte%20and%20would%20like%20to%20discuss%20a%20project." target="_blank" rel="noreferrer"><span><small>01 / DEVELOPMENT LEAD</small><strong>Benitto Joshua</strong><em>+91 638 191 4606</em></span><ArrowUpRightIcon /></a>
+                    <a className="contact-popup-card contact-popup-card--orange mono-glitch" href="https://wa.me/918903346957?text=Hi%20Abisheik%2C%20I%20found%20CookeByte%20and%20would%20like%20to%20discuss%20a%20project." target="_blank" rel="noreferrer"><span><small>02 / VISUAL LEAD</small><strong>Abisheik</strong><em>+91 890 334 6957</em></span><ArrowUpRightIcon /></a>
+                  </>
+                ) : (
+                  <>
+                    <a className="contact-popup-card contact-popup-card--ink mono-glitch" href="tel:+916381914606"><span><small>01 / DEVELOPMENT LEAD</small><strong>Benitto Joshua</strong><em>+91 638 191 4606</em></span><ArrowUpRightIcon /></a>
+                    <a className="contact-popup-card contact-popup-card--ink mono-glitch" href="tel:+918903346957"><span><small>02 / VISUAL LEAD</small><strong>Abisheik</strong><em>+91 890 334 6957</em></span><ArrowUpRightIcon /></a>
+                  </>
+                )}
+              </div>
+              <p className="contact-popup-note"><span aria-hidden="true">●</span> {contactPopup === "whatsapp" ? "WhatsApp opens in a new tab or the WhatsApp app." : "Phone links open your device’s dialler."}</p>
+            </div>
           </section>
         </div>
       )}
