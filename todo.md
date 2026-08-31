@@ -320,3 +320,11 @@
 - [x] Add matching WhatsApp affordances to the shown signal strip without changing the existing email and phone options.
 - [x] Validate WhatsApp URLs, desktop/mobile presentation, and accessibility.
 - [x] Save and deliver the CookeByte WhatsApp contact update.
+
+## CookeByte Contact Popup Consolidation
+
+- [x] Create one WhatsApp popup containing both team numbers and prefilled chat actions.
+- [x] Create one phone popup containing both direct-call actions.
+- [x] Add matching footer-adjacent triggers near the existing contact/phone area.
+- [x] Validate popup focus, close behavior, mobile layout, and preserved existing contact actions.
+- [x] Save and deliver the contact popup update.
