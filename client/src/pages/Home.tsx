@@ -463,7 +463,13 @@ export default function Home() {
               <button type="button" className="enquiry-link mono-glitch" onClick={() => openPrivatePanel("brief")}>Open project brief <ArrowRight size={17} /></button>
             </article>
           </div>
-          <p className="work-with-us-footnote"><span>Need a different route?</span> Send the short version. We&apos;ll map the right next move together. <ArrowRight size={16} /></p>
+          <p className="work-with-us-footnote">
+            <span>Need a different route?</span> Send the short version. We&apos;ll map the right next move together. <ArrowRight size={16} />
+            <span className="whatsapp-route" aria-label="WhatsApp the CookeByte team">
+              <a href="https://wa.me/916381914606?text=Hi%20Benitto%2C%20I%20found%20CookeByte%20and%20would%20like%20to%20discuss%20a%20project." target="_blank" rel="noreferrer" aria-label="WhatsApp Benitto Joshua at 6381914606">WA BENITTO · 638 191 4606 ↗</a>
+              <a href="https://wa.me/918903346957?text=Hi%20Abisheik%2C%20I%20found%20CookeByte%20and%20would%20like%20to%20discuss%20a%20project." target="_blank" rel="noreferrer" aria-label="WhatsApp Abisheik at 8903346957">WA ABISHEIK · 890 334 6957 ↗</a>
+            </span>
+          </p>
         </section>
 
         <section className="method-section" id="method">
