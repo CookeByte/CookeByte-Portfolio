@@ -328,3 +328,10 @@
 - [x] Add matching footer-adjacent triggers near the existing contact/phone area.
 - [x] Validate popup focus, close behavior, mobile layout, and preserved existing contact actions.
 - [x] Save and deliver the contact popup update.
+
+## CookeByte Contact Sphere Alignment Repair
+
+- [x] Inspect the Contact section sphere, CTA, and directory geometry at desktop and mobile widths.
+- [x] Reposition the spheres to clear the contact controls and correct the lime CTA label alignment.
+- [x] Validate the Contact layout, CTA readability, and responsive behavior.
+- [x] Save and deliver the Contact alignment repair.
