@@ -467,10 +467,25 @@ export default function Home() {
             <h2>Ready to put<br />your shop <em>out front?</em></h2>
             <p>Bring the launch, refresh, promotion, or bigger retail question. You&apos;ll work directly with a developer and a designer-editor from the first move.</p>
           </div>
-          <a className="contact-link mono-glitch" href="mailto:cookebyte@gmail.com" aria-label="Email CookeByte at cookebyte@gmail.com">
-            <span>START A<br />CONVERSATION</span>
-            <ArrowRight size={28} />
-          </a>
+          <div className="contact-actions">
+            <a className="contact-link mono-glitch" href="mailto:cookebyte@gmail.com" aria-label="Email CookeByte at cookebyte@gmail.com">
+              <span>START A<br />CONVERSATION</span>
+              <ArrowRight size={28} />
+            </a>
+            <div className="contact-phones" aria-label="Call the CookeByte team">
+              <span className="contact-phones-label">DIRECT LINES / 02</span>
+              <a className="contact-phone mono-glitch" href="tel:+916381914606" aria-label="Call Benitto Joshua at 6381914606">
+                <span>BENITTO JOSHUA</span>
+                <strong>638 191 4606</strong>
+                <ArrowUpRightIcon />
+              </a>
+              <a className="contact-phone mono-glitch" href="tel:+918903346957" aria-label="Call Abisheik at 8903346957">
+                <span>ABISHEIK</span>
+                <strong>890 334 6957</strong>
+                <ArrowUpRightIcon />
+              </a>
+            </div>
+          </div>
         </section>
       </main>
 
